@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hover Animation</title>
@@ -13,5 +14,55 @@
     <!-- Main card -->
     <div class="absolute top-5 w-64 h-48 bg-gray-200 rounded-xl hover:cursor-pointer"></div>
   </div>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section with Background</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+            background-repeat: repeat;
+            
+        }
+    </style>
+</head>
+<body>
+    <section class="pt-16 h-auto bg-white relative">
+        <!-- Background pattern layer -->
+        <div class="absolute inset-0 bg-pattern"></div>
+        
+        <!-- Content container with relative positioning -->
+        <div class="container flex gap-10 mx-auto px-4 relative z-10">
+            <!-- About Us Card -->
+            <div class="w-4/6 h-[60vh] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
+                <div class="p-6">
+                    <h2 class="text-center text-2xl font-semibold text-indigo-600">
+                        About Us
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Announcement Card -->
+            <div class="w-2/6 h-[60vh] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
+                <div class="p-6">
+                    <h3 class="text-center text-xl font-semibold text-indigo-600">
+                        Announcement
+                    </h3>
+                </div>
+                <!-- Navigation -->
+            </div>
+        </div>
+    </section>
+>>>>>>> 3a971b78bf174ab0f04416582a7d7d970fa0957b
 </body>
 </html>
