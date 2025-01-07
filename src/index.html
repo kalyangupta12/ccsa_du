@@ -10,6 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
+        html{
+            scroll-behavior:smooth;
+        }
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -116,14 +119,14 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">About Us</a>
+                        <a href="#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="undergraduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
+                            <a href="graduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
                         </div>
                     </div>
@@ -151,7 +154,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -220,7 +223,7 @@
         </div>
     </section>
     <!--About and announcement-->
-    <section class="py-16 h-auto bg-white relative">
+    <section id="aboutus" class="py-16 h-auto bg-white relative">
         <!-- Background texture layer -->
         <div class="absolute inset-0 z-0" style="background-color: #ffffff;
                     background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
@@ -506,7 +509,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-16 bg-[#1a365d] text-white">
+    <section id="contact" class="py-16 bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
