@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            border-radius: 0.5rem;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background-color: #1e3a6d;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Previous header and nav code remains unchanged -->
+    <nav class="bg-[#1a365d] text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-12">
+                    <div>
+                        <h1 class="text-lg font-semibold">Center for Computer Science And Applications</h1>
+                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">About Us</a>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
+                        </div>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Areas</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Publications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
+                        </div>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Students <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
+                        </div>
+                    </div>
+                    <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
+                    </div>
+                </div>
+                <button class="md:hidden text-2xl" id="mobileMenuButton">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="py-4 space-y-2">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                    <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Programs
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Research
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Research areas</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Publications</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Faculty
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Students
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
+                        </div>
+                    </div>
+                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                    <!-- ... Similar structure for other mobile menu items ... -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="flex flex-col md:flex-row min-h-[100vh]">
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 bg-slate-100 p-4">
+            <!-- Sidebar content -->
+        </div>
+
+        <!-- Main content -->
+        <div class="w-full md:w-3/4 px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="relative h-64 group">
+                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
+                         flex justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
+                        <a href="details.html">View details</a>
+                    </div>
+                    <div class="absolute flex p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
+                         transition-all duration-300 hover:shadow-lg cursor-pointer">
+                         <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                         </div>
+                         <div class="w-full"></div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="relative h-64 group">
+                    <div class="absolute top-0 left-4 w-24 h-12 bg-green-400 rounded-t-lg z-10 
+                         flex items-center justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-1">
+                        View Details
+                    </div>
+                    <div class="absolute top-5 w-full h-56 bg-gray-200 rounded-xl 
+                         transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="relative h-64 group">
+                    <div class="absolute top-0 left-4 w-24 h-12 bg-green-400 rounded-t-lg z-10 
+                         flex items-center justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-1">
+                        View Details
+                    </div>
+                    <div class="absolute top-5 w-full h-56 bg-gray-200 rounded-xl 
+                         transition-all duration-300 hover:shadow-lg cursor-pointer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

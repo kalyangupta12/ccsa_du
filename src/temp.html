@@ -3,84 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swiper Vertical Slider</title>
-  <!-- Swiper CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper/swiper-bundle.min.css"
-  />
-  <!-- Tailwind CSS -->
+  <title>Hover Animation</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="w-2/6 rounded-lg h-[60vh] bg-white shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl">
-        <h3 class="text-center p-4">Announcement</h3>
-        <div class="mt-4 h-full relative">
-            <div class="swiper mySwiper h-full">
-                <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
-                        hi there
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
-                        hello
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
-                        set
-                    </div>
-                    <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
-                        hi there
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
-                        hello
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
-                        set
-                    </div>
-
-
-                </div>
-                <!-- Navigation -->
-            </div>
-        </div>
-    </div>
-
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.mySwiper', {
-      direction: 'vertical', // Makes the slider vertical
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      navigation: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoplay: {
-        delay: 3000, // Time in milliseconds between slide transitions
-        disableOnInteraction: false, // Continue autoplay even after user interaction
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
-      },
-    });
-  </script>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="relative w-52 h-40 m-12 group">
+    <!-- Tab-like top section -->
+    <div class="absolute flex justify-center cursor-pointer top-0 left-0 translate-y-5 w-20 h-12 bg-green-400 rounded-t-xl transition-transform duration-300 group-hover:-translate-y-1">Tab</div>
+    <!-- Main card -->
+    <div class="absolute top-5 w-64 h-48 bg-gray-200 rounded-xl hover:cursor-pointer"></div>
+  </div>
 </body>
 </html>
