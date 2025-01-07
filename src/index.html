@@ -7,10 +7,7 @@
     <title>CCSA_DU</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper/swiper-bundle.min.css"
-  />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
         .dropdown-menu {
             display: none;
@@ -24,6 +21,21 @@
 
         .nav-item:hover .dropdown-menu {
             display: block;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+            background-repeat: repeat;
+
         }
 
         @media (max-width: 768px) {
@@ -103,6 +115,9 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
+                        <a href="#" class="hover:text-[#fbbf24] py-2">About Us</a>
+                    </div>
+                    <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
@@ -117,26 +132,21 @@
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Areas</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Publications</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Labs</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Projects</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Directory</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Groups</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Office Hours</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Students <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Resources</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Organizations</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Career Services</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
@@ -151,6 +161,7 @@
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
                     <a href="#" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                    <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
                             Programs
@@ -158,11 +169,40 @@
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Graduate</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Certificate Programs</a>
                         </div>
                     </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Research
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Research areas</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Publications</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Faculty
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Students
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
+                        </div>
+                    </div>
+                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Contact</a>
                     <!-- ... Similar structure for other mobile menu items ... -->
                 </div>
             </div>
@@ -194,7 +234,7 @@
         </div>
     </section>
     <!--About and announcement-->
-    <section class="py-16 h-auto relative">
+    <section class="py-16 h-auto bg-white relative">
         <!-- Background texture layer -->
         <div class="absolute inset-0 z-0" style="background-color: #ffffff;
                     background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
@@ -203,7 +243,8 @@
 
         <!-- Content with proper z-index -->
         <div class="container flex gap-10 mx-auto px-4 relative z-10">
-            <div class="w-4/6 h-[60vh] rounded-lg p-4 bg-white shadow-lg shadow-slate-200 hover:shadow-xl">
+            <div
+                class="w-4/6 h-[60vh] bg-white/95 backdrop-blur-sm rounded-xl p-4  shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
                 <h2 class="text-center text-3xl font-semibold text-indigo-600">About Us</h2>
                 <p class="text-left mt-4">
                     Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one
@@ -220,70 +261,43 @@
                     (IT) were introduced in January and July, 2007, respectively.
                     In 2018, the name of the centre has been changed to “Centre for Computer Science and Applications”.
                 </p>
-                <div class="text-xl mt-4 font-semibold text-indigo-600">Major Facilities</div>
-                <div>
-                    <ul class="space-y-4 mt-6">
-                        <li
-                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Computer Laboratories: Windows Lab. (01 No.), Linux Lab. (01 No.), Electronics Lab. (01
-                            No.), and Language Lab. (01 No.)
-                        </li>
-                        <li
-                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Library cum conference room
-                        </li>
-                        <li
-                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Server
-                        </li>
-                        <li
-                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Internet (LAN and wifi)
-                        </li>
-                        <li
-                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Space for Student Activities
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div
-                class="w-2/6 rounded-lg p-4 h-[60vh] bg-white shadow-lg font-semibold shadow-slate-200 hover:shadow-xl">
-                <h3 class="text-center text-2xl text-indigo-600">Announcement</h3>
-                <div class="mt-4">
-                    <<div class="swiper mySwiper h-full">
-                        <div class="swiper-wrapper">
+                class="w-2/6 rounded-lg h-[60vh] overflow-hidden bg-white shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl">
+                <h3 class="text-center p-4">Announcement</h3>
+                <div class="mt-4 h-full relative overflow-hidden">
+                    <div class="swiper mySwiper h-full">
+                        <div class="swiper-wrapper overflow-hidden">
                             <!-- Slide 1 -->
                             <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
-                                hi there
+                                Notice
                             </div>
                             <!-- Slide 2 -->
                             <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
-                                hello
+                                Notice
                             </div>
                             <!-- Slide 3 -->
                             <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
-                                set
+                                Notice
                             </div>
                             <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
-                                hi there
+                                Notice
                             </div>
                             <!-- Slide 2 -->
                             <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
-                                hello
+                                Notice
                             </div>
                             <!-- Slide 3 -->
                             <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
-                                set
+                                Notice
                             </div>
 
 
                         </div>
                         <!-- Navigation -->
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </section>
     <!-- Programs Section -->
@@ -570,19 +584,20 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-[#fbbf24]">Student Portal</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Library</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Calendar</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Directory</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
+                                Portal</a></li>
+                        <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
+                        <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
+                        <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
+                        <li><a href="#" class="hover:text-[#fbbf24]">Anazori</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <h3 class="text-lg font-semibold mb-4">Social</h3>
                     <div class="flex space-x-4">
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
