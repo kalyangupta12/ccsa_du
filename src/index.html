@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department of Computer Science | University Name</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .dropdown-menu {
@@ -31,6 +32,53 @@
     </style>
 </head>
 <body class="bg-slate-50">
+    <header class="bg-teal-700 text-white">
+        <!-- Main Header Container -->
+        <div class="container mx-auto lg:px-10">
+            <div class="lg:flex justify-between items-center">
+                
+                <!-- Email Section -->
+                <div class="hidden lg:flex items-center text-sm font-semibold">
+                    <a href="mailto:registrar@dibru.ac.in" class="flex items-center py-2 hover:text-[#fbbf24]">
+                        <svg class="inline mr-2 text-sm w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span class="whitespace-nowrap">registrar@dibru.ac.in</span>
+                    </a>
+                </div>
+
+                
+
+                <!-- Social Media Links -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="https://www.facebook.com/dibrugarhuniversityofficial/" class="hover:text-[#fbbf24]">
+                        <svg class="w-4 h-4" viewBox="0 0 320 512">
+                            <path fill="currentColor" d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/DibruUniv" class="hover:text-[#fbbf24] transition-colors">
+                        <svg class="w-4 h-4" viewBox="0 0 512 512">
+                            <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Font Size Controls -->
+                <!--div class="hidden lg:block">
+                    <div class="flex items-center justify-center bg-teal-500 gap-x-3 h-full">
+                        <button class="px-3 text-xl rounded">-</button>
+                        <span class="flex items-start justify-center w-6 text-sm cursor-pointer">
+                            <svg class="w-4 h-4" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z"/>
+                            </svg>
+                        </span>
+                        <button class="px-3 text-xl rounded">+</button>
+                    </div>
+                </div>
+            </div>
+        </div-->
+    </header>
     <!-- Navigation -->
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
@@ -379,6 +427,10 @@
                         <button type="submit" class="bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-[#f59e0b] transition">Send Message</button>
                     </form>
                 </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden h-64" id="map"></div>
+                </div>
+            </div>
+        </div>
             </div>
         </div>
     </section>
@@ -431,6 +483,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobileMenuButton');
@@ -450,6 +503,20 @@
                 content.classList.toggle('hidden');
             });
         });
+
+         // Initialize map
+         const map = L.map('map').setView([27.4728, 94.9120], 15); // Coordinates for Dibrugarh University
+
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Add marker for the university
+L.marker([27.4728, 94.9120])
+    .addTo(map)
+    .bindPopup('Dibrugarh University')
+    .openPopup();
     </script>
 </body>
 </html>
