@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCSA_DU</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
     <style>
         .dropdown-menu {
             display: none;
             position: absolute;
             background-color: white;
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 50;
             border-radius: 0.5rem;
         }
@@ -31,35 +35,39 @@
         }
     </style>
 </head>
+
 <body class="bg-slate-50">
     <header class="bg-teal-700 text-white">
         <!-- Main Header Container -->
         <div class="container mx-auto lg:px-10">
             <div class="lg:flex justify-between items-center">
-                
+
                 <!-- Email Section -->
                 <div class="hidden lg:flex items-center text-sm font-semibold">
                     <a href="mailto:registrar@dibru.ac.in" class="flex items-center py-2 hover:text-[#fbbf24]">
                         <svg class="inline mr-2 text-sm w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="none" d="M0 0h24v24H0z"/>
-                            <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path fill="currentColor"
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                         </svg>
                         <span class="whitespace-nowrap">registrar@dibru.ac.in</span>
                     </a>
                 </div>
 
-                
+
 
                 <!-- Social Media Links -->
                 <div class="hidden lg:flex items-center space-x-4">
                     <a href="https://www.facebook.com/dibrugarhuniversityofficial/" class="hover:text-[#fbbf24]">
                         <svg class="w-4 h-4" viewBox="0 0 320 512">
-                            <path fill="currentColor" d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/>
+                            <path fill="currentColor"
+                                d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
                         </svg>
                     </a>
                     <a href="https://x.com/DibruUniv" class="hover:text-[#fbbf24] transition-colors">
                         <svg class="w-4 h-4" viewBox="0 0 512 512">
-                            <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z"/>
+                            <path fill="currentColor"
+                                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z" />
                         </svg>
                     </a>
                 </div>
@@ -95,7 +103,8 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
@@ -103,7 +112,8 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Research <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Areas</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Publications</a>
@@ -112,7 +122,8 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Directory</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Groups</a>
@@ -120,7 +131,8 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Students <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Students <i
+                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Resources</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Organizations</a>
@@ -163,14 +175,20 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">Shaping the Future of Technology</h1>
-                    <p class="text-lg mb-8">Join our prestigious computer science program and become part of the next generation of tech innovators.</p>
+                    <p class="text-lg mb-8">Join our prestigious computer science program and become part of the next
+                        generation of tech innovators.</p>
                     <div class="space-x-4">
-                        <a href="#" class="bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-[#f59e0b] transition">Apply Now</a>
-                        <a href="#" class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1a365d] transition">Learn More</a>
+                        <a href="#"
+                            class="bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-[#f59e0b] transition">Apply
+                            Now</a>
+                        <a href="#"
+                            class="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1a365d] transition">Learn
+                            More</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <img src="https://dibru.ac.in/assets/image/Centre-for-Computer-Science-and-Application-banner.jpg" alt="Students" class="rounded-lg shadow-xl">
+                    <img src="https://dibru.ac.in/assets/image/Centre-for-Computer-Science-and-Application-banner.jpg"
+                        alt="Students" class="rounded-lg shadow-xl">
                 </div>
             </div>
         </div>
@@ -178,48 +196,94 @@
     <!--About and announcement-->
     <section class="py-16 h-auto relative">
         <!-- Background texture layer -->
-        <div class="absolute inset-0 z-0" 
-             style="background-color: #ffffff;
+        <div class="absolute inset-0 z-0" style="background-color: #ffffff;
                     background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
                     background-repeat: repeat;">
         </div>
-        
+
         <!-- Content with proper z-index -->
         <div class="container flex gap-10 mx-auto px-4 relative z-10">
             <div class="w-4/6 h-[60vh] rounded-lg p-4 bg-white shadow-lg shadow-slate-200 hover:shadow-xl">
                 <h2 class="text-center text-3xl font-semibold text-indigo-600">About Us</h2>
                 <p class="text-left mt-4">
-                    Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one of the premier institutes of North-East-India imparting computer education.
-                    Dibrugarh University initiated its journey of imparting computer education by establishing a Computer Centre in 1976.
-                     The Computer Centre was established with the objective of creating Computer awareness among the teachers, research scholars and employees of the University. 
-                     It started Computer education by introducing a “Six-months Certificate Course on Computer Programming”. It also trained the employees of various banks including State Bank of India, Dibrugarh university Branch and helped them in computerization.
-                      In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a “Post-Graduate Diploma in Computer Application (PGDCA)” course was started. BCA was introduced in July, 2004 and MCA and BSc (IT) were introduced in January and July, 2007, respectively. 
+                    Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one
+                    of the premier institutes of North-East-India imparting computer education.
+                    Dibrugarh University initiated its journey of imparting computer education by establishing a
+                    Computer Centre in 1976.
+                    The Computer Centre was established with the objective of creating Computer awareness among the
+                    teachers, research scholars and employees of the University.
+                    It started Computer education by introducing a “Six-months Certificate Course on Computer
+                    Programming”. It also trained the employees of various banks including State Bank of India,
+                    Dibrugarh university Branch and helped them in computerization.
+                    In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a “Post-Graduate Diploma in
+                    Computer Application (PGDCA)” course was started. BCA was introduced in July, 2004 and MCA and BSc
+                    (IT) were introduced in January and July, 2007, respectively.
                     In 2018, the name of the centre has been changed to “Centre for Computer Science and Applications”.
                 </p>
                 <div class="text-xl mt-4 font-semibold text-indigo-600">Major Facilities</div>
                 <div>
                     <ul class="space-y-4 mt-6">
-                        <li class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
-                            Computer Laboratories: Windows Lab. (01 No.), Linux Lab. (01 No.), Electronics Lab. (01 No.), and Language Lab. (01 No.)
+                        <li
+                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
+                            Computer Laboratories: Windows Lab. (01 No.), Linux Lab. (01 No.), Electronics Lab. (01
+                            No.), and Language Lab. (01 No.)
                         </li>
-                        <li class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
+                        <li
+                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
                             Library cum conference room
                         </li>
-                        <li class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
+                        <li
+                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
                             Server
                         </li>
-                        <li class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
+                        <li
+                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
                             Internet (LAN and wifi)
                         </li>
-                        <li class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
+                        <li
+                            class=" relative pl-8 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-white before:border-2 before:border-[#fbbf24] before:rounded-full">
                             Space for Student Activities
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="w-2/6 rounded-lg h-[60vh] bg-white shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl">
-                <h3 class="text-center p-4">Announcement</h3>
+            <div
+                class="w-2/6 rounded-lg p-4 h-[60vh] bg-white shadow-lg font-semibold shadow-slate-200 hover:shadow-xl">
+                <h3 class="text-center text-2xl text-indigo-600">Announcement</h3>
+                <div class="mt-4">
+                    <<div class="swiper mySwiper h-full">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+                                hi there
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+                                hello
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+                                set
+                            </div>
+                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+                                hi there
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+                                hello
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+                                set
+                            </div>
+
+
+                        </div>
+                        <!-- Navigation -->
+                </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- Programs Section -->
@@ -232,7 +296,8 @@
                         <i class="fas fa-laptop-code text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Bachelor of Computer Applications</h3>
-                    <p class="text-slate-600 mb-4">A comprehensive program covering fundamental and advanced computer science concepts.</p>
+                    <p class="text-slate-600 mb-4">A comprehensive program covering fundamental and advanced computer
+                        science concepts.</p>
                     <a href="#" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
@@ -240,7 +305,8 @@
                         <i class="fas fa-database text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Master of Computer Applications</h3>
-                    <p class="text-slate-600 mb-4">Advanced studies in specialized areas of computer science and research.</p>
+                    <p class="text-slate-600 mb-4">Advanced studies in specialized areas of computer science and
+                        research.</p>
                     <a href="#" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
@@ -248,7 +314,8 @@
                         <i class="fas fa-microscope text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">PhD in Computer Science</h3>
-                    <p class="text-slate-600 mb-4">Research-focused doctoral studies in cutting-edge computer science fields.</p>
+                    <p class="text-slate-600 mb-4">Research-focused doctoral studies in cutting-edge computer science
+                        fields.</p>
                     <a href="#" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
                 </div>
             </div>
@@ -256,149 +323,149 @@
     </section>
 
     <!-- Faculty Section -->
-<section class="py-16 bg-slate-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Faculty</h2>
-        <div class="grid md:grid-cols-4 gap-8">
-            <!-- Dr. John Smith -->
-            <div class="card">
-                <div class="slide slide1 rounded-lg">
-                    <div class="content">
-                        <div class="icon bg-[#2c73df] rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300" 
-                                alt="Dr. John Smith" 
-                                class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Faculty</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Dr. John Smith -->
+                <div class="card">
+                    <div class="slide slide1 rounded-lg">
+                        <div class="content">
+                            <div class="icon bg-[#2c73df] rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300"
+                                    alt="Dr. John Smith"
+                                    class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide slide2 bg-white rounded-lg">
+                        <div class="content">
+                            <h3 class="text-lg font-semibold text-[#414141]">Dr. John Smith</h3>
+                            <p class="text-slate-600">Department Head</p>
+                            <p class="text-sm text-slate-500 mt-2">Artificial Intelligence</p>
                         </div>
                     </div>
                 </div>
-                <div class="slide slide2 bg-white rounded-lg">
-                    <div class="content">
-                        <h3 class="text-lg font-semibold text-[#414141]">Dr. John Smith</h3>
-                        <p class="text-slate-600">Department Head</p>
-                        <p class="text-sm text-slate-500 mt-2">Artificial Intelligence</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Dr. Sarah Johnson -->
-            <div class="card">
-                <div class="slide slide1 rounded-lg">
-                    <div class="content">
-                        <div class="icon bg-[#2c73df] rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300" 
-                                alt="Dr. Sarah Johnson" 
-                                class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <!-- Dr. Sarah Johnson -->
+                <div class="card">
+                    <div class="slide slide1 rounded-lg">
+                        <div class="content">
+                            <div class="icon bg-[#2c73df] rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300"
+                                    alt="Dr. Sarah Johnson"
+                                    class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide slide2 bg-white rounded-lg">
+                        <div class="content">
+                            <h3 class="text-lg font-semibold text-[#414141]">Dr. Sarah Johnson</h3>
+                            <p class="text-slate-600">Professor</p>
+                            <p class="text-sm text-slate-500 mt-2">Machine Learning</p>
                         </div>
                     </div>
                 </div>
-                <div class="slide slide2 bg-white rounded-lg">
-                    <div class="content">
-                        <h3 class="text-lg font-semibold text-[#414141]">Dr. Sarah Johnson</h3>
-                        <p class="text-slate-600">Professor</p>
-                        <p class="text-sm text-slate-500 mt-2">Machine Learning</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Dr. Michael Chen -->
-            <div class="card">
-                <div class="slide slide1 rounded-lg">
-                    <div class="content">
-                        <div class="icon bg-[#2c73df] rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300" 
-                                alt="Dr. Michael Chen" 
-                                class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <!-- Dr. Michael Chen -->
+                <div class="card">
+                    <div class="slide slide1 rounded-lg">
+                        <div class="content">
+                            <div class="icon bg-[#2c73df] rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300"
+                                    alt="Dr. Michael Chen"
+                                    class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide slide2 bg-white rounded-lg">
+                        <div class="content">
+                            <h3 class="text-lg font-semibold text-[#414141]">Dr. Michael Chen</h3>
+                            <p class="text-slate-600">Associate Professor</p>
+                            <p class="text-sm text-slate-500 mt-2">Cybersecurity</p>
                         </div>
                     </div>
                 </div>
-                <div class="slide slide2 bg-white rounded-lg">
-                    <div class="content">
-                        <h3 class="text-lg font-semibold text-[#414141]">Dr. Michael Chen</h3>
-                        <p class="text-slate-600">Associate Professor</p>
-                        <p class="text-sm text-slate-500 mt-2">Cybersecurity</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Dr. Emily Davis -->
-            <div class="card">
-                <div class="slide slide1 rounded-lg">
-                    <div class="content">
-                        <div class="icon bg-[#2c73df] rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300" 
-                                alt="Dr. Emily Davis" 
-                                class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <!-- Dr. Emily Davis -->
+                <div class="card">
+                    <div class="slide slide1 rounded-lg">
+                        <div class="content">
+                            <div class="icon bg-[#2c73df] rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300"
+                                    alt="Dr. Emily Davis"
+                                    class="rounded-full w-32 h-32 object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide slide2 bg-white rounded-lg">
-                    <div class="content">
-                        <h3 class="text-lg font-semibold text-[#414141]">Dr. Emily Davis</h3>
-                        <p class="text-slate-600">Assistant Professor</p>
-                        <p class="text-sm text-slate-500 mt-2">Data Science</p>
+                    <div class="slide slide2 bg-white rounded-lg">
+                        <div class="content">
+                            <h3 class="text-lg font-semibold text-[#414141]">Dr. Emily Davis</h3>
+                            <p class="text-slate-600">Assistant Professor</p>
+                            <p class="text-sm text-slate-500 mt-2">Data Science</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <style>
-        .card .slide {
-            width: 100%;
-            height: 200px;
-            transition: 0.5s;
-        }
+        <style>
+            .card .slide {
+                width: 100%;
+                height: 200px;
+                transition: 0.5s;
+            }
 
-        .card .slide1 {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            transition: .7s;
-            transform: translateY(100px);
-        }
+            .card .slide1 {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                transition: .7s;
+                transform: translateY(100px);
+            }
 
-        .card:hover .slide1 {
-            transform: translateY(0px);
-        }
+            .card:hover .slide1 {
+                transform: translateY(0px);
+            }
 
-        .card .slide2 {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: .8s;
-            transform: translateY(-100px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+            .card .slide2 {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+                transition: .8s;
+                transform: translateY(-100px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
 
-        .card:hover .slide2 {
-            transform: translateY(0);
-        }
+            .card:hover .slide2 {
+                transform: translateY(0);
+            }
 
-        .card .icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+            .card .icon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
 
-        .card .slide2::after {
-            content: "";
-            position: absolute;
-            width: 30px;
-            height: 4px;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2c73df;
-        }
-    </style>
-</section>
+            .card .slide2::after {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 4px;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #2c73df;
+            }
+        </style>
+    </section>
 
     <!-- News Section -->
     <section class="py-16 bg-white">
@@ -406,15 +473,18 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Latest News</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800" alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <p class="text-sm text-slate-500 mb-2">March 15, 2024</p>
                         <h3 class="text-xl font-semibold mb-4">New Research Grant Awarded</h3>
-                        <p class="text-slate-600">Department receives $2M grant for AI research in healthcare applications.</p>
+                        <p class="text-slate-600">Department receives $2M grant for AI research in healthcare
+                            applications.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800" alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <p class="text-sm text-slate-500 mb-2">March 10, 2024</p>
                         <h3 class="text-xl font-semibold mb-4">Student Achievement</h3>
@@ -422,11 +492,13 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=800" alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <p class="text-sm text-slate-500 mb-2">March 5, 2024</p>
                         <h3 class="text-xl font-semibold mb-4">Industry Partnership</h3>
-                        <p class="text-slate-600">New collaboration with leading tech companies for internship programs.</p>
+                        <p class="text-slate-600">New collaboration with leading tech companies for internship programs.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -439,7 +511,8 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-                    <p class="mb-8">Have questions? We're here to help. Reach out to us using the contact information below.</p>
+                    <p class="mb-8">Have questions? We're here to help. Reach out to us using the contact information
+                        below.</p>
                     <div class="space-y-4">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-map-marker-alt text-[#fbbf24]"></i>
@@ -470,14 +543,16 @@
                             <label class="block mb-2">Message</label>
                             <textarea class="w-full px-4 py-2 rounded-lg text-slate-900" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-[#f59e0b] transition">Send Message</button>
+                        <button type="submit"
+                            class="bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-[#f59e0b] transition">Send
+                            Message</button>
                     </form>
                 </div>
-                </div>
-                <div class="bg-white rounded-lg mt-12 shadow-lg overflow-hidden h-64" id="map"></div>
             </div>
+            <div class="bg-white rounded-lg mt-12 shadow-lg overflow-hidden h-64" id="map"></div>
         </div>
-            </div>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -516,7 +591,8 @@
                     <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
                     <p class="mb-4">Subscribe to our newsletter for updates.</p>
                     <form class="flex">
-                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-lg text-slate-900 w-full">
+                        <input type="email" placeholder="Enter your email"
+                            class="px-4 py-2 rounded-l-lg text-slate-900 w-full">
                         <button type="submit" class="bg-[#fbbf24] text-[#1a365d] px-4 rounded-r-lg hover:bg-[#f59e0b]">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -531,6 +607,37 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
+        const swiper = new Swiper('.mySwiper', {
+            direction: 'vertical', // Makes the slider vertical
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000, // Time in milliseconds between slide transitions
+                disableOnInteraction: false, // Continue autoplay even after user interaction
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    </script>
+    <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -543,26 +650,27 @@
         mobileDropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('a');
             const content = dropdown.querySelector('div');
-            
+
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 content.classList.toggle('hidden');
             });
         });
 
-         // Initialize map
-         const map = L.map('map').setView([27.4728, 94.9120], 15); // Coordinates for Dibrugarh University
+        // Initialize map
+        const map = L.map('map').setView([27.4728, 94.9120], 15); // Coordinates for Dibrugarh University
 
-// Add OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-// Add marker for the university
-L.marker([27.4728, 94.9120])
-    .addTo(map)
-    .bindPopup('Dibrugarh University')
-    .openPopup();
+        // Add marker for the university
+        L.marker([27.4728, 94.9120])
+            .addTo(map)
+            .bindPopup('Dibrugarh University')
+            .openPopup();
     </script>
 </body>
+
 </html>

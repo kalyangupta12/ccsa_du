@@ -1,113 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern University Header</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiper Vertical Slider</title>
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <!-- Main Header -->
-    <header class="bg-[#1B365D] text-white">
-        <!-- Top Bar with Contact Info -->
-        <div class="hidden lg:block border-b border-white/10">
-            <div class="container mx-auto px-6 py-2">
-                <div class="flex justify-between items-center text-sm">
-                    <div class="flex items-center space-x-4">
-                        <a href="mailto:registrar@dibru.ac.in" class="flex items-center hover:text-blue-200 transition-colors">
-                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            registrar@dibru.ac.in
-                        </a>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <a href="https://www.facebook.com/dibrugarhuniversityofficial/" class="hover:text-blue-200 transition-colors">
-                            <svg class="w-4 h-4" viewBox="0 0 320 512">
-                                <path fill="currentColor" d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/>
-                            </svg>
-                        </a>
-                        <a href="https://x.com/DibruUniv" class="hover:text-blue-200 transition-colors">
-                            <svg class="w-4 h-4" viewBox="0 0 512 512">
-                                <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z"/>
-                            </svg>
-                        </a>
-                        <div class="h-4 w-px bg-white/20"></div>
-                        <div class="flex items-center space-x-2">
-                            <button class="hover:bg-white/10 p-1 rounded transition-colors" aria-label="Decrease font size">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M19 13H5v-2h14v2z"/>
-                                </svg>
-                            </button>
-                            <button class="hover:bg-white/10 p-1 rounded transition-colors" aria-label="Increase font size">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="h-64 sm:h-[70vh] relative">
+    <!-- Swiper -->
+    <div class="swiper mySwiper h-full">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+          hi there
         </div>
-
-        <!-- Main Navigation -->
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo and Title -->
-                <div class="flex items-center space-x-4">
-                    <img src="/api/placeholder/48/48" alt="University Logo" class="w-12 h-12"/>
-                    <div>
-                        <h1 class="font-bold text-lg">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-blue-200">Dibrugarh University</p>
-                    </div>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center space-x-8">
-                    <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium">Home</a>
-                    <div class="relative group">
-                        <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium flex items-center">
-                            Programs
-                            <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="relative group">
-                        <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium flex items-center">
-                            Research
-                            <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="relative group">
-                        <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium flex items-center">
-                            Faculty
-                            <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="relative group">
-                        <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium flex items-center">
-                            Students
-                            <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M7 10l5 5 5-5z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <a href="#" class="text-white hover:text-blue-200 transition-colors font-medium">Contact</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 hover:bg-white/10 rounded transition-colors">
-                    <svg class="w-6 h-6" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </button>
-            </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+          hello
         </div>
-    </header>
+        <!-- Slide 3 -->
+        <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+          set
+        </div>
+        <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+            hi there
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+            hello
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+            set
+          </div>
+          
+          
+      </div>
+      <!-- Navigation -->
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      direction: 'vertical', // Makes the slider vertical
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000, // Time in milliseconds between slide transitions
+        disableOnInteraction: false, // Continue autoplay even after user interaction
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      },
+    });
+  </script>
 </body>
 </html>
