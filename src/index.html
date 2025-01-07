@@ -22,6 +22,21 @@
             display: block;
         }
 
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+            background-repeat: repeat;
+            
+        }
+
         @media (max-width: 768px) {
             .dropdown-menu {
                 position: static;
@@ -176,17 +191,14 @@
         </div>
     </section>
     <!--About and announcement-->
-    <section class="py-16 h-auto relative">
+    <section class="py-16 h-auto bg-white relative">
         <!-- Background texture layer -->
-        <div class="absolute inset-0 z-0" 
-             style="background-color: #ffffff;
-                    background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
-                    background-repeat: repeat;">
-        </div>
+        <div class="absolute inset-0  bg-pattern" ></div>
+        
         
         <!-- Content with proper z-index -->
         <div class="container flex gap-10 mx-auto px-4 relative z-10">
-            <div class="w-4/6 h-[60vh] rounded-lg p-4 bg-white shadow-lg shadow-slate-200 hover:shadow-xl">
+            <div class="w-4/6 h-[60vh] bg-white/95 backdrop-blur-sm rounded-xl p-4  shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
                 <h2 class="text-center text-3xl font-semibold text-indigo-600">About Us</h2>
                 <p class="text-left mt-4">
                     Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one of the premier institutes of North-East-India imparting computer education.
@@ -198,7 +210,7 @@
                 </p>
                 
             </div>
-            <div class="w-2/6 rounded-lg h-[60vh] bg-white shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl">
+            <div class="w-2/6 rounded-xl h-[60vh] bg-white/95 backdrop-blur-sm shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl card-hover border border-gray-100">
                 <h3 class="text-center p-4">Announcement</h3>
             </div>
         </div>
