@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./src/style.css">
     <style>
         .dropdown-menu {
             display: none;
@@ -534,10 +535,33 @@
                     </div>
                 </div>
                 <div>
-                  
-                
+                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
+                    <div class="bg-slate-800 rounded-lg p-4">
+                        <!-- Current Weather -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span id="current-icon" class="text-3xl mr-2">--</span>
+                                <span id="current-temp" class="text-2xl">--°C</span>
+                            </div>
+                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
+                        </div>
+                        
+                        <!-- Weather Forecast Slider -->
+                        <div class="relative overflow-hidden">
+                            <!-- Hourly Forecast -->
+                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
+                                <!-- Will be populated by JS -->
+                            </div>
+                            
+                            <!-- Daily Forecast -->
+                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                    </div>
                 </div>
-            </div>
+         </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
@@ -579,5 +603,6 @@ L.marker([27.4728, 94.9120])
     .bindPopup('Dibrugarh University')
     .openPopup();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

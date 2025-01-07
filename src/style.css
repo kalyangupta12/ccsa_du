@@ -1,0 +1,6 @@
+.forecast-item {
+    @apply flex-1 p-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors;
+}
+.weather-icon {
+    @apply text-xl my-1;
+}
