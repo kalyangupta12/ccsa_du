@@ -79,7 +79,7 @@
         }
 
         .dropdown-menu a {
-            transition: all 0.2s ease;
+            transition: all 5s ease;
         }
         .dropdown-item {
             padding: 0.75rem 1rem;
@@ -88,6 +88,26 @@
             text-align: left;
             white-space: nowrap;
         }
+        .marquee {
+      width: 100%;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 10px 0;
+      font-size: 24px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
     </style>
 </head>
 
@@ -129,6 +149,9 @@
 
 
     </header>
+    <div class="marquee">
+        <span>🚧 Site is in Maintenance Mode. Please check back later. 🚧</span>
+    </div>
     <!-- Navigation -->
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
@@ -200,16 +223,16 @@
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Home</a>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
+                    <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                    <a href="index.html#aboutus" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
                             Programs
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
+                            <a href="undergraduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
+                            <a href="graduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
                         </div>
                     </div>
@@ -640,7 +663,7 @@
             },
         });
     </script>
-    <!--SLider-->>
+    <!--SLider-->
     <script>
         let currentSlide = 0;
         const slider = document.querySelector('.slider');
