@@ -83,7 +83,7 @@
                             <path fill="currentColor"
                                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                         </svg>
-                        <span class="whitespace-nowrap">registrar@dibru.ac.in</span>
+                        <span class="whitespace-nowrap">ccsduoffice@gmail.com</span>
                     </a>
                 </div>
 
@@ -143,11 +143,19 @@
                             Programs <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
-                        </div>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    Under & Post-Graduate
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">BCA</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">MCA</a>
+                                </div>
+                            </div>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a> 
                     </div>
+                 </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
@@ -162,6 +170,7 @@
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
@@ -224,7 +233,7 @@
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
                         </div>
                     </div>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                    <a href="index.html#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
                     <!-- ... Similar structure for other mobile menu items ... -->
                 </div>
             </div>
@@ -241,15 +250,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 <!-- Card 1 -->
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/utpala-borgohain">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/sj2Z0O1slmkpyxCR7FdzBDs5U9GjeWjKuM7IBssn.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Utpala Borgohain</div>
@@ -261,15 +272,17 @@
 
                 <!-- Card 2 -->
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/rizwan-rehman">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/uhdGgGL9gh5LwhUW4QV0o6K04UDDWsIGEJcBH0oU.png" class="w-full rounded-full h-full object-cover"></image>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Rizwan Rehman</div>
@@ -280,15 +293,17 @@
                 </div>
 
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/toralima-boral">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/Wyh0od9HyPZ1inzyv8dFS8UHCmwPCHzVj40viQZd.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Toralima Bora</div>
@@ -298,15 +313,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/ujjal-saikia">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/9inBJ2Udzt0YCp9DY92xcXFdHL7PLeQ6WJLY2QKg.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Ujjal Saikia</div>
@@ -316,15 +333,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/kimasha-borah">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/U4mquF8hTiPkfIGsay0ygDE2FwcyxhEkKePf3mAB.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Ms. Kimasha Borah</div>
@@ -334,15 +353,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/pranjal-kumar-bora">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="	https://erp.dibru.work/media-library/staff/vVoEEIQjUFnC1MZQYEUTrtcwSg37cX7WYwKQvrbE.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Pranjal Kumar Bora</div>
@@ -352,15 +373,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-center justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/ankumon-sarmah">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/6TNcXOg6UuHghb0NCpeWYffwugk6Px8N83QiHtHp.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Mr. Ankumon Sarmah</div>
@@ -370,15 +393,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/kankana-dutta">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/8kleNUe0ajfrxoY0MB4v1WSjHrtFApiwJfe1h0E1.png" class="w-full h-full rounded-full object-cover"></img>
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Ms. Kankana Dutta</div>
@@ -388,15 +413,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/sumpi-saikia">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/1quSjPrHSlfJG6WnTaPC8fF3ZBI7SwKYEeaA3syd.png" class="w-full h-full rounded-full object-cover"></img>                       
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Dr. Sumpi Saikia</div>
@@ -406,15 +433,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/pinakshi-konwar">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/hXmzeN86ASlYbfw24sPSOeA9qXMn6kLrtJtPMU74.png" class="w-full h-full rounded-full object-cover"></img>                       
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Ms. Pinakshi Konwar</div>
@@ -423,15 +452,17 @@
                     </div>
                 </div>
                 <div class="relative h-64 group">
-                    <div class="absolute top-0 left-0 w-24 h-12 pt-2 bg-green-400 rounded-t-xl
-                         flex justify-center text-sm text-white font-medium
-                         transition-all duration-300 transform translate-y-5 group-hover:-translate-y-2">
-                        <a href="details.html">View details</a>
+                    <div class="absolute bottom-0 left-0 w-24 h-12 pb-1 bg-green-400 rounded-b-xl
+                         flex items-end justify-center text-sm text-white font-medium
+                         transition-all duration-300 transform -translate-y-5 group-hover:translate-y-4">
+                        <a href="https://dibru.ac.in/user-profile/gunjan-malakar">View details</a>
                     </div>
                     <div class="absolute flex items-center p-2 top-5 w-full h-56 bg-gray-200 rounded-xl 
                          transition-all duration-300 hover:shadow-lg cursor-pointer">
                          <div class="w-2/5 px-2 border-r border-slate-400 flex justify-center items-center h-full">
-                            <div class="h-36 w-36 bg-indigo-400 rounded-full"></div>
+                            <div class="h-36 w-36 bg-indigo-400 rounded-full p-1">
+                                <img src="https://erp.dibru.work/media-library/staff/FG6Zr2S2sSbhzL5IALnxMkflrKcL4p0iYstXNemu.png" class="w-full h-full rounded-full object-cover"></img>                       
+                            </div>
                          </div>
                          <div class="w-full flex pl-2 flex-col gap-2">
                             <div class="text-xl font-semibold">Mr. Gunjan Malakar</div>
