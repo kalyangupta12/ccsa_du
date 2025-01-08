@@ -177,12 +177,12 @@
                         <div class="dropdown-menu">
                             <div class="nested-dropdown">
                                 <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
-                                    Graduate
+                                    Under & Post-Graduate
                                     <i class="fas fa-chevron-right ml-1 text-xs"></i>
                                 </a>
                                 <div class="dropdown-menu nested-menu">
-                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">Undergraduate</a>
-                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">Post-Graduate</a>
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">BCA</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">MCA</a>
                                 </div>
                             </div>
                      <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a> 
@@ -253,7 +253,8 @@
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="mobile-dropdown">
@@ -265,7 +266,7 @@
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
                         </div>
                     </div>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                    <a href="#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
                     <!-- ... Similar structure for other mobile menu items ... -->
                 </div>
             </div>
@@ -422,7 +423,72 @@
     <!-- Faculty Section -->
     <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl text-center">Message</h2>
+            <h2 class="text-3xl font-bold text-center text-[#1a365d] mb-12">Message from The Chairperson</h2>
+            
+            <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    <!-- Principal's Image Section -->
+                    <div class="lg:w-1/3 relative">
+                        <!-- Principal's Image -->
+                        <div class="h-80 lg:h-full relative overflow-hidden">
+                            <img 
+                                src="https://erp.dibru.work/media-library/staff/ItiMboKsuDJ7m4gtqHfvQsErOj54BHS0wGai96uv.png" 
+                                alt="Principal's Photo" 
+                                class="w-full h-full object-cover"
+                            />
+                            <!-- Overlay gradient -->
+                            <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#1a365d] to-transparent lg:hidden"></div>
+                        </div>
+                        
+                        <!-- Principal's Info (Visible on mobile) -->
+                        <div class="lg:hidden absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-semibold">Prof.Tazid Ali</h3>
+                            <p class="text-sm opacity-90">Professor, Department of Mathematics</p>
+                        </div>
+                    </div>
+    
+                    <!-- Message Content Section -->
+                    <div class="lg:w-2/3 p-6 lg:p-8">
+                        <!-- Principal's Info (Visible on desktop) -->
+                        <div class="hidden lg:block mb-6">
+                            <h3 class="text-2xl font-semibold text-[#1a365d]">Prof. Tazid-Ali</h3>
+                            <p class="text-slate-600">Professor, Department of Mathematics</p>
+                        </div>
+    
+                        <!-- Quote Symbol -->
+                        <div class="text-[#fbbf24] mb-4">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 32 32">
+                                <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H6c0-2.2 1.8-4 4-4V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-8c0-2.2 1.8-4 4-4V8z"/>
+                            </svg>
+                        </div>
+    
+                        <!-- Message Content -->
+                        <div class="space-y-4 text-slate-700">
+                            <p>Welcome to the Center for Computer Science and Applications at Dibrugarh University. As we navigate through the digital age, our center stands at the forefront of computer science education and research in Northeast India.</p>
+                            
+                            <p>Our mission is to nurture innovative minds and create technology leaders who can address the challenges of tomorrow. We focus on providing a comprehensive education that blends theoretical knowledge with practical applications.</p>
+                            
+                            <p>With state-of-the-art facilities, dedicated faculty, and strong industry connections, we prepare our students not just for careers, but for leadership in the ever-evolving field of computer science.</p>
+                        </div>
+    
+                        <!-- Signature Section -->
+                        <div class="mt-8">
+                            <div class="flex items-center">
+                                <img 
+                                    src="/api/placeholder/200/100" 
+                                    alt="Principal's Signature" 
+                                    class="h-16 w-auto"
+                                />
+                            </div>
+                            <!--div class="mt-2">
+                                <p class="font-semibold text-[#1a365d]">Dr. John Doe</p>
+                                <p class="text-sm text-slate-600">PhD in Computer Science</p>
+                                <p class="text-sm text-slate-600">CCSA, Dibrugarh University</p>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -541,10 +607,10 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-[#fbbf24]">About Us</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Programs</a></li>
+                        <li><a href="#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
+                        <li><a href="#programs" class="hover:text-[#fbbf24]">Programs</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Research</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Contact</a></li>
+                        <li><a href="#contact" class="hover:text-[#fbbf24]">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -740,14 +806,14 @@
         });
 
         // Initialize map
-        const map = L.map('map').setView([27.4495, 94.8979],15);
+        const map = L.map('map').setView([27.472834, 94.911964],15);
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
         // Add marker for the university
-        L.marker([27.4495 , 94.8979 ])
+        L.marker([27.472834, 94.911964 ])
             .addTo(map)
             .bindPopup('Dibrugarh University')
             .openPopup();
