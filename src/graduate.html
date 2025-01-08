@@ -9,7 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
-        .dropdown-menu {
+        html{
+            scroll-behavior:smooth;
+        }
+       .dropdown-menu {
             display: none;
             position: absolute;
             background-color: white;
@@ -24,18 +27,44 @@
         }
 
         .card-hover {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
 
         .card-hover:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
         .bg-pattern {
             background-color: #ffffff;
             background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
             background-repeat: repeat;
+            position: relative;
+        }
 
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
+            pointer-events: none;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -44,6 +73,70 @@
                 box-shadow: none;
                 background-color: #1e3a6d;
             }
+            #mobileMenu {
+                background-color: rgba(26, 54, 93, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 0 0 1rem 1rem;
+            }
+        }
+         h2 {
+            background: linear-gradient(45deg, #1a365d, #2d4a7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Enhanced content container */
+        .content-container {
+            background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .content-container:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .nested-menu {
+            left: 100%;
+            top: 0;
+            margin-left: 1px;
+            margin-top: 0;
+        }
+
+        /* Add arrow indication for items with submenus */
+        .has-submenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .dropdown-menu a {
+            transition: all 0.2s ease;
+        }
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: block;
+            width: 100%;
+            text-align: left;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -114,17 +207,26 @@
                         <a href="index.html" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
-                        <a href="index.html#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
+                        <a href="#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
-                    <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
-                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="nav-item relative inline-block">
+                        <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
                         <div class="dropdown-menu">
-                            <a href="undergraduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="graduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
-                        </div>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    Graduate
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">Undergraduate</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">Post-Graduate</a>
+                                </div>
+                            </div>
+                     <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a> 
                     </div>
+                 </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
@@ -137,8 +239,9 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
+                            <a href="ChairPerson.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
-                            <a href="" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
@@ -159,18 +262,24 @@
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                    <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
                     <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
                             Programs
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
-                        <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="undergraduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
-                            <a href="graduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
-                        </div>
+                        <div class="dropdown-menu">
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    Graduate
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">Undergraduate</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">Post-Graduate</a>
+                                </div>
+                            </div>
                     </div>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
@@ -188,8 +297,8 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="mobile-dropdown">
@@ -396,6 +505,7 @@
             .bindPopup('Dibrugarh University')
             .openPopup();
     </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
