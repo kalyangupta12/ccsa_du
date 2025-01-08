@@ -806,14 +806,14 @@
         });
 
         // Initialize map
-        const map = L.map('map').setView([27.4495, 94.8979],15);
+        const map = L.map('map').setView([27.472834, 94.911964],15);
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
         // Add marker for the university
-        L.marker([27.4495 , 94.8979 ])
+        L.marker([27.472834, 94.911964 ])
             .addTo(map)
             .bindPopup('Dibrugarh University')
             .openPopup();
