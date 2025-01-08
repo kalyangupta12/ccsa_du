@@ -79,7 +79,7 @@
         }
 
         .dropdown-menu a {
-            transition: all 0.2s ease;
+            transition: all 5s ease;
         }
         .dropdown-item {
             padding: 0.75rem 1rem;
@@ -133,7 +133,7 @@
 
                 <!-- Social Media Links -->
                 <div class="hidden lg:flex items-center space-x-4">
-                    <a href="https://www.facebook.com/dibrugarhuniversityofficial" class="hover:text-[#fbbf24]">
+                    <a href="https://www.facebook.com/dibrugarhuniversityofficial/" class="hover:text-[#fbbf24]">
                         <svg class="w-4 h-4" viewBox="0 0 320 512">
                             <path fill="currentColor"
                                 d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
@@ -151,21 +151,21 @@
     </header>
     <div class="marquee">
         <span>🚧 Site is in Maintenance Mode. Please check back later. 🚧</span>
-    </div>
+    </div>
     <!-- Navigation -->
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-12">
+                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-14">
                     <div>
-                        <h1 class="text-lg font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                        <h1 class="text-xl font-semibold">Center for Computer Science And Applications</h1>
+                        <p class="text-lg text-slate-300"> Dibrugarh University </p>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <div class="nav-item relative">
-                        <a href="index.html" class="hover:text-[#fbbf24] py-2">Home</a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
                         <a href="#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
@@ -200,7 +200,7 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="ChairPerson.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -224,7 +224,7 @@
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
                     <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
+                    <a href="index.html#aboutus" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
                             Programs
@@ -252,8 +252,8 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
                         </div>
                     </div>
                     <div class="mobile-dropdown">
@@ -324,61 +324,60 @@
                     background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
                     background-repeat: repeat;">
         </div>
-
+    
         <!-- Content with proper z-index -->
-        <div class="container flex gap-10 mx-auto px-4 relative z-10">
-            <div
-                class="w-4/6 h-[60vh] bg-white/95 backdrop-blur-sm rounded-xl p-4  shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
-                <h2 class="text-center text-3xl font-semibold text-indigo-600">About Us</h2>
-                <p class="text-left mt-4">
-                    Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one
-                    of the premier institutes of North-East-India imparting computer education.
-                    Dibrugarh University initiated its journey of imparting computer education by establishing a
-                    Computer Centre in 1976.
-                    The Computer Centre was established with the objective of creating Computer awareness among the
-                    teachers, research scholars and employees of the University.
-                    It started Computer education by introducing a “Six-months Certificate Course on Computer
-                    Programming”. It also trained the employees of various banks including State Bank of India,
-                    Dibrugarh university Branch and helped them in computerization.
-                    In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a “Post-Graduate Diploma in
-                    Computer Application (PGDCA)” course was started. BCA was introduced in July, 2004 and MCA and BSc
-                    (IT) were introduced in January and July, 2007, respectively.
-                    In 2018, the name of the centre has been changed to “Centre for Computer Science and Applications”.
-                </p>
+        <div class="container flex flex-col lg:flex-row gap-6 lg:gap-10 mx-auto px-4 relative z-10">
+            <!-- About Section -->
+            <div class="w-full lg:w-4/6 bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
+                <h2 class="text-center text-2xl lg:text-3xl font-semibold text-indigo-600 mb-4">About Us</h2>
+                <div class="max-h-[60vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-slate-200">
+                    <p class="text-left text-sm lg:text-base">
+                        Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one
+                        of the premier institutes of North-East-India imparting computer education.
+                        Dibrugarh University initiated its journey of imparting computer education by establishing a
+                        Computer Centre in 1976.
+                        The Computer Centre was established with the objective of creating Computer awareness among the
+                        teachers, research scholars and employees of the University.
+                        It started Computer education by introducing a "Six-months Certificate Course on Computer
+                        Programming". It also trained the employees of various banks including State Bank of India,
+                        Dibrugarh university Branch and helped them in computerization.
+                        In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a "Post-Graduate Diploma in
+                        Computer Application (PGDCA)" course was started. BCA was introduced in July, 2004 and MCA and BSc
+                        (IT) were introduced in January and July, 2007, respectively.
+                        In 2018, the name of the centre has been changed to "Centre for Computer Science and Applications".
+                    </p>
+                </div>
             </div>
-            <div
-                class="w-2/6 rounded-xl h-[60vh] overflow-hidden bg-white backdrop-blur-sm shadow-lg text-2xl font-semibold shadow-slate-200 text-indigo-600 hover:shadow-xl card-hover border border-gray-100">
-                <h3 class="text-center p-4">Announcement</h3>
-                <div class="mt-4 h-full relative overflow-hidden">
+    
+            <!-- Announcement Section -->
+            <div class="w-full lg:w-2/6 rounded-xl h-[40vh] lg:h-[60vh] overflow-hidden bg-white backdrop-blur-sm shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
+                <h3 class="text-center p-4 text-xl lg:text-2xl font-semibold text-indigo-600">Announcement</h3>
+                <div class="mt-2 lg:mt-4 h-full relative overflow-hidden">
                     <div class="swiper mySwiper h-full">
                         <div class="swiper-wrapper overflow-hidden">
                             <!-- Slide 1 -->
-                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
                             <!-- Slide 2 -->
-                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
                             <!-- Slide 3 -->
-                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
-                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white">
+                            <!-- Additional slides -->
+                            <div class="swiper-slide flex items-center justify-center bg-red-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
-                            <!-- Slide 2 -->
-                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white">
+                            <div class="swiper-slide flex items-center justify-center bg-blue-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
-                            <!-- Slide 3 -->
-                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white">
+                            <div class="swiper-slide flex items-center justify-center bg-green-500 text-white text-lg lg:text-xl p-4">
                                 Notice
                             </div>
-
-
                         </div>
-                        <!-- Navigation -->
                     </div>
                 </div>
             </div>
