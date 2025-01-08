@@ -206,49 +206,50 @@
     </nav>
     <!-- Hero Section -->
     <section class="relative bg-[#1a365d] text-white">
-        <div class=" h-64 sm:h-[70vh] fixed relative overflow-hidden">
+        <div class="h-64 sm:h-[70vh] relative overflow-hidden">
+            <!-- Fixed Text Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                <div class="text-2xl md:text-4xl text-amber-200 text-center px-4 ">
+                    পৰিকলন বিজ্ঞান আৰু প্ৰয়োগ কেন্দ্ৰ,ডিব্ৰুগড় বিশ্ববিদ্যালয়
+                </div>
+            </div>
+    
             <div class="slider h-full flex transition-transform duration-700 ease-in-out">
                 <!-- Slide 1 -->
-                <div class="slide min-w-full h-full relative group overflow-hidden">
-                    <img 
-                        src="https://dibru.ac.in/assets/image/Centre-for-Computer-Science-and-Application-banner.jpg"
+                <div class="slide min-w-full h-full relative group">
+                    <img src="https://dibru.ac.in/assets/image/Centre-for-Computer-Science-and-Application-banner.jpg"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        alt="Slide 1"
-                    />
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-500">
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                        <p class="text-2xl md:text-4xl text-amber-200 text-center px-4">
-                            পৰিকলন বিজ্ঞান আৰু প্ৰয়োগ কেন্দ্ৰ,ডিব্ৰুগড় বিশ্ববিদ্যালয়
-                        </p>
+                        alt="Slide 1">
+                    <div class="absolute inset-0 bg-black opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        
                     </div>
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="slide min-w-full h-full relative">
-                    <img src="https://admin.ccsaalumni.in/storage/sliders/VPn3DiUMcBRipEQv7JgCzcanPBcLNosV9FxeNcVY.jpg" class="w-full h-full object-cover" alt="Slide 2">
-                    <div class="absolute inset-0 bg-black bg-opacity-50">
-                        <div
-                            class="basker h-full text-2xl md:text-4xl flex flex-col items-center justify-center text-amber-200 px-4">
-                            পৰিকলন বিজ্ঞান আৰু প্ৰয়োগ কেন্দ্ৰ,ডিব্ৰুগড় বিশ্ববিদ্যালয়
-                        </div>
+    
+                <!-- Additional slides with same structure -->
+                <div class="slide min-w-full h-full relative group">
+                    <img src="https://admin.ccsaalumni.in/storage/sliders/VPn3DiUMcBRipEQv7JgCzcanPBcLNosV9FxeNcVY.jpg"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Slide 2">
+                    <div class="absolute inset-0 bg-black opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        
                     </div>
                 </div>
-
-                <!-- Slide 3 -->
-                <div class="slide min-w-full h-full relative">
+    
+                <div class="slide min-w-full h-full relative group">
                     <img src="https://admin.ccsaalumni.in/storage/sliders/KxwzEcGaMHMh07JrEkeouX60UPsjXlpDzr9h4PZG.jpg"
-                        class="w-full h-full object-cover" alt="Slide 3">
-                    <div class="absolute inset-0 bg-black bg-opacity-50">
-                        <div
-                            class="basker h-full text-2xl md:text-4xl flex flex-col items-center justify-center text-amber-200 px-4">
-                            পৰিকলন বিজ্ঞান আৰু প্ৰয়োগ কেন্দ্ৰ,ডিব্ৰুগড় বিশ্ববিদ্যালয়
-                        </div>
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt="Slide 3">
+                    <div class="absolute inset-0 bg-black opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                       
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!--About and announcement-->
     <section id="aboutus" class="py-16 h-auto bg-white relative">
         <!-- Background texture layer -->
@@ -597,61 +598,60 @@
     </script>
     <!--SLider-->>
     <script>
-        // Get slider elements
+        let currentSlide = 0;
         const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
-const slideCount = slides.length;
-let slideInterval;
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slideCount;
-    updateSlider();
-    updateDots();
-}
-
-function updateSlider() {
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-// Navigation dots setup
-const heroSection = document.querySelector('.slider').parentElement;
-const navDiv = document.createElement('div');
-navDiv.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2';
-
-slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.className = `w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
-    dot.addEventListener('click', () => {
-        currentSlide = index;
-        updateSlider();
-        updateDots();
+        const slides = document.querySelectorAll('.slide');
+        const slideCount = slides.length;
+        let slideInterval;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }
+        
+        function createDots() {
+            const navDiv = document.createElement('div');
+            navDiv.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10';
+            
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
+                dot.onclick = () => {
+                    currentSlide = index;
+                    updateSlider();
+                    resetInterval();
+                };
+                navDiv.appendChild(dot);
+            });
+            
+            slider.parentElement.appendChild(navDiv);
+        }
+        
+        function updateDots() {
+            const dots = document.querySelectorAll('.rounded-full');
+            dots.forEach((dot, index) => {
+                dot.className = `w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
+                }`;
+            });
+        }
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        createDots();
         resetInterval();
-    });
-    navDiv.appendChild(dot);
-});
-
-heroSection.appendChild(navDiv);
-
-function updateDots() {
-    const dots = navDiv.querySelectorAll('button');
-    dots.forEach((dot, index) => {
-        dot.className = `w-3 h-3 rounded-full transition-all ${index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
-    });
-}
-
-function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
-}
-
-// Initialize auto-sliding
-resetInterval();
-
-// Pause on hover
-slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-slider.addEventListener('mouseleave', resetInterval);
-    </script>
+        
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', resetInterval);
+        </script>
     <script>
 
         // Mobile menu toggle
