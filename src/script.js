@@ -74,7 +74,7 @@ setInterval(() => {
     forecasts.forEach((forecast, index) => {
         forecast.style.display = currentSlide === index ? 'flex' : 'none';
     });
-}, 4000);
+}, 10000);
 
 
 document.addEventListener('DOMContentLoaded', function() {

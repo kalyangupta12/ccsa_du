@@ -502,33 +502,52 @@
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div>
+                <div class="max-w-md mx-auto">
                     <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
                     <div class="bg-slate-800 rounded-lg p-4">
                         <!-- Current Weather -->
                         <div class="flex items-center justify-between mb-4">
                             <div>
-                                <span id="current-icon" class="text-3xl mr-2">--</span>
-                                <span id="current-temp" class="text-2xl">--°C</span>
+                                <span id="current-icon" class="text-3xl mr-2">☀️</span>
+                                <span id="current-temp" class="text-2xl">25°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
+                            <span id="current-time" class="text-sm text-slate-400">12:45 PM</span>
                         </div>
                         
-                        <!-- Weather Forecast Slider -->
+                        <!-- Weather Forecast Section -->
                         <div class="relative overflow-hidden">
                             <!-- Hourly Forecast -->
-                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
-                                <!-- Will be populated by JS -->
-                            </div>
-                            
-                            <!-- Daily Forecast -->
-                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
-                                <!-- Will be populated by JS -->
+                            <div 
+                                id="hourly-forecast" 
+                                class="flex space-x-4 text-center text-sm mb-2 overflow-x-auto scrollbar-hide h-20">
+                                <!-- Example Hourly Forecast -->
+                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
+                                    <span>1 PM</span>
+                                    <span>☀️</span>
+                                    <span>26°C</span>
+                                </div>
+                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
+                                    <span>2 PM</span>
+                                    <span>🌤️</span>
+                                    <span>27°C</span>
+                                </div>
+                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
+                                    <span>3 PM</span>
+                                    <span>☁️</span>
+                                    <span>24°C</span>
+                                </div>
+                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
+                                    <span>4 PM</span>
+                                    <span>🌦️</span>
+                                    <span>23°C</span>
+                                </div>
                             </div>
                         </div>
+                        
                         <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
                     </div>
                 </div>
+                
          </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
