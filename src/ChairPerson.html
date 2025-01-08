@@ -3,106 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faculty Profile - CCSA, Dibrugarh University</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
         html{
             scroll-behavior:smooth;
         }
        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-            border-radius: 0.5rem;
-        }
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 50;
+    border-radius: 0.5rem;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
 
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
+.nav-item:hover .dropdown-menu {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
 
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
-        }
+/* Enhanced card hover effect */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-        }
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
 
-        .bg-pattern {
-            background-color: #ffffff;
-            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
-            background-repeat: repeat;
-            position: relative;
-        }
+/* Enhanced background pattern */
+.bg-pattern {
+    background-color: #ffffff;
+    background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+    background-repeat: repeat;
+    position: relative;
+}
 
-        .bg-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
-            pointer-events: none;
-        }
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: rgba(30, 58, 109, 0.95);
+        backdrop-filter: blur(8px);
+        border-radius: 0.5rem;
+        margin: 0.5rem 0;
+    }
 
-        section {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                background-color: #1e3a6d;
-            }
-            #mobileMenu {
-                background-color: rgba(26, 54, 93, 0.98);
-                backdrop-filter: blur(10px);
-                border-radius: 0 0 1rem 1rem;
-            }
-        }
-         h2 {
-            background: linear-gradient(45deg, #1a365d, #2d4a7c);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            position: relative;
-        }
-
-        /* Enhanced content container */
-        .content-container {
-            background: linear-gradient(to bottom right, #ffffff, #f8fafc);
-            border: 1px solid rgba(26, 54, 93, 0.1);
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-
-        .content-container:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+    #mobileMenu {
+        background-color: rgba(26, 54, 93, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 0 0 1rem 1rem;
+    }
+}
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Header and Navigation will be included from components -->
     <header class="bg-teal-700 text-white">
         <!-- Main Header Container -->
         <div class="container mx-auto lg:px-10">
@@ -158,25 +125,25 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-12">
+                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-14">
                     <div>
-                        <h1 class="text-lg font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                        <h1 class="text-xl font-semibold">Center for Computer Science And Applications</h1>
+                        <p class="text-lg text-slate-300"> Dibrugarh University </p>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <div class="nav-item relative">
-                        <a href="index.html" class="hover:text-[#fbbf24] py-2">Home</a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">About Us</a>
+                        <a href="#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
                             <a href="undergraduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
+                            <a href="graduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
                         </div>
                     </div>
@@ -192,7 +159,7 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="ChairPerson.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
                         </div>
                     </div>
@@ -204,7 +171,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -214,7 +181,7 @@
             <!-- Mobile Menu -->
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                    <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
                     <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
@@ -222,7 +189,7 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
+                            <a href="undergraduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
                         </div>
@@ -243,7 +210,7 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="ChairPerson.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
                         </div>
                     </div>
@@ -262,49 +229,98 @@
             </div>
         </div>
     </nav>
-    <section class="py-16 px-4 bg-pattern">
-     <div class="container mx-auto">
-        <div class="content-container p-6 md:p-8">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Bachelor of Computer Applications (BCA) Degree</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                 <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
-                    <h2 class="text-2xl font-semibold mb-4">About</h2>
-                    <p class="mb-4 text-gray-700 leading-relaxed">A Three (03) Year Degree Program including Six (06) Semester. Selection procedure for BCA program is on Merit Basis.</p>
-                        <p class="mb-4 text-gray-700 leading-relaxed"> A BCA degree is a solid foundation for a career in the IT industry. It equips students with essential technical skills, problem-solving abilities, and practical experience needed to excel in various roles. Whether entering the workforce directly or pursuing further studies, BCA graduates have a wide range of opportunities to explore and succeed in the dynamic field of computer science.</p>
-                    
-                 </div>
 
-                <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
-                    <h2 class="text-2xl font-semibold mb-4">Eligibility Criteria</h2>
-                    <p class="mb-4 text-gray-700 leading-relaxed">Passed Higher Secondary (10+2) examination securing minimum of 45% marks in aggregate and passing Mathematics/ Commercial Arithmetic /Statistics as one of the subjects. Relaxation of 5% marks will be given to the candidates of reserved categories.</p>
-
-                    <h2 class="text-2xl font-semibold mb-4">Intake Capacity</h2>
-                    <p class="mb-4 text-gray-700 leading-relaxed">60 (6 Endowments)</p> 
+    <main class="container mx-auto px-4 py-8">
+        <!-- Faculty Profile Section -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="md:flex items-start space-x-8">
+                <!-- Profile Image -->
+                <div class="md:w-1/4 mb-6 md:mb-0">
+                    <img src="https://erp.dibru.work/media-library/staff/ItiMboKsuDJ7m4gtqHfvQsErOj54BHS0wGai96uv.png" alt="Professor" class="rounded-lg shadow-md  h-25">
+                    <div class="mt-4 space-y-2">
+                        <a href="mailto:tazid@dibru.ac.in" class="flex items-center text-[#1a365d] hover:text-[#fbbf24]">
+                            <i class="fas fa-envelope mr-2"></i>
+                            tazid@dibru.ac.in
+                        </a>
+                        <p class="flex items-center text-[#1a365d]">
+                            <i class="fas fa-phone mr-2"></i>
+                            9435391202
+                        </p>
+                    </div>
                 </div>
 
-                
-                    <div class="card-hover bg-white  rounded-lg shadow-lg p-6">
-                        <h2 class="text-2xl font-semibold mb-4">Curriculum</h2>
-                        <p class="mb-4 text-gray-700 leading-relaxed">The BCA curriculum includes a comprehensive mix of theoretical and practical subjects related to computer science. Our program covers:</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Programming Languages (C, C++, Java, Python)</li>
-                            <li>Data Structures and Algorithms</li>
-                            <li>Database Management Systems</li>
-                            <li>Web Development</li>
-                            <li>Operating Systems</li>
-                            <li>Software Engineering</li>
-                        </ul>
+                <!-- Profile Information -->
+                <div class="md:w-3/4">
+                    <h1 class="text-3xl font-bold text-[#1a365d] mb-2">Prof. Tazid Ali</h1>
+                    <p class="text-xl text-gray-600 mb-4">Professor, Department of Mathematics</p>
+                    <p class="text-lg text-[#1a365d] mb-6">Chairperson, Centre for Computer Science and Applications</p>
+
+                    <!-- Academic Profiles -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=56797640600" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
+                            <img src="https://staff.dibru.work/assets/icons/scopus.png" alt="Scopus" class="w-4 h-4 mr-2">
+                            Scopus
+                        </a>
+                        <a href="https://orcid.org/0000-0002-7897-3174" class="flex items-center px-4 py-2 bg-green-50 text-green-600 rounded-full hover:bg-green-100 transition-colors">
+                            <img src="https://orcid.org/favicon.ico" alt="ORCID" class="w-4 h-4 mr-2">
+                            ORCID
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=2Oz3TEsAAAAJ&hl=en" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
+                            <img src="https://scholar.google.com/favicon.ico" alt="Google Scholar" class="w-4 h-4 mr-2">
+                            Google Scholar
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Tazid-Ali" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
+                            <img src="https://www.researchgate.net/favicon.ico" alt="ResearchGate" class="w-4 h-4 mr-2">
+                            ResearchGate
+                        </a>
                     </div>
 
+                    <!-- Publications Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800">13 Research Publications</h3>
+                            <p class="text-blue-600">Peer-reviewed articles and papers</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-green-800">2 Conference/Seminar Papers</h3>
+                            <p class="text-green-600">Academic presentations</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        
-    </section>
+        </section>
 
+        <!-- Expertise Section -->
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-[#1a365d] mb-6 flex gap-2">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 14V22H4C4 17.5817 7.58172 14 12 14ZM18 21.5L15.0611 23.0451L15.6224 19.7725L13.2447 17.4549L16.5305 16.9775L18 14L19.4695 16.9775L22.7553 17.4549L20.3776 19.7725L20.9389 23.0451L18 21.5ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>Expertise</h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-[#1a365d] mb-2">Mathematics</h3>
+                    <div class="flex items-center text-green-600">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>Fuzzy Mathematics, Mathematics in Genetics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Qualifications -->
+        <section class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-[#1a365d] mb-6 flex gap-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="flex-shrink-0 mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"></path></svg>Educational Qualifications</h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-[#1a365d]">Ph.D. (Fuzzy Mathematics)</h3>
+                    <p class="text-gray-600">Dibrugarh University</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be included from components -->
     <footer class="bg-slate-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
@@ -327,15 +343,15 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Social</h3>
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 ">
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-4"> Weather</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 ">
                         <!-- Current Weather -->
                         <div class="flex items-center justify-between mb-4">
                             <div>
@@ -361,14 +377,14 @@
                     </div>
                 </div>
          </div>
-            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
+            <div class="border-t border-slate-700 mt-16 pt-8 text-center relative">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
+         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
 
@@ -385,9 +401,9 @@
                 content.classList.toggle('hidden');
             });
         });
-
+       
         
     </script>
-    <script src="script.js"></script>
+     <script src="script.js"></script>
 </body>
 </html>
