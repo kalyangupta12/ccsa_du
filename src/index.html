@@ -718,15 +718,14 @@
         });
 
         // Initialize map
-        const map = L.map('map').setView([27.4728, 94.9120], 15); // Coordinates for Dibrugarh University
-
+        const map = L.map('map').setView([27.4495, 94.8979],15);
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
         // Add marker for the university
-        L.marker([27.4728, 94.9120])
+        L.marker([27.4495 , 94.8979 ])
             .addTo(map)
             .bindPopup('Dibrugarh University')
             .openPopup();
