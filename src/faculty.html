@@ -28,6 +28,44 @@
                 background-color: #1e3a6d;
             }
         }
+
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .nested-menu {
+            left: 100%;
+            top: 0;
+            margin-left: 1px;
+            margin-top: 0;
+        }
+
+        /* Add arrow indication for items with submenus */
+        .has-submenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .dropdown-menu a {
+            transition: all 0.2s ease;
+        }
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: block;
+            width: 100%;
+            text-align: left;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -99,15 +137,24 @@
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
-                    <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
-                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="nav-item relative inline-block">
+                        <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
                         <div class="dropdown-menu">
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
-                        </div>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    Graduate
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">Undergraduate</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">Post-Graduate</a>
+                                </div>
+                            </div>
+                     <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a> 
                     </div>
+                 </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
