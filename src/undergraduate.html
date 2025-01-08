@@ -24,18 +24,44 @@
         }
 
         .card-hover {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
 
         .card-hover:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
         .bg-pattern {
             background-color: #ffffff;
             background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
             background-repeat: repeat;
+            position: relative;
+        }
 
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
+            pointer-events: none;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -44,6 +70,32 @@
                 box-shadow: none;
                 background-color: #1e3a6d;
             }
+            #mobileMenu {
+                background-color: rgba(26, 54, 93, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 0 0 1rem 1rem;
+            }
+        }
+         h2 {
+            background: linear-gradient(45deg, #1a365d, #2d4a7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Enhanced content container */
+        .content-container {
+            background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .content-container:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
@@ -207,62 +259,44 @@
             </div>
         </div>
     </nav>
-    <section class="py-16 px-8">
-        <div class="container mx-auto p-6">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-              <h1 class="text-3xl font-bold mb-4">Bachelor of Computer Applications (BCA) Degree</h1>
-              
-              <h2 class="text-2xl font-semibold mb-3">Curriculum</h2>
-              <p class="mb-4">The BCA curriculum includes a mix of theoretical and practical subjects related to computer science. Common subjects include:</p>
-              <ul class="list-disc list-inside mb-4">
-                <li>Programming Languages: Courses on languages like C, C++, Java, Python, and more.</li>
-                <li>Data Structures and Algorithms: Understanding how to organize and manipulate data efficiently.</li>
-                <li>Database Management Systems (DBMS): Learning about databases, SQL, and data retrieval.</li>
-                <li>Web Development: Designing and developing websites using HTML, CSS, JavaScript, and frameworks.</li>
-                <li>Operating Systems: Understanding how operating systems work and managing computer resources.</li>
-                <li>Software Engineering: Principles and practices of software development and project management.</li>
-                <li>Computer Networks: Basics of networking, protocols, and communication between systems.</li>
-                <li>Mathematics: Courses on discrete mathematics, linear algebra, and calculus relevant to computer science.</li>
-                <li>Elective Subjects: Specialization options like artificial intelligence, cybersecurity, cloud computing, etc.</li>
-              </ul>
-              
-              <h2 class="text-2xl font-semibold mb-3">Skills Gained</h2>
-              <p class="mb-4">Students graduating with a BCA degree typically acquire the following skills:</p>
-              <ul class="list-disc list-inside mb-4">
-                <li>Programming and Coding: Proficiency in various programming languages and coding practices.</li>
-                <li>Problem-Solving: Ability to analyze problems and develop effective solutions using computational methods.</li>
-                <li>Software Development: Knowledge of software development life cycles, tools, and methodologies.</li>
-                <li>Database Management: Skills in designing, managing, and querying databases.</li>
-                <li>Web and Mobile Development: Creating responsive and dynamic web applications and mobile apps.</li>
-                <li>Networking: Understanding of network configurations, protocols, and security.</li>
-                <li>Project Management: Managing software projects from inception to delivery.</li>
-              </ul>
-              
-              <h2 class="text-2xl font-semibold mb-3">Career Opportunities</h2>
-              <p class="mb-4">A BCA degree opens up various career paths in the IT industry. Some common job roles for BCA graduates include:</p>
-              <ul class="list-disc list-inside mb-4">
-                <li>Software Developer: Building and maintaining software applications.</li>
-                <li>Web Developer: Designing and developing websites and web applications.</li>
-                <li>Database Administrator: Managing and optimizing databases.</li>
-                <li>System Analyst: Analyzing and improving computer systems and processes.</li>
-                <li>Network Administrator: Setting up and maintaining computer networks.</li>
-                <li>IT Support Specialist: Providing technical support and troubleshooting.</li>
-                <li>App Developer: Developing mobile applications for Android and iOS platforms.</li>
-              </ul>
-              
-              <h2 class="text-2xl font-semibold mb-3">Further Studies</h2>
-              <p class="mb-4">Many BCA graduates choose to pursue further studies to enhance their knowledge and career prospects. Common options include:</p>
-              <ul class="list-disc list-inside mb-4">
-                <li>Master of Computer Applications (MCA): A postgraduate degree that provides advanced knowledge in computer science and applications.</li>
-                <li>Master of Business Administration (MBA): Specializing in IT management or other areas to combine technical and managerial skills.</li>
-                <li>Certification Courses: Specialized certifications in areas like cloud computing, cybersecurity, data science, etc.</li>
-              </ul>
-              
-              <h2 class="text-2xl font-semibold mb-3">Conclusion</h2>
-              <p class="mb-4">A BCA degree is a solid foundation for a career in the IT industry. It equips students with essential technical skills, problem-solving abilities, and practical experience needed to excel in various roles. Whether entering the workforce directly or pursuing further studies, BCA graduates have a wide range of opportunities to explore and succeed in the dynamic field of computer science.</p>
-              
+    <section class="py-16 px-4 bg-pattern">
+        <div class="container mx-auto">
+            <div class="content-container p-6 md:p-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Bachelor of Computer Applications (BCA) Degree</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
+                    <h2 class="text-2xl font-semibold mb-4">About</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">A Three (03) Year Degree Program including Six (06) Semester. Selection procedure for BCA program is on Merit Basis.</p>
+                        <p class="mb-4 text-gray-700 leading-relaxed"> A BCA degree is a solid foundation for a career in the IT industry. It equips students with essential technical skills, problem-solving abilities, and practical experience needed to excel in various roles. Whether entering the workforce directly or pursuing further studies, BCA graduates have a wide range of opportunities to explore and succeed in the dynamic field of computer science.</p>
+                    
+                </div>
+
+                <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
+                    <h2 class="text-2xl font-semibold mb-4">Eligibility Criteria</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">Passed Higher Secondary (10+2) examination securing minimum of 45% marks in aggregate and passing Mathematics/ Commercial Arithmetic /Statistics as one of the subjects. Relaxation of 5% marks will be given to the candidates of reserved categories.</p>
+
+                    <h2 class="text-2xl font-semibold mb-4">Intake Capacity</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">60 (6 Endowments)</p> 
+                </div>
+
+                
+                    <div class="card-hover bg-white  rounded-lg shadow-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-4">Curriculum</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">The BCA curriculum includes a comprehensive mix of theoretical and practical subjects related to computer science. Our program covers:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Programming Languages (C, C++, Java, Python)</li>
+                            <li>Data Structures and Algorithms</li>
+                            <li>Database Management Systems</li>
+                            <li>Web Development</li>
+                            <li>Operating Systems</li>
+                            <li>Software Engineering</li>
+                        </ul>
+                    </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
     </section>
     <footer class="bg-slate-900 text-white py-12">
         <div class="container mx-auto px-4">
