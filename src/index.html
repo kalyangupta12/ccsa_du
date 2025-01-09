@@ -1000,7 +1000,63 @@
             }
         }
     });
+    
     </script>
+    <script>
+        let currentSlide = 0;
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const slideCount = slides.length;
+        let slideInterval;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }
+        
+        function createDots() {
+            const navDiv = document.createElement('div');
+            navDiv.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10';
+            
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
+                dot.onclick = () => {
+                    currentSlide = index;
+                    updateSlider();
+                    resetInterval();
+                };
+                navDiv.appendChild(dot);
+            });
+            
+            slider.parentElement.appendChild(navDiv);
+        }
+        
+        function updateDots() {
+            const dots = document.querySelectorAll('.rounded-full');
+            dots.forEach((dot, index) => {
+                dot.className = `w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
+                }`;
+            });
+        }
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        createDots();
+        resetInterval();
+        
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', resetInterval);
+        </script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
      <script>
