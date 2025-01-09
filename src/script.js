@@ -1,72 +1,18 @@
-const WEATHER_UPDATE_INTERVAL = 900000; // 15 minutes
-const LOADING_STATE = {
-    temp: '--',
-    icon: '--',
-    time: '--:--'
-};
+let currentSlide = 0;
 
 function getWeatherIcon(temp) {
-    if (temp > 30) return '🌞';
     if (temp > 25) return '☀️';
-    if (temp > 20) return '⛅';
-    if (temp > 15) return '☁️';
-    if (temp > 10) return '🌧️';
-    return '⛈️';
-}
-
-function showLoadingState() {
-    const widget = document.querySelector('.weather-widget');
-    if (widget) {
-        widget.classList.remove('loaded');
-    }
-    
-    document.getElementById('current-temp').textContent = LOADING_STATE.temp;
-    document.getElementById('current-icon').textContent = LOADING_STATE.icon;
-    document.getElementById('current-time').textContent = LOADING_STATE.time;
-    
-    const hourlyForecast = document.getElementById('hourly-forecast');
-    hourlyForecast.innerHTML = Array(4).fill(null).map(() => `
-        <div class="forecast-slot loading-placeholder">
-            <span class="text-xs">--:--</span>
-            <span class="text-lg">--</span>
-            <span class="text-xs">--°C</span>
-        </div>
-    `).join('');
-}
-
-function createForecastSlot(time, temp) {
-    return `
-        <div class="forecast-slot">
-            <span class="text-xs">${time}</span>
-            <span class="text-lg">${getWeatherIcon(temp)}</span>
-            <span class="text-xs">${Math.round(temp)}°C</span>
-        </div>
-    `;
+    if (temp > 15) return '⛅';
+    return '🌧️';
 }
 
 async function fetchWeatherData() {
-    showLoadingState();
-    
     try {
-        const response = await fetch(
-            'https://api.open-meteo.com/v1/forecast?latitude=27.4745&longitude=94.9110&current_weather=true&hourly=temperature_2m&timezone=Asia/Kolkata&forecast_days=1'
-        );
-        
-        if (!response.ok) {
-            throw new Error('Weather data fetch failed');
-        }
-        
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=27.4745&longitude=94.9110&current_weather=true&hourly=temperature_2m&daily=temperature_2m_max&timezone=Asia/Kolkata&forecast_days=5');
         const data = await response.json();
         updateWeatherDisplay(data);
-        
-        const widget = document.querySelector('.weather-widget');
-        if (widget) {
-            widget.classList.add('loaded');
-            widget.classList.remove('error');
-        }
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        showErrorState();
     }
 }
 
@@ -74,47 +20,62 @@ function updateWeatherDisplay(data) {
     // Current weather
     const currentTemp = Math.round(data.current_weather.temperature);
     document.getElementById('current-temp').textContent = `${currentTemp}°C`;
-    document.getElementById('current-icon').textContent = getWeatherIcon(currentTemp);
-    document.getElementById('current-time').textContent = new Date().toLocaleTimeString('en-US', {
-        hour: 'numeric',
+    document.getElementById('current-time').textContent = new Date().toLocaleString('en-US', { 
+        hour: 'numeric', 
         minute: 'numeric',
-        hour12: true
+        hour12: true 
     });
+    document.getElementById('current-icon').textContent = getWeatherIcon(currentTemp);
 
     // Hourly forecast
     const hourlyForecast = document.getElementById('hourly-forecast');
-    const currentHour = new Date().getHours();
-    
-    hourlyForecast.innerHTML = data.hourly.temperature_2m
-        .slice(currentHour + 1, currentHour + 5)
-        .map((temp, index) => {
-            const forecastTime = new Date();
-            forecastTime.setHours(currentHour + index + 1);
-            const timeString = forecastTime.toLocaleTimeString('en-US', {
-                hour: 'numeric',
-                hour12: true
-            });
-            return createForecastSlot(timeString, temp);
-        })
-        .join('');
-}
-
-function showErrorState() {
-    const widget = document.querySelector('.weather-widget');
-    if (widget) {
-        widget.classList.add('loaded', 'error');
+    hourlyForecast.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const temp = Math.round(data.hourly.temperature_2m[i]);
+        const time = new Date(data.hourly.time[i]).toLocaleTimeString('en-US', { hour: 'numeric', hour12: true });
+        hourlyForecast.innerHTML += `
+            <div class="forecast-item">
+                <p>${temp}°C</p>
+                <div class="weather-icon">${getWeatherIcon(temp)}</div>
+                <p>${time}</p>
+            </div>
+        `;
     }
-    document.getElementById('current-temp').textContent = 'Error';
-    document.getElementById('current-icon').textContent = '⚠️';
+
+    // Daily forecast
+    const dailyForecast = document.getElementById('daily-forecast');
+    dailyForecast.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const temp = Math.round(data.daily.temperature_2m_max[i]);
+        const day = new Date(data.daily.time[i]).toLocaleDateString('en-US', { weekday: 'short' });
+        dailyForecast.innerHTML += `
+            <div class="forecast-item">
+                <p>${temp}°C</p>
+                <div class="weather-icon">${getWeatherIcon(temp)}</div>
+                <p>${day}</p>
+            </div>
+        `;
+    }
 }
 
-// Initialize weather widget
-document.addEventListener('DOMContentLoaded', () => {
-    fetchWeatherData();
-    setInterval(fetchWeatherData, WEATHER_UPDATE_INTERVAL);
-});
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initWeatherWidget);
+// Initial fetch
+fetchWeatherData();
+
+// Refresh weather data every 15 minutes
+setInterval(fetchWeatherData, 900000);
+
+// Auto-slider
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % 3;
+    const forecasts = [
+        document.getElementById('hourly-forecast'),
+        document.getElementById('daily-forecast')
+    ];
+    forecasts.forEach((forecast, index) => {
+        forecast.style.display = currentSlide === index ? 'flex' : 'none';
+    });
+}, 10000);
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Handle main dropdown items
