@@ -418,8 +418,7 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
-                                Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -435,33 +434,31 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4">
-                        <!-- Current Weather -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span id="current-icon" class="text-3xl mr-2">--</span>
-                                <span id="current-temp" class="text-2xl">--°C</span>
+                    <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                        <!-- Current Weather - Fixed Height -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                                <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
+                            <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Slider -->
-                        <div class="relative overflow-hidden">
-                            <!-- Hourly Forecast -->
-                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
-                                <!-- Will be populated by JS -->
-                            </div>
-                            
-                            <!-- Daily Forecast -->
-                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
-                                <!-- Will be populated by JS -->
+                        <!-- Weather Forecast - Fixed Height Container -->
+                        <div class="h-24 overflow-hidden my-2">
+                            <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                                <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
-                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                            <span class="text-xs text-slate-400">Live Updates</span>
+                        </div>
                     </div>
                 </div>
-         </div>
+            </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>

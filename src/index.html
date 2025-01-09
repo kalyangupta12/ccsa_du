@@ -715,21 +715,20 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
-                        <li><a href="#programs" class="hover:text-[#fbbf24]">Programs</a></li>
+                        <li><a href="index.html#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
+                        <li><a href="index.html#programs" class="hover:text-[#fbbf24]">Programs</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Research</a></li>
-                        <li><a href="#contact" class="hover:text-[#fbbf24]">Contact</a></li>
+                        <li><a href="index.html#contact" class="hover:text-[#fbbf24]">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
-                                Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -738,60 +737,39 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Social</h3>
-                    <div class="flex space-x-4 ">
+                    <div class="flex space-x-4">
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="max-w-md mx-auto">
-                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4">
-                        <!-- Current Weather -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span id="current-icon" class="text-3xl mr-2">☀️</span>
-                                <span id="current-temp" class="text-2xl">25°C</span>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                        <!-- Current Weather - Fixed Height -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                                <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">12:45 PM</span>
+                            <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Section -->
-                        <div class="relative overflow-hidden">
-                            <!-- Hourly Forecast -->
-                            <div 
-                                id="hourly-forecast" 
-                                class="flex space-x-4 text-center text-sm mb-2 overflow-x-auto scrollbar-hide h-20">
-                                <!-- Example Hourly Forecast -->
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>1 PM</span>
-                                    <span>☀️</span>
-                                    <span>26°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>2 PM</span>
-                                    <span>🌤️</span>
-                                    <span>27°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>3 PM</span>
-                                    <span>☁️</span>
-                                    <span>24°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>4 PM</span>
-                                    <span>🌦️</span>
-                                    <span>23°C</span>
-                                </div>
+                        <!-- Weather Forecast - Fixed Height Container -->
+                        <div class="h-24 overflow-hidden my-2">
+                            <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                                <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
                         
-                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                            <span class="text-xs text-slate-400">Live Updates</span>
+                        </div>
                     </div>
                 </div>
-                
             </div>
-            <div class="border-t border-slate-700 mt-16 pt-8 text-center relative">
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
         </div>
