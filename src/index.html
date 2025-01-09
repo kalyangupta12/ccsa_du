@@ -638,7 +638,7 @@
     <!-- Faculty Section -->
     <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-[#1a365d] mb-12">Message from The Chairperson</h2>
+            <div class="text-3xl font-bold text-center text-[#1a365d] mb-12">Message from The Chairperson</div>
             
             <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                 <div class="flex flex-col lg:flex-row">
@@ -712,7 +712,7 @@
 <section class="py-16 bg-white relative">
     <div class="absolute inset-0 z-0 bg-pattern opacity-5"></div>
     <div class="container mx-auto px-4 relative z-10">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</h2>
+        <div class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</div>
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Research Excellence -->
             <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
@@ -988,15 +988,26 @@
     </script>
     <script>
         new Swiper(".noticeSwiper", {
-            direction: "vertical",
-            slidesPerView: 3,
-            spaceBetween: 1,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
+        direction: "vertical",
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            // when window width is <= 768px
+            768: {
+                slidesPerView: 1,
+                spaceBetween:20
             },
-        });
+            // when window width is > 768px
+            769: {
+                slidesPerView: 3,
+            }
+        }
+    });
     </script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
