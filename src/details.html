@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
@@ -158,6 +159,35 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
+    /* Achievement Cards Enhancement */
+.bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive adjustments for achievement cards */
+@media (max-width: 768px) {
+    .achievement-card {
+        margin-bottom: 2rem;
+    }
+    
+    .achievement-icon {
+        font-size: 3rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -178,7 +208,7 @@
                     </a>
                 </div>
 
-                <!-- Social Media Links -->
+                <!-- Placement Links -->
                 <div class="hidden lg:flex items-center w-16 space-x-4 font-semibold relative">
                     <a href="https://placeccsa.wordpress.com/" class="hover:text-[#fbbf24] group relative">
                         <div class="transition duration-300 ease-in-out group-hover:opacity-0 whitespace-nowrap">
@@ -244,7 +274,7 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="ChairPerson.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
@@ -256,8 +286,53 @@
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                         </div>
                     </div>
+                    <div class="nav-item relative inline-block">
+                        <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
+                            Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    BCA
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="FeeStructureCCSA.pdf" class="dropdown-item text-[#1a365d]">BCA Fees Structure</a>
+                                    <a href="../downloads/BCASyllabus.pdf" download="BCASyllabus.pdf" class="dropdown-item text-[#1a365d]">BCA Syllabus</a>
+                                </div>
+                            </div>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    MCA
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="FeeStructureCCSA" class="dropdown-item text-[#1a365d]">MCA Fees Structure</a>
+                                    <a href="../downloads/MCA.pdf" download="MCA.pdf" class="dropdown-item text-[#1a365d]">MCA Syllabus</a>
+                                </div>
+                            </div>
+                                <a href="../downloads/BOM committee.pdf" download="BOM committee.pdf" class="dropdown-item text-[#1a365d]">
+                                    Bcom
+                                </a>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    EOA Reports
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/EOA/1735024829_EOA_Report_2024_2025.pdf" download="1735024829_EOA_Report_2024_2025.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2024</a>
+                                    <a href="../downloads/EOA/1735024819_EOA_Report__2023_24.pdf" download="1735024819_EOA_Report__2023_24.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2023</a>
+                                    <a href="../downloads/EOA/1735024796_EOA_Report_2022_23.pdf" download="1735024796_EOA_Report_2022_23.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2022</a>
+                                    <a href="../downloads/EOA/1735024782_EOA_Report_21_22.pdf" download="1735024782_EOA_Report_21_22.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2021</a>
+                                    <a href="../downloads/EOA/1735024766_EOA_Report_2020_21.pdf" download="1735024766_EOA_Report_2020_21.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2020</a>
+                                    <a href="../downloads/EOA/1735024754_EOA_Report_2019_20.pdf" download="1735024754_EOA_Report_2019_20.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2019</a>
+                                    <a href="../downloads/EOA/1735024721_EOA_Report_2018_19.pdf" download="1735024721_EOA_Report_2018_19.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2018</a>                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -296,7 +371,7 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
                             <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
                         </div>
@@ -308,6 +383,50 @@
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
+                        </div>
+                    </div>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Downloads
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    BCA
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="u../downloads/BCASyllabus.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus</a>
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="MCA.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Fees Structure</a>
+                                </div>
+                            </div>
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    MCA
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="../downloads/MCA.pdf" download="FeeStructureCCSA" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus</a>
+                                    <a href="../downloads/FeeStructureCCSA.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Fees Structure</a>
+                                </div>
+                            </div>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Bcom</a>
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    EOA Reports
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="../downloads/EOA/1735024829_EOA_Report_2024_2025.pdf" download="1735024829_EOA_Report_2024_2025.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2024</a>
+                                    <a href="../downloads/EOA/1735024819_EOA_Report__2023_24.pdf" download="1735024819_EOA_Report__2023_24.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2023</a>
+                                    <a href="../downloads/EOA/1735024796_EOA_Report_2022_23.pdf" download="1735024796_EOA_Report_2022_23.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2022</a>
+                                    <a href="../downloads/EOA/1735024782_EOA_Report_21_22.pdf" download="1735024782_EOA_Report_21_22.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2021</a>
+                                    <a href="../downloads/EOA/1735024766_EOA_Report_2020_21.pdf" download="1735024766_EOA_Report_2020_21.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2020</a>
+                                    <a href="../downloads/EOA/1735024754_EOA_Report_2019_20.pdf" download="1735024754_EOA_Report_2019_20.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2019</a>
+                                    <a href="../downloads/EOA/1735024721_EOA_Report_2018_19.pdf" download="1735024721_EOA_Report_2018_19.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2018</a>                                            
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <a href="index.html#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
@@ -619,16 +738,16 @@
                     <h4 class="font-semibold text-[#1a365d]">Expert Faculty</h4>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg text-center">
-                    <i class="fas fa-flask text-[#fbbf24] text-2xl mb-2"></i>
+                    <i class=" fas fa-flask text-[#fbbf24] text-2xl mb-2"></i>
                     <h4 class="font-semibold text-[#1a365d]">Modern Labs</h4>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg text-center">
-                    <i class="fas fa-graduation-cap text-[#fbbf24] text-2xl mb-2"></i>
-                    <h4 class="font-semibold text-[#1a365d]">100% Placement</h4>
+                    <i class="fas fa-wifi text-[#fbbf24] text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-[#1a365d]">Internet (LAN and wifi)</h4>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg text-center">
                     <i class="fas fa-book-open text-[#fbbf24] text-2xl mb-2"></i>
-                    <h4 class="font-semibold text-[#1a365d]">Digital Library</h4>
+                    <h4 class="font-semibold text-[#1a365d]">Library cum conference room</h4>
                 </div>
             </div>
         </div>
@@ -637,7 +756,7 @@
     <!-- Faculty Section -->
     <section class="py-16 bg-slate-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-[#1a365d] mb-12">Message from The Chairperson</h2>
+            <div class="text-3xl font-bold text-center text-[#1a365d] mb-12">Message from The Chairperson</div>
             
             <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                 <div class="flex flex-col lg:flex-row">
@@ -711,7 +830,7 @@
 <section class="py-16 bg-white relative">
     <div class="absolute inset-0 z-0 bg-pattern opacity-5"></div>
     <div class="container mx-auto px-4 relative z-10">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</h2>
+        <div class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</div>
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Research Excellence -->
             <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
@@ -787,50 +906,14 @@
         </div>
     </div>
 </section>
-    
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Latest News</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 15, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">New Research Grant Awarded</h3>
-                        <p class="text-slate-600">Department receives $2M grant for AI research in healthcare
-                            applications.</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 10, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">Student Achievement</h3>
-                        <p class="text-slate-600">CS students win first place in national programming competition.</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 5, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">Industry Partnership</h3>
-                        <p class="text-slate-600">New collaboration with leading tech companies for internship programs.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+                    
+                    <h1 class="text-3xl font-bold mb-6">Contact Us</h1>
                     <p class="mb-8"> Reach out to us using the contact information below.</p>
                     <div class="space-y-6">
                         <!-- CCSA Address -->
@@ -909,8 +992,7 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
-                                Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -926,33 +1008,31 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4">
-                        <!-- Current Weather -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span id="current-icon" class="text-3xl mr-2">--</span>
-                                <span id="current-temp" class="text-2xl">--°C</span>
+                    <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                        <!-- Current Weather - Fixed Height -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                                <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
+                            <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Slider -->
-                        <div class="relative overflow-hidden">
-                            <!-- Hourly Forecast -->
-                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
-                                <!-- Will be populated by JS -->
-                            </div>
-                            
-                            <!-- Daily Forecast -->
-                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
-                                <!-- Will be populated by JS -->
+                        <!-- Weather Forecast - Fixed Height Container -->
+                        <div class="h-24 overflow-hidden my-2">
+                            <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                                <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
-                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                            <span class="text-xs text-slate-400">Live Updates</span>
+                        </div>
                     </div>
                 </div>
-         </div>
+            </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
@@ -988,18 +1068,87 @@
             }
         });
     </script>
-     <script>
+    <script>
         new Swiper(".noticeSwiper", {
-            direction: "vertical",
-            slidesPerView: 3,
-            spaceBetween: 1,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
+        direction: "vertical",
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            // when window width is <= 768px
+            768: {
+                slidesPerView: 1,
+                spaceBetween:20
             },
-        });
+            // when window width is > 768px
+            769: {
+                slidesPerView: 3,
+            }
+        }
+    });
+    
     </script>
+    <script>
+        let currentSlide = 0;
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const slideCount = slides.length;
+        let slideInterval;
+        
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }
+        
+        function createDots() {
+            const navDiv = document.createElement('div');
+            navDiv.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10';
+            
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
+                dot.onclick = () => {
+                    currentSlide = index;
+                    updateSlider();
+                    resetInterval();
+                };
+                navDiv.appendChild(dot);
+            });
+            
+            slider.parentElement.appendChild(navDiv);
+        }
+        
+        function updateDots() {
+            const dots = document.querySelectorAll('.rounded-full');
+            dots.forEach((dot, index) => {
+                dot.className = `w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
+                }`;
+            });
+        }
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        createDots();
+        resetInterval();
+        
+        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseleave', resetInterval);
+        </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
      <script>
 
         // Mobile menu toggle
@@ -1043,8 +1192,6 @@
             mirror: false // Whether elements should animate out while scrolling past them
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

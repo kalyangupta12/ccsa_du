@@ -114,8 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(fetchWeatherData, WEATHER_UPDATE_INTERVAL);
 });
 
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dropdown menus to be hidden
+    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        menu.classList.add('hidden');
+        menu.style.opacity = '0';
+        menu.style.transform = 'translateY(10px)';
+    });
+    
     // Handle main dropdown items
     document.querySelectorAll('.nav-item.relative').forEach(function(dropdown) {
         // Show dropdown on mouse enter
