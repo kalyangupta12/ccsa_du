@@ -108,6 +108,35 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
+    /* Achievement Cards Enhancement */
+.bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive adjustments for achievement cards */
+@media (max-width: 768px) {
+    .achievement-card {
+        margin-bottom: 2rem;
+    }
+    
+    .achievement-icon {
+        font-size: 3rem;
+    }
+}
     </style>
 </head>
 
@@ -380,36 +409,80 @@
         </div>
     </section>
     <!-- Programs Section -->
-    <section class="pt-8 pb-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Programs</h2>
+    <section class="pt-8 pb-16 bg-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 bg-pattern"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-[#1a365d] mb-4">Our Academic Programs</h2>
+                <p class="text-slate-600">Empowering Students through comprehensive computer science education and research opportunities</p>
+            </div>
+    
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <div class="text-[#fbbf24] mb-4">
-                        <i class="fas fa-laptop-code text-3xl"></i>
+                <!-- BCA Card -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="bg-gradient-to-br from-[#1a365d] to-[#2563eb] w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-3xl text-[#fbbf24]"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Bachelor of Computer Applications</h3>
-                    <p class="text-slate-600 mb-4">A comprehensive program covering fundamental and advanced computer
-                        science concepts.</p>
-                    <a href="undergraduate.html" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
+                    <h3 class="text-2xl font-bold mb-4 text-[#1a365d]">Bachelor of Computer Applications</h3>
+                    <div class="space-y-4 mb-6">
+                        <p class="text-slate-600">A comprehensive program covering fundamental and advanced computer science concepts.</p>
+                    </div>
+                    <a href="undergraduate.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-[#1a365d] text-white hover:bg-[#234681] transition-colors">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <div class="text-[#fbbf24] mb-4">
-                        <i class="fas fa-database text-3xl"></i>
+    
+                <!-- MCA Card -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="bg-gradient-to-br from-[#1a365d] to-[#2563eb] w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-3xl text-[#fbbf24]"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Master of Computer Applications</h3>
-                    <p class="text-slate-600 mb-4">Advanced studies in specialized areas of computer science and
-                        research.</p>
-                    <a href="postgraduate.html" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
+                    <h3 class="text-2xl font-bold mb-4 text-[#1a365d]">Master of Computer Applications</h3>
+                    <div class="space-y-4 mb-6">
+                        <p class="text-slate-600">Advanced studies in specialized areas of computer science and research.</p>
+                    </div>
+                    <a href="postgraduate.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-[#1a365d] text-white hover:bg-[#234681] transition-colors">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <div class="text-[#fbbf24] mb-4">
-                        <i class="fas fa-microscope text-3xl"></i>
+    
+                <!-- PhD Card -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="bg-gradient-to-br from-[#1a365d] to-[#2563eb] w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-microscope text-3xl text-[#fbbf24]"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">PhD in Computer Science</h3>
-                    <p class="text-slate-600 mb-4">Research-focused doctoral studies in cutting-edge computer science
-                        fields.</p>
-                    <a href="graduate.html" class="text-[#1a365d] font-semibold hover:text-[#fbbf24]">Learn more →</a>
+                    <h3 class="text-2xl font-bold mb-4 text-[#1a365d]">PhD in Computer Science</h3>
+                    <div class="space-y-4 mb-6">
+                        <p class="text-slate-600">Research-focused doctoral studies in cutting-edge computer science fields.</p>
+                    </div>
+                    <a href="graduate.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-[#1a365d] text-white hover:bg-[#234681] transition-colors">
+                        Learn More 
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Additional Program Features -->
+            <div class="grid md:grid-cols-4 gap-6 mt-12">
+                <div class="bg-slate-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-users text-[#fbbf24] text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-[#1a365d]">Expert Faculty</h4>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-flask text-[#fbbf24] text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-[#1a365d]">Modern Labs</h4>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-graduation-cap text-[#fbbf24] text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-[#1a365d]">100% Placement</h4>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-book-open text-[#fbbf24] text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-[#1a365d]">Digital Library</h4>
                 </div>
             </div>
         </div>
@@ -487,43 +560,87 @@
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Latest News</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 15, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">New Research Grant Awarded</h3>
-                        <p class="text-slate-600">Department receives $2M grant for AI research in healthcare
-                            applications.</p>
-                    </div>
+    
+    <!-- Achievements Section -->
+<section class="py-16 bg-white relative">
+    <div class="absolute inset-0 z-0 bg-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Research Excellence -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                    <i class="fas fa-award text-6xl text-[#fbbf24]"></i>
                 </div>
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 10, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">Student Achievement</h3>
-                        <p class="text-slate-600">CS students win first place in national programming competition.</p>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Research</span>
+                        <span class="text-sm text-slate-500">2023-2024</span>
                     </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Research Excellence</h3>
+                    <ul class="text-slate-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>50+ Research Papers Published in International Journals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>₹2 Crore Research Grants Received</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=800"
-                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
-                    <div class="p-6">
-                        <p class="text-sm text-slate-500 mb-2">March 5, 2024</p>
-                        <h3 class="text-xl font-semibold mb-4">Industry Partnership</h3>
-                        <p class="text-slate-600">New collaboration with leading tech companies for internship programs.
-                        </p>
+            </div>
+
+            <!-- Academic Excellence -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                    <i class="fas fa-graduation-cap text-6xl text-[#fbbf24]"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Academic</span>
+                        <span class="text-sm text-slate-500">2023-2024</span>
                     </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Academic Excellence</h3>
+                    <ul class="text-slate-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>100% Placement Rate for MCA Students</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>15 Gold Medalists in Last 5 Years</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Industry Collaboration -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                    <i class="fas fa-handshake text-6xl text-[#fbbf24]"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Industry</span>
+                        <span class="text-sm text-slate-500">2023-2024</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Industry Collaboration</h3>
+                    <ul class="text-slate-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>20+ Industry Partners for Training & Placement</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>5 Industry-Sponsored Labs Established</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-[#1a365d] text-white">
