@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCSA_DU</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
+        html{
+            scroll-behavior:smooth;
         }
-
-        .dropdown-menu {
+       .dropdown-menu {
             display: none;
             position: absolute;
             background-color: white;
@@ -30,18 +27,44 @@
         }
 
         .card-hover {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
 
         .card-hover:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
         .bg-pattern {
             background-color: #ffffff;
             background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
             background-repeat: repeat;
+            position: relative;
+        }
 
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
+            pointer-events: none;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -50,7 +73,34 @@
                 box-shadow: none;
                 background-color: #1e3a6d;
             }
+            #mobileMenu {
+                background-color: rgba(26, 54, 93, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 0 0 1rem 1rem;
+            }
         }
+         h2 {
+            background: linear-gradient(45deg, #1a365d, #2d4a7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Enhanced content container */
+        .content-container {
+            background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .content-container:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
         .nested-dropdown {
             position: relative;
         }
@@ -79,7 +129,7 @@
         }
 
         .dropdown-menu a {
-            transition: all 5s ease;
+            transition: all 0.2s ease;
         }
         .dropdown-item {
             padding: 0.75rem 1rem;
@@ -108,39 +158,9 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
-
-    /* Achievement Cards Enhancement */
-.bg-gradient-to-br {
-    background-size: 200% 200%;
-    animation: gradientAnimation 5s ease infinite;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Responsive adjustments for achievement cards */
-@media (max-width: 768px) {
-    .achievement-card {
-        margin-bottom: 2rem;
-    }
-    
-    .achievement-icon {
-        font-size: 3rem;
-    }
-}
     </style>
 </head>
-
-<body class="bg-slate-50">
+<body>
     <header class="bg-teal-700 text-white">
         <!-- Main Header Container -->
         <div class="container mx-auto lg:px-10">
@@ -181,18 +201,18 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-14">
+                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-12">
                     <div>
-                        <h1 class="text-xl font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-lg text-slate-300"> Dibrugarh University </p>
+                        <h1 class="text-lg font-semibold">Center for Computer Science And Applications</h1>
+                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Home</a>
+                        <a href="index.html" class="hover:text-[#fbbf24] py-2">Home</a>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
+                        <a href="index.html#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
                     <div class="nav-item relative inline-block">
                         <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
@@ -209,8 +229,8 @@
                                     <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">MCA</a>
                                 </div>
                             </div>
-                     <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a> 
-                    </div>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
+                          </div>
                  </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
@@ -224,7 +244,7 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="ChairPerson.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
@@ -237,7 +257,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="#" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -276,7 +296,7 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
                             <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
                         </div>
@@ -290,13 +310,12 @@
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
                         </div>
                     </div>
-                    <a href="#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                    <a href="index.html#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
                     <!-- ... Similar structure for other mobile menu items ... -->
                 </div>
             </div>
         </div>
     </nav>
-    <!-- Hero Section -->
     <section class="relative bg-[#1a365d] text-white">
         <div class="h-64 sm:h-[70vh] relative overflow-hidden">
             <!-- Fixed Text Overlay -->
@@ -641,6 +660,43 @@
         </div>
     </div>
 </section>
+    
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Latest News</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <p class="text-sm text-slate-500 mb-2">March 15, 2024</p>
+                        <h3 class="text-xl font-semibold mb-4">New Research Grant Awarded</h3>
+                        <p class="text-slate-600">Department receives $2M grant for AI research in healthcare
+                            applications.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <p class="text-sm text-slate-500 mb-2">March 10, 2024</p>
+                        <h3 class="text-xl font-semibold mb-4">Student Achievement</h3>
+                        <p class="text-slate-600">CS students win first place in national programming competition.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <img src="https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&w=800"
+                        alt="News" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <p class="text-sm text-slate-500 mb-2">March 5, 2024</p>
+                        <h3 class="text-xl font-semibold mb-4">Industry Partnership</h3>
+                        <p class="text-slate-600">New collaboration with leading tech companies for internship programs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-[#1a365d] text-white">
@@ -711,18 +767,16 @@
             <div class="bg-white rounded-xl mt-12 shadow-lg overflow-hidden h-60" id="map"></div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
-                        <li><a href="#programs" class="hover:text-[#fbbf24]">Programs</a></li>
+                        <li><a href="index.html#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
+                        <li><a href="index.html#programs" class="hover:text-[#fbbf24]">Programs</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Research</a></li>
-                        <li><a href="#contact" class="hover:text-[#fbbf24]">Contact</a></li>
+                        <li><a href="index.html#contact" class="hover:text-[#fbbf24]">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -738,60 +792,41 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Social</h3>
-                    <div class="flex space-x-4 ">
+                    <div class="flex space-x-4">
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="max-w-md mx-auto">
+                <div>
                     <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
                     <div class="bg-slate-800 rounded-lg p-4">
                         <!-- Current Weather -->
                         <div class="flex items-center justify-between mb-4">
                             <div>
-                                <span id="current-icon" class="text-3xl mr-2">☀️</span>
-                                <span id="current-temp" class="text-2xl">25°C</span>
+                                <span id="current-icon" class="text-3xl mr-2">--</span>
+                                <span id="current-temp" class="text-2xl">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">12:45 PM</span>
+                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Section -->
+                        <!-- Weather Forecast Slider -->
                         <div class="relative overflow-hidden">
                             <!-- Hourly Forecast -->
-                            <div 
-                                id="hourly-forecast" 
-                                class="flex space-x-4 text-center text-sm mb-2 overflow-x-auto scrollbar-hide h-20">
-                                <!-- Example Hourly Forecast -->
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>1 PM</span>
-                                    <span>☀️</span>
-                                    <span>26°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>2 PM</span>
-                                    <span>🌤️</span>
-                                    <span>27°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>3 PM</span>
-                                    <span>☁️</span>
-                                    <span>24°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>4 PM</span>
-                                    <span>🌦️</span>
-                                    <span>23°C</span>
-                                </div>
+                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
+                                <!-- Will be populated by JS -->
+                            </div>
+                            
+                            <!-- Daily Forecast -->
+                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
+                                <!-- Will be populated by JS -->
                             </div>
                         </div>
-                        
                         <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
                     </div>
                 </div>
-                
-            </div>
-            <div class="border-t border-slate-700 mt-16 pt-8 text-center relative">
+         </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
         </div>
@@ -826,97 +861,51 @@
             }
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        const swiper = new Swiper('.mySwiper', {
-            direction: 'vertical', // Makes the slider vertical
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            navigation: false,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3000, // Time in milliseconds between slide transitions
-                disableOnInteraction: false, // Continue autoplay even after user interaction
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                },
-            },
+     <script>
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileDropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const content = dropdown.querySelector('div');
+
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                content.classList.toggle('hidden');
+            });
+        });
+
+        // Initialize map
+        const map = L.map('map').setView([27.472834, 94.911964],15);
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add marker for the university
+        L.marker([27.472834, 94.911964 ])
+            .addTo(map)
+            .bindPopup('Dibrugarh University')
+            .openPopup();
+
+
+        // Initialize AOS
+        AOS.init({
+            // Global settings
+            duration: 800, // Animation duration
+            once: false, // Whether animation should happen only once
+            mirror: false // Whether elements should animate out while scrolling past them
         });
     </script>
-    <!--SLider-->
-    <script>
-        let currentSlide = 0;
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
-        const slideCount = slides.length;
-        let slideInterval;
-        
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            updateDots();
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slideCount;
-            updateSlider();
-        }
-        
-        function createDots() {
-            const navDiv = document.createElement('div');
-            navDiv.className = 'absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10';
-            
-            slides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.className = `w-3 h-3 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`;
-                dot.onclick = () => {
-                    currentSlide = index;
-                    updateSlider();
-                    resetInterval();
-                };
-                navDiv.appendChild(dot);
-            });
-            
-            slider.parentElement.appendChild(navDiv);
-        }
-        
-        function updateDots() {
-            const dots = document.querySelectorAll('.rounded-full');
-            dots.forEach((dot, index) => {
-                dot.className = `w-3 h-3 rounded-full transition-all ${
-                    index === currentSlide ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
-                }`;
-            });
-        }
-        
-        function resetInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-        
-        createDots();
-        resetInterval();
-        
-        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        slider.addEventListener('mouseleave', resetInterval);
-        </script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
