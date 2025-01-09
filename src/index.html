@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
@@ -296,7 +297,7 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
                             <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
                         </div>
@@ -797,54 +798,33 @@
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="max-w-md mx-auto">
-                    <h3 class="text-lg font-semibold mb-4">Live Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4">
-                        <!-- Current Weather -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span id="current-icon" class="text-3xl mr-2">☀️</span>
-                                <span id="current-temp" class="text-2xl">25°C</span>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                        <!-- Current Weather - Fixed Height -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                                <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">12:45 PM</span>
+                            <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Section -->
-                        <div class="relative overflow-hidden">
-                            <!-- Hourly Forecast -->
-                            <div 
-                                id="hourly-forecast" 
-                                class="flex space-x-4 text-center text-sm mb-2 overflow-x-auto scrollbar-hide h-20">
-                                <!-- Example Hourly Forecast -->
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>1 PM</span>
-                                    <span>☀️</span>
-                                    <span>26°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>2 PM</span>
-                                    <span>🌤️</span>
-                                    <span>27°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>3 PM</span>
-                                    <span>☁️</span>
-                                    <span>24°C</span>
-                                </div>
-                                <div class="bg-slate-700 p-2 rounded-md flex flex-col items-center">
-                                    <span>4 PM</span>
-                                    <span>🌦️</span>
-                                    <span>23°C</span>
-                                </div>
+                        <!-- Weather Forecast - Fixed Height Container -->
+                        <div class="h-24 overflow-hidden my-2">
+                            <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                                <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
                         
-                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                            <span class="text-xs text-slate-400">Live Updates</span>
+                        </div>
                     </div>
                 </div>
-                
             </div>
-            <div class="border-t border-slate-700 mt-16 pt-8 text-center relative">
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
         </div>
@@ -879,6 +859,8 @@
             }
         });
     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
      <script>
 
         // Mobile menu toggle
@@ -922,8 +904,6 @@
             mirror: false // Whether elements should animate out while scrolling past them
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
