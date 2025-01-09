@@ -159,6 +159,35 @@
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
+    /* Achievement Cards Enhancement */
+.bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive adjustments for achievement cards */
+@media (max-width: 768px) {
+    .achievement-card {
+        margin-bottom: 2rem;
+    }
+    
+    .achievement-icon {
+        font-size: 3rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -709,85 +738,85 @@
 
     
     <!-- Achievements Section -->
-<section class="py-16 bg-white relative">
-    <div class="absolute inset-0 z-0 bg-pattern opacity-5"></div>
-    <div class="container mx-auto px-4 relative z-10">
-        <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Research Excellence -->
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
-                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
-                    <i class="fas fa-award text-6xl text-[#fbbf24]"></i>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Research</span>
-                        <span class="text-sm text-slate-500">2023-2024</span>
+    <section class="py-16 bg-white relative">
+        <div class="absolute inset-0 z-0 bg-pattern opacity-5"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#1a365d]">Our Achievements</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Research Excellence -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                        <i class="fas fa-award text-6xl text-[#fbbf24]"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Research Excellence</h3>
-                    <ul class="text-slate-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>50+ Research Papers Published in International Journals</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>₹2 Crore Research Grants Received</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Academic Excellence -->
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
-                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
-                    <i class="fas fa-graduation-cap text-6xl text-[#fbbf24]"></i>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Academic</span>
-                        <span class="text-sm text-slate-500">2023-2024</span>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Research</span>
+                            <span class="text-sm text-slate-500">2023-2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Research Excellence</h3>
+                        <ul class="text-slate-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>50+ Research Papers Published in International Journals</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>₹2 Crore Research Grants Received</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Academic Excellence</h3>
-                    <ul class="text-slate-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>100% Placement Rate for MCA Students</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>15 Gold Medalists in Last 5 Years</span>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-
-            <!-- Industry Collaboration -->
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
-                <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
-                    <i class="fas fa-handshake text-6xl text-[#fbbf24]"></i>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Industry</span>
-                        <span class="text-sm text-slate-500">2023-2024</span>
+    
+                <!-- Academic Excellence -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                        <i class="fas fa-graduation-cap text-6xl text-[#fbbf24]"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Industry Collaboration</h3>
-                    <ul class="text-slate-600 space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>20+ Industry Partners for Training & Placement</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span>5 Industry-Sponsored Labs Established</span>
-                        </li>
-                    </ul>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Academic</span>
+                            <span class="text-sm text-slate-500">2023-2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Academic Excellence</h3>
+                        <ul class="text-slate-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>100% Placement Rate for MCA Students</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>15 Gold Medalists in Last 5 Years</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Industry Collaboration -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
+                    <div class="h-48 rounded-t-lg bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center p-6">
+                        <i class="fas fa-handshake text-6xl text-[#fbbf24]"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Industry</span>
+                            <span class="text-sm text-slate-500">2023-2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-[#1a365d]">Industry Collaboration</h3>
+                        <ul class="text-slate-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>20+ Industry Partners for Training & Placement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>5 Industry-Sponsored Labs Established</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-[#1a365d] text-white">
