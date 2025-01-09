@@ -915,49 +915,7 @@
         slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
         slider.addEventListener('mouseleave', resetInterval);
         </script>
-    <script>
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileDropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-            const content = dropdown.querySelector('div');
-
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                content.classList.toggle('hidden');
-            });
-        });
-
-        // Initialize map
-        const map = L.map('map').setView([27.472834, 94.911964],15);
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Add marker for the university
-        L.marker([27.472834, 94.911964 ])
-            .addTo(map)
-            .bindPopup('Dibrugarh University')
-            .openPopup();
-
-
-        // Initialize AOS
-        AOS.init({
-            // Global settings
-            duration: 800, // Animation duration
-            once: false, // Whether animation should happen only once
-            mirror: false // Whether elements should animate out while scrolling past them
-        });
-    </script>
+   
     <script src="script.js"></script>
 </body>
 
