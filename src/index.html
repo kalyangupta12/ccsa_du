@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1202,17 +1201,13 @@
                     <div>
                         <label class="block mb-2 text-[#fbbf24] font-medium">Name</label>
                         <input type="text" name="name" 
-                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
-                               
-                               required>
+                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400" required>
                     </div>
     
                     <div>
                         <label class="block mb-2 text-[#fbbf24] font-medium">Email</label>
                         <input type="email" name="email"
-                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
-                               
-                               required>
+                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"   required>
                     </div>
     
                     <div>
@@ -1465,7 +1460,6 @@
         slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
         slider.addEventListener('mouseleave', resetInterval);
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
 
@@ -1539,27 +1533,8 @@
                 }
             });
         });
-        // Initialize map
-        const map = L.map('map').setView([27.472834, 94.911964], 15);
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Add marker for the university
-        L.marker([27.472834, 94.911964])
-            .addTo(map)
-            .bindPopup('Dibrugarh University')
-            .openPopup();
-
-
-        // Initialize AOS
-        AOS.init({
-            // Global settings
-            duration: 800, // Animation duration
-            once: false, // Whether animation should happen only once
-            mirror: false // Whether elements should animate out while scrolling past them
-        });
+       
+       
     </script>
     <script src="script.js"></script>
 </body>
