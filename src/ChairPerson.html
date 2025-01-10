@@ -3,73 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Profile - CCSA, Dibrugarh University</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
         html{
             scroll-behavior:smooth;
         }
        .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 220px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    z-index: 50;
-    border-radius: 0.5rem;
-    transform: translateY(10px);
-    opacity: 0;
-    transition: all 0.3s ease;
-}
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            border-radius: 0.5rem;
+        }
 
-.nav-item:hover .dropdown-menu {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-}
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
 
-/* Enhanced card hover effect */
-.card-hover {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(0);
-}
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
 
-.card-hover:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
 
-/* Enhanced background pattern */
-.bg-pattern {
-    background-color: #ffffff;
-    background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
-    background-repeat: repeat;
-    position: relative;
-}
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+            background-repeat: repeat;
+            position: relative;
+        }
 
-/* Mobile menu styles */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        background-color: rgba(30, 58, 109, 0.95);
-        backdrop-filter: blur(8px);
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
-    }
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
+            pointer-events: none;
+        }
 
-    #mobileMenu {
-        background-color: rgba(26, 54, 93, 0.98);
-        backdrop-filter: blur(10px);
-        border-radius: 0 0 1rem 1rem;
-    }
-}
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background-color: #1e3a6d;
+            }
+            #mobileMenu {
+                background-color: rgba(26, 54, 93, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 0 0 1rem 1rem;
+            }
+        }
+         h2 {
+            background: linear-gradient(45deg, #1a365d, #2d4a7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Enhanced content container */
+        .content-container {
+            background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .content-container:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .nested-menu {
+            left: 100%;
+            top: 0;
+            margin-left: 1px;
+            margin-top: 0;
+        }
+
+        /* Add arrow indication for items with submenus */
+        .has-submenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .dropdown-menu a {
+            transition: all 0.2s ease;
+        }
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: block;
+            width: 100%;
+            text-align: left;
+            white-space: nowrap;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header and Navigation will be included from components -->
+<body>
     <header class="bg-teal-700 text-white">
         <!-- Main Header Container -->
         <div class="container mx-auto lg:px-10">
@@ -83,52 +154,34 @@
                             <path fill="currentColor"
                                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                         </svg>
-                        <span class="whitespace-nowrap">registrar@dibru.ac.in</span>
+                        <span class="whitespace-nowrap">ccsduoffice@gmail.com</span>
                     </a>
                 </div>
-
-
 
                 <!-- Social Media Links -->
-                <div class="hidden lg:flex items-center space-x-4">
-                    <a href="https://www.facebook.com/dibrugarhuniversityofficial/" class="hover:text-[#fbbf24]">
-                        <svg class="w-4 h-4" viewBox="0 0 320 512">
-                            <path fill="currentColor"
-                                d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
-                        </svg>
-                    </a>
-                    <a href="https://x.com/DibruUniv" class="hover:text-[#fbbf24] transition-colors">
-                        <svg class="w-4 h-4" viewBox="0 0 512 512">
-                            <path fill="currentColor"
-                                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z" />
-                        </svg>
+                <div class="hidden lg:flex items-center w-16 space-x-4 font-semibold relative">
+                    <a href="https://placeccsa.wordpress.com/" class="hover:text-[#fbbf24] group relative">
+                        <div class="transition duration-300 ease-in-out group-hover:opacity-0 whitespace-nowrap">
+                            T.N.P
+                        </div>
+                        <div class="transition duration-300 ease-in-out opacity-0 group-hover:opacity-100 absolute top-0 left-0 whitespace-nowrap">
+                            Training and Placement Cell
+                        </div>
                     </a>
                 </div>
-
-                <!-- Font Size Controls -->
-                <!--div class="hidden lg:block">
-                    <div class="flex items-center justify-center bg-teal-500 gap-x-3 h-full">
-                        <button class="px-3 text-xl rounded">-</button>
-                        <span class="flex items-start justify-center w-6 text-sm cursor-pointer">
-                            <svg class="w-4 h-4" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M254 52.8C249.3 40.3 237.3 32 224 32s-25.3 8.3-30 20.8L57.8 416H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-1.8l18-48H303.8l18 48H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H390.2L254 52.8zM279.8 304H168.2L224 155.1 279.8 304z"/>
-                            </svg>
-                        </span>
-                        <button class="px-3 text-xl rounded">+</button>
-                    </div>
-                </div>
+                
             </div>
-        </div-->
+        </div>
     </header>
     <!-- Navigation -->
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-14">
+                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-12">
                     <div>
-                        <h1 class="text-xl font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-lg text-slate-300"> Dibrugarh University </p>
+                        <h1 class="text-lg font-semibold">Center for Computer Science And Applications</h1>
+                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-6">
@@ -138,15 +191,24 @@
                     <div class="nav-item relative">
                         <a href="index.html#aboutus" class="hover:text-[#fbbf24] py-2">About Us</a>
                     </div>
-                    <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2">Programs <i
-                                class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <div class="nav-item relative inline-block">
+                        <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
                         <div class="dropdown-menu">
-                            <a href="undergraduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Undergraduate</a>
-                            <a href="graduate.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Post-Graduate</a>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    Under & Post-Graduate
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">BCA</a>
+                                    <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">MCA</a>
+                                </div>
+                            </div>
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
-                        </div>
-                    </div>
+                          </div>
+                 </div>
                     <div class="nav-item relative">
                         <a href="#" class="hover:text-[#fbbf24] py-2">Research <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
@@ -159,8 +221,9 @@
                         <a href="#" class="hover:text-[#fbbf24] py-2">Faculty <i
                                 class="fas fa-chevron-down ml-1 text-xs"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
-                            <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                            <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching Staff</a>
+                            <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="nav-item relative">
@@ -170,8 +233,53 @@
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                         </div>
                     </div>
+                    <div class="nav-item relative inline-block">
+                        <a href="#" class="hover:text-[#fbbf24] py-2 px-4">
+                            Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    BCA
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="FeeStructureCCSA.pdf" class="dropdown-item text-[#1a365d]">BCA Fees Structure</a>
+                                    <a href="../downloads/BCASyllabus.pdf" download="BCASyllabus.pdf" class="dropdown-item text-[#1a365d]">BCA Syllabus</a>
+                                </div>
+                            </div>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    MCA
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="FeeStructureCCSA" class="dropdown-item text-[#1a365d]">MCA Fees Structure</a>
+                                    <a href="../downloads/MCA.pdf" download="MCA.pdf" class="dropdown-item text-[#1a365d]">MCA Syllabus</a>
+                                </div>
+                            </div>
+                                <a href="../downloads/BOM committee.pdf" download="BOM committee.pdf" class="dropdown-item text-[#1a365d]">
+                                    Bcom
+                                </a>
+                            <div class="nested-dropdown">
+                                <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                    EOA Reports
+                                    <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                                </a>
+                                <div class="dropdown-menu nested-menu">
+                                    <a href="../downloads/EOA/1735024829_EOA_Report_2024_2025.pdf" download="1735024829_EOA_Report_2024_2025.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2024</a>
+                                    <a href="../downloads/EOA/1735024819_EOA_Report__2023_24.pdf" download="1735024819_EOA_Report__2023_24.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2023</a>
+                                    <a href="../downloads/EOA/1735024796_EOA_Report_2022_23.pdf" download="1735024796_EOA_Report_2022_23.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2022</a>
+                                    <a href="../downloads/EOA/1735024782_EOA_Report_21_22.pdf" download="1735024782_EOA_Report_21_22.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2021</a>
+                                    <a href="../downloads/EOA/1735024766_EOA_Report_2020_21.pdf" download="1735024766_EOA_Report_2020_21.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2020</a>
+                                    <a href="../downloads/EOA/1735024754_EOA_Report_2019_20.pdf" download="1735024754_EOA_Report_2019_20.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2019</a>
+                                    <a href="../downloads/EOA/1735024721_EOA_Report_2018_19.pdf" download="1735024721_EOA_Report_2018_19.pdf" class="dropdown-item text-[#1a365d]">EOA Report 2018</a>                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="nav-item relative">
-                        <a href="#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
+                        <a href="index.html#contact" class="hover:text-[#fbbf24] py-2">Contact</a>
                     </div>
                 </div>
                 <button class="md:hidden text-2xl" id="mobileMenuButton">
@@ -182,7 +290,7 @@
             <div class="md:hidden hidden" id="mobileMenu">
                 <div class="py-4 space-y-2">
                     <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">About Us</a>
+                    <a href="index.html#aboutus" class="block py-2 hover:text-[#fbbf24]">About Us</a>
                     <div class="mobile-dropdown">
                         <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
                             Programs
@@ -190,7 +298,7 @@
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
                             <a href="undergraduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
+                            <a href="graduate.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
                         </div>
                     </div>
@@ -210,8 +318,9 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="ChairPerson.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
-                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="https://dibru.ac.in/user-profile/tazid-ali" class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                            <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching Staff</a>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
                         </div>
                     </div>
                     <div class="mobile-dropdown">
@@ -223,118 +332,156 @@
                             <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
                         </div>
                     </div>
-                    <a href="#" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                            Downloads
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="hidden pl-4 space-y-2 mt-2">
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    BCA
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="u../downloads/BCASyllabus.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus</a>
+                                    <a href="../downloads/FeeStructureCCSA.pdf" download="MCA.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Fees Structure</a>
+                                </div>
+                            </div>
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    MCA
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="../downloads/MCA.pdf" download="FeeStructureCCSA" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus</a>
+                                    <a href="../downloads/FeeStructureCCSA.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Fees Structure</a>
+                                </div>
+                            </div>
+                            <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Bcom</a>
+                            <div class="mobile-dropdown">
+                                <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                    EOA Reports
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </a>
+                                <div class="hidden pl-4 space-y-2 mt-2">
+                                    <a href="../downloads/EOA/1735024829_EOA_Report_2024_2025.pdf" download="1735024829_EOA_Report_2024_2025.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2024</a>
+                                    <a href="../downloads/EOA/1735024819_EOA_Report__2023_24.pdf" download="1735024819_EOA_Report__2023_24.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2023</a>
+                                    <a href="../downloads/EOA/1735024796_EOA_Report_2022_23.pdf" download="1735024796_EOA_Report_2022_23.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2022</a>
+                                    <a href="../downloads/EOA/1735024782_EOA_Report_21_22.pdf" download="1735024782_EOA_Report_21_22.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2021</a>
+                                    <a href="../downloads/EOA/1735024766_EOA_Report_2020_21.pdf" download="1735024766_EOA_Report_2020_21.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2020</a>
+                                    <a href="../downloads/EOA/1735024754_EOA_Report_2019_20.pdf" download="1735024754_EOA_Report_2019_20.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2019</a>
+                                    <a href="../downloads/EOA/1735024721_EOA_Report_2018_19.pdf" download="1735024721_EOA_Report_2018_19.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]"">EOA Report 2018</a>                                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
                     <!-- ... Similar structure for other mobile menu items ... -->
                 </div>
             </div>
         </div>
     </nav>
+    <section class="py-16 px-4 bg-pattern">
+     <div class="container mx-auto">
+        <div class="content-container p-6 md:p-8">
+                <h2 class="text-3xl md:text-4xl font-bold pb-2 mb-6">Master of Computer Applications (MCA) Degree</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                 <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
+                    <h2 class="text-2xl font-semibold mb-4">About</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">A Two (02) Year Master Degree Program including Four (04) Semesters. Selection procedure for MCA program is through an Entrance Test.</p>
+                        <p class="mb-4 text-gray-700 leading-relaxed"> An MCA degree provides a comprehensive and advanced education in computer science, equipping students with the necessary skills to excel in various roles within the IT industry. Whether pursuing a career in software development, data science, network security, or AI, MCA graduates have a broad spectrum of opportunities to explore and succeed.</p>
+                    
+                 </div>
 
-    <main class="container mx-auto px-4 py-8">
-        <!-- Faculty Profile Section -->
-        <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div class="md:flex items-start space-x-8">
-                <!-- Profile Image -->
-                <div class="md:w-1/4 mb-6 md:mb-0">
-                    <img src="https://erp.dibru.work/media-library/staff/ItiMboKsuDJ7m4gtqHfvQsErOj54BHS0wGai96uv.png" alt="Professor" class="rounded-lg shadow-md  h-25">
-                    <div class="mt-4 space-y-2">
-                        <a href="mailto:tazid@dibru.ac.in" class="flex items-center text-[#1a365d] hover:text-[#fbbf24]">
-                            <i class="fas fa-envelope mr-2"></i>
-                            tazid@dibru.ac.in
-                        </a>
-                        <p class="flex items-center text-[#1a365d]">
-                            <i class="fas fa-phone mr-2"></i>
-                            9435391202
-                        </p>
-                    </div>
+                <div class="card-hover bg-white  rounded-lg shadow-lg p-6 ">
+                    <h2 class="text-2xl font-semibold mb-4">Eligibility Criteria</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">Graduate in any discipline from a recognized University/ Institution with a minimum aggregate of 50% marks and passing Mathematics as one of the subjects in 10+2. Relaxation of 5% marks will be given to the candidates of reserved categories.</p>
+
+                    <h2 class="text-2xl font-semibold mb-4">Intake Capacity</h2>
+                    <p class="mb-4 text-gray-700 leading-relaxed">30 (3 Endowments)</p> 
                 </div>
 
-                <!-- Profile Information -->
-                <div class="md:w-3/4">
-                    <h1 class="text-3xl font-bold text-[#1a365d] mb-2">Prof. Tazid Ali</h1>
-                    <p class="text-xl text-gray-600 mb-4">Professor, Department of Mathematics</p>
-                    <p class="text-lg text-[#1a365d] mb-6">Chairperson, Centre for Computer Science and Applications</p>
-
-                    <!-- Academic Profiles -->
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <a href="https://www.scopus.com/authid/detail.uri?authorId=56797640600" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
-                            <img src="https://staff.dibru.work/assets/icons/scopus.png" alt="Scopus" class="w-4 h-4 mr-2">
-                            Scopus
-                        </a>
-                        <a href="https://orcid.org/0000-0002-7897-3174" class="flex items-center px-4 py-2 bg-green-50 text-green-600 rounded-full hover:bg-green-100 transition-colors">
-                            <img src="https://orcid.org/favicon.ico" alt="ORCID" class="w-4 h-4 mr-2">
-                            ORCID
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=2Oz3TEsAAAAJ&hl=en" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
-                            <img src="https://scholar.google.com/favicon.ico" alt="Google Scholar" class="w-4 h-4 mr-2">
-                            Google Scholar
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Tazid-Ali" class="flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors">
-                            <img src="https://www.researchgate.net/favicon.ico" alt="ResearchGate" class="w-4 h-4 mr-2">
-                            ResearchGate
-                        </a>
+                
+                    <div class="card-hover bg-white  rounded-lg shadow-lg p-6">
+                        <div>
+                        <h2 class="text-2xl font-semibold mb-4">Curriculum</h2>
+                        <p class="mb-4 text-gray-700 leading-relaxed">The MCA curriculum generally includes a mix of theoretical and practical subjects aimed at providing a deep understanding of advanced topics in computer science. Common subjects include: </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Advanced Programming: Java, Python, C#, etc</li>
+                            <li>Data Structures and Algorithms</li>
+                            <li>DBMS: Design, optimization, administration.</li>
+                            <li>Operating Systems: Systems and kernel programming.</li>
+                            <li>Software Engineering: Development, project management.</li>
+                            <li>Electives: Cloud computing, big data, cybersecurity.</li>
+                        </ul>
+                      </div>
+                      <a href="../downloads/MCA.pdf" download="MCA_Syllabus.pdf" 
+                        class=" flex bg-red-700 justify-center mt-4 w-auto font-semibold text-lg text-white p-2 rounded-lg text-center block">
+                         Download
+                     </a>
                     </div>
 
-                    <!-- Publications Stats -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-blue-800">13 Research Publications</h3>
-                            <p class="text-blue-600">Peer-reviewed articles and papers</p>
+                    <div class="card-hover bg-white rounded-lg shadow-lg p-6">
+                        <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+                            <div class="bg-indigo-500 text-white text-center py-4">
+                                <h2 class="text-2xl font-semibold">MCA Fee Structure</h2>
+                            </div>
+                            <table class="w-full text-left">
+                                <thead class="bg-gray-100 border-b">
+                                    <tr>
+                                        <th class="px-6 py-3 text-sm font-medium text-gray-600">Semester</th>
+                                        <th class="px-6 py-3 text-sm font-medium text-gray-600">Fees</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-gray-800">1<sup>st</sup> Semester</td>
+                                        <td class="px-6 py-4 text-gray-800">Rs. 28,658</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-gray-800">2<sup>nd</sup> Semester</td>
+                                        <td class="px-6 py-4 text-gray-800">Rs. 25,000</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-gray-800">3<sup>rd</sup> Semester</td>
+                                        <td class="px-6 py-4 text-gray-800">Rs. 28,380</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-gray-800">4<sup>th</sup> Semester</td>
+                                        <td class="px-6 py-4 text-gray-800">Rs. 15,000</td>
+                                   
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-green-800">2 Conference/Seminar Papers</h3>
-                            <p class="text-green-600">Academic presentations</p>
-                        </div>
+                        <!-- Download Button -->
+                        <a id="downloadButton"
+                           class="bg-red-700 mx-auto mt-4 w-full font-semibold text-lg text-white p-2 rounded-lg text-center block">
+                            Download
+                        </a>
                     </div>
+                    
                 </div>
             </div>
-        </section>
+        
+    </section>
 
-        <!-- Expertise Section -->
-        <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <h2 class="text-2xl font-bold text-[#1a365d] mb-6 flex gap-2">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 14V22H4C4 17.5817 7.58172 14 12 14ZM18 21.5L15.0611 23.0451L15.6224 19.7725L13.2447 17.4549L16.5305 16.9775L18 14L19.4695 16.9775L22.7553 17.4549L20.3776 19.7725L20.9389 23.0451L18 21.5ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>Expertise</h2>
-            <div class="space-y-4">
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-[#1a365d] mb-2">Mathematics</h3>
-                    <div class="flex items-center text-green-600">
-                        <i class="fas fa-chart-line mr-2"></i>
-                        <span>Fuzzy Mathematics, Mathematics in Genetics</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Educational Qualifications -->
-        <section class="bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-2xl font-bold text-[#1a365d] mb-6 flex gap-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="flex-shrink-0 mt-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"></path></svg>Educational Qualifications</h2>
-            <div class="space-y-4">
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-[#1a365d]">Ph.D. (Fuzzy Mathematics)</h3>
-                    <p class="text-gray-600">Dibrugarh University</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer will be included from components -->
     <footer class="bg-slate-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-[#fbbf24]">About Us</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Programs</a></li>
+                        <li><a href="index.html#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
+                        <li><a href="index.html#programs" class="hover:text-[#fbbf24]">Programs</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Research</a></li>
-                        <li><a href="#" class="hover:text-[#fbbf24]">Contact</a></li>
+                        <li><a href="index.html#contact" class="hover:text-[#fbbf24]">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
-                                Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -343,48 +490,62 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Social</h3>
-                    <div class="flex space-x-4 ">
+                    <div class="flex space-x-4">
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4"> Weather</h3>
-                    <div class="bg-slate-800 rounded-lg p-4 ">
-                        <!-- Current Weather -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span id="current-icon" class="text-3xl mr-2">--</span>
-                                <span id="current-temp" class="text-2xl">--°C</span>
+                    <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                        <!-- Current Weather - Fixed Height -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                                <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
                             </div>
-                            <span id="current-time" class="text-sm text-slate-400">--:--</span>
+                            <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
                         
-                        <!-- Weather Forecast Slider -->
-                        <div class="relative overflow-hidden">
-                            <!-- Hourly Forecast -->
-                            <div id="hourly-forecast" class="flex space-x-4 text-center text-sm mb-2">
-                                <!-- Will be populated by JS -->
-                            </div>
-                            
-                            <!-- Daily Forecast -->
-                            <div id="daily-forecast" class="flex space-x-4 text-center text-sm">
-                                <!-- Will be populated by JS -->
+                        <!-- Weather Forecast - Fixed Height Container -->
+                        <div class="h-24 overflow-hidden my-2">
+                            <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                                <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
-                        <p class="text-slate-300 mt-2">Dibrugarh, Assam</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                            <span class="text-xs text-slate-400">Live Updates</span>
+                        </div>
                     </div>
                 </div>
-         </div>
-            <div class="border-t border-slate-700 mt-16 pt-8 text-center relative">
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center">
                 <p>&copy; 2024 Center for Computer Science and Applications. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
     <script>
-         const mobileMenuButton = document.getElementById('mobileMenuButton');
+        // Function to trigger PDF download
+function downloadPDF(filePath, fileName) {
+    const link = document.createElement('a'); // Create an anchor element
+    link.href = filePath; // Set the file path
+    link.download = fileName; // Set the download attribute with the desired file name
+    document.body.appendChild(link); // Append the link to the document
+    link.click(); // Trigger the click event
+    document.body.removeChild(link); // Remove the link after the download starts
+}
+
+// Attach event listener to a button (if required)
+document.getElementById('downloadButton').addEventListener('click', function () {
+    downloadPDF('../downloads/MCA.pdf', 'MCA.pdf');
+});
+    </script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
 
@@ -401,9 +562,9 @@
                 content.classList.toggle('hidden');
             });
         });
-       
+
         
     </script>
-     <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

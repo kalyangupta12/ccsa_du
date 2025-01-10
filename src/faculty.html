@@ -78,6 +78,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header Example</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+            background-repeat: repeat;
+            position: relative;
+        }
+
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.03), rgba(26, 54, 93, 0.06));
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -325,11 +344,8 @@
             </div>
         </div>
     </nav>
-    <div class="flex flex-col md:flex-row min-h-[100vh]">
+    <div class="flex flex-col justify-center items-center md:flex-row min-h-[100vh] bg-pattern">
         <!-- Sidebar -->
-        <div class="w-full md:w-1/4 bg-slate-100 p-4">
-            <!-- Sidebar content -->
-        </div>
 
         <!-- Main content -->
         <div class="w-full md:w-3/4 px-4 py-8">
