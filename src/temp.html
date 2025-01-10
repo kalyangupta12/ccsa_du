@@ -217,15 +217,23 @@
         }
 
         /* Announcement Swiper Styles */
-        .noticeSwiper .swiper-slide {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
+        .noticeSwiper {
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
 
-        .noticeSwiper .swiper-slide-active {
-            opacity: 1;
-        }
+.swiper-slide {
+  width: 100%;
+  height: auto;
+  min-height: fit-content;
+}
 
+@media (max-width: 375px) {
+  .noticeSwiper {
+    max-height: 200px;
+  }
+}
         .noticeSwiper .swiper-pagination-bullet {
             background: #4f46e5;
         }
@@ -710,29 +718,18 @@
         <!-- Content with proper z-index -->
         <div class="container flex flex-col lg:flex-row gap-6 lg:gap-10 mx-auto px-4 relative z-10">
             <!-- About Section -->
-            <div
-                class="w-full lg:w-4/6 bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
-                <h2 class="text-center text-2xl lg:text-3xl font-semibold text-indigo-600 mb-4">About Us</h2>
-                <div
-                    class="max-h-[60vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-slate-200">
-                    <p class="text-left text-sm lg:text-base">
-                        Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is
-                        one
-                        of the premier institutes of North-East-India imparting computer education.
-                        Dibrugarh University initiated its journey of imparting computer education by establishing a
-                        Computer Centre in 1976.
-                        The Computer Centre was established with the objective of creating Computer awareness among the
-                        teachers, research scholars and employees of the University.
-                        It started Computer education by introducing a "Six-months Certificate Course on Computer
-                        Programming". It also trained the employees of various banks including State Bank of India,
+            <div class="relative w-full lg:w-4/6 min-h-[300px] sm:min-h-[400px] bg-white/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-6 shadow-lg shadow-slate-200 hover:shadow-xl card-hover border border-gray-100">
+                <h2 class="text-center text-xl sm:text-2xl lg:text-3xl font-semibold text-indigo-600 mb-2 sm:mb-4">About Us</h2>
+                <div class="relative h-[calc(100%-2rem)] sm:h-[calc(100%-3rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-slate-200">
+                    <p class="text-left text-xs sm:text-sm lg:text-base leading-relaxed sm:leading-relaxed text-gray-700">
+                        Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is one of the premier institutes of North-East-India imparting computer education.
+                        Dibrugarh University initiated its journey of imparting computer education by establishing a Computer Centre in 1976.
+                        The Computer Centre was established with the objective of creating Computer awareness among the teachers, research scholars and employees of the University.
+                        It started Computer education by introducing a "Six-months Certificate Course on Computer Programming". It also trained the employees of various banks including State Bank of India,
                         Dibrugarh university Branch and helped them in computerization.
-                        In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a "Post-Graduate Diploma
-                        in
-                        Computer Application (PGDCA)" course was started. BCA was introduced in July, 2004 and MCA and
-                        BSc
+                        In 2004, it was upgraded to the Centre for Computer Studies (CCS) and a "Post-Graduate Diploma in Computer Application (PGDCA)" course was started. BCA was introduced in July, 2004 and MCA and BSc
                         (IT) were introduced in January and July, 2007, respectively.
-                        In 2018, the name of the centre has been changed to "Centre for Computer Science and
-                        Applications".
+                        In 2018, the name of the centre has been changed to "Centre for Computer Science and Applications".
                     </p>
                 </div>
             </div>
@@ -1327,22 +1324,73 @@
     </script>
     <script>
         const noticeSwiper = new Swiper('.noticeSwiper', {
-            direction: 'vertical',
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            speed: 1000,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+  direction: 'vertical',
+  loop: true,
+  slidesPerView: 1,
+  
+  // Improved autoplay settings
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  },
+  
+  // Smooth transition effects
+  effect: 'slide',
+  speed: 800,
+  
+  // Enable touch interactions
+  touchEventsTarget: 'container',
+  touchRatio: 1,
+  touchAngle: 45,
+  
+  // Better mobile handling
+  breakpoints: {
+    320: {  // iPhone SE and similar small devices
+      height: 200,
+      touchRatio: 1.5,  // More sensitive touch for smaller screens
+    },
+    375: {  // iPhone 6/7/8/X
+      height: 250,
+    },
+    768: {  // Tablets
+      height: 300,
+    },
+    1024: { // Desktop
+      height: 350,
+    }
+  },
+  
+  // Improved animation
+  on: {
+    touchStart: function() {
+      this.autoplay.stop();
+    },
+    touchEnd: function() {
+      this.autoplay.start();
+    }
+  },
+  
+  // Optional pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    type: 'bullets',
+    bulletActiveClass: 'swiper-pagination-bullet-active bg-indigo-600',
+  },
+  
+  // Add keyboard control
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+  
+  // Smooth mousewheel control
+  mousewheel: {
+    sensitivity: 1,
+    releaseOnEdges: true,
+  }
+});
     </script>
     <script>
         let currentSlide = 0;
