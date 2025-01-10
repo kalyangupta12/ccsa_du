@@ -1147,73 +1147,110 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-[#1a365d]  text-white">
+    <section id="contact" class="py-16 bg-[#1a365d] text-white relative">
         <div class="container px-8 mx-auto">
             <div class="grid md:grid-cols-2 gap-8">
-                <div>
-
-                    <h1 class="text-3xl font-bold mb-6 text-center sm:text-start">Contact Us</h1>
-                    <p class="mb-8 text-center sm:text-start"> Reach out to us using the contact information below.</p>
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold mb-4 text-center sm:text-start relative">
+                            Contact Us
+                           
+                        </h1>
+                        <p class="text-gray-300 text-center sm:text-start">
+                            Reach out to us using the contact information below.
+                        </p>
+                    </div>
+                    
                     <div class="space-y-6">
-                        <!-- CCSA Address -->
-                        <div class="flex items-start space-x-4" data-aos="fade-up">
-                            <i class="fas fa-map-marker-alt text-[#fbbf24] mt-1"></i>
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4 group"  >
+                            <div class="text-[#fbbf24] mt-1 w-8 h-8 flex items-center justify-center rounded-full border border-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div>
-                                <h3 class="font-semibold mb-2">Address</h3>
-                                <p>Center for Computer Science and Applications</p>
-                                <p>Dibrugarh University, Dibrugarh-786004</p>
-                                <p>Assam, India</p>
+                                <h3 class="font-semibold mb-2 text-[#fbbf24]">Address</h3>
+                                <div class="text-gray-300 space-y-1">
+                                    <p>Center for Computer Science and Applications</p>
+                                    <p>Dibrugarh University, Dibrugarh-786004</p>
+                                    <p>Assam, India</p>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Contact Information -->
-                        <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="300">
-                            <i class="fas fa-phone text-[#fbbf24]"></i>
+    
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4 group">
+                            <div class="text-[#fbbf24] mt-1 w-8 h-8 flex items-center justify-center rounded-full border border-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div>
-                                <h3 class="font-semibold mb-2">Phone</h3>
-                                <p>(0373) 2911704</p>
+                                <h3 class="font-semibold mb-2 text-[#fbbf24]">Phone</h3>
+                                <p class="text-gray-300">(0373) 2911704</p>
                             </div>
                         </div>
-
-                        <div class="flex items-center space-x-4" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-envelope text-[#fbbf24]"></i>
+    
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4 group">
+                            <div class="text-[#fbbf24] mt-1 w-8 h-8 flex items-center justify-center rounded-full border border-[#fbbf24] group-hover:bg-[#fbbf24] group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div>
-                                <h3 class="font-semibold mb-2">Email</h3>
-                                <p>ccsduoffice@gmail.com</p>
+                                <h3 class="font-semibold mb-2 text-[#fbbf24]">Email</h3>
+                                <p class="text-gray-300">ccsduoffice@gmail.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <form id="contactForm" class="space-y-4">
+    
+                <!-- Contact Form -->
+                <form id="contactForm" class="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm">
                     <div>
-                        <label class="block mb-2 ">Name</label>
-                        <input type="text" name="name"
-                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-slate-900"
-                            required>
+                        <label class="block mb-2 text-[#fbbf24] font-medium">Name</label>
+                        <input type="text" name="name" 
+                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
+                               
+                               required>
                     </div>
-
+    
                     <div>
-                        <label class="block mb-2">Email</label>
+                        <label class="block mb-2 text-[#fbbf24] font-medium">Email</label>
                         <input type="email" name="email"
-                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-slate-900"
-                            required>
+                               class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
+                               
+                               required>
                     </div>
-
+    
                     <div>
-                        <label class="block mb-2 ">Message</label>
+                        <label class="block mb-2 text-[#fbbf24] font-medium">Message</label>
                         <textarea name="message"
-                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-slate-900"
-                            rows="4" required></textarea>
+                                class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
+                                rows="4"
+                                placeholder="Your message"
+                                required></textarea>
                     </div>
-
+    
                     <button type="submit"
-                        class="w-full bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition duration-300">
-                        Send Message
+                            class="w-full bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
-
             </div>
-            <div class="bg-white rounded-xl mt-12 shadow-lg overflow-hidden h-60" id="map"></div>
+    
+            <!-- Map -->
+            <div class="mt-16 rounded-xl overflow-hidden shadow-lg">
+                <div class="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden">
+                    <div class="absolute inset-0 bg-[#1a365d]/10 pointer-events-none z-10"></div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.6347491405036!2d94.89528137547951!3d27.449491576331322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3740a2daaaaaaaab%3A0x3c0d978a22c76583!2sDibrugarh%20University!5e0!3m2!1sen!2sin!4v1736525813607!5m2!1sen!2sin"
+                        class="absolute inset-0 w-full h-full"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
         </div>
     </section>
     <footer class="bg-slate-900 text-white py-12">
