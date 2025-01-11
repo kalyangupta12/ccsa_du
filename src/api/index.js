@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // POST endpoint to insert a new notification
-app.post('/add-notification', async (req, res) => {
+app.post('/', async (req, res) => {
   const { title, message, expiresAt } = req.body;
 
   // Ensure required fields are provided
