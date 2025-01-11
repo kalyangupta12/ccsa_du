@@ -17,13 +17,13 @@ app.post('/', async (req, res) => {
   // SQL query to insert the notification
   const query = `
     INSERT INTO notifications (title, message, expires_at)
-    VALUES ($1, $2, $3, $4)
+    VALUES ($1, $2, $3)
     RETURNING *;
   `;
 
   try {
     // Execute the query using parameters to avoid SQL injection
-    const result = await client.query(query, [title, message, expiresAt, userId]);
+    const result = await client.query(query, [title, message, expiresAt]);
     
     // Respond with the newly inserted notification
     res.status(201).json({ notification: result.rows[0] });
