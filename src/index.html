@@ -1609,7 +1609,7 @@
         const noticeSwiper = new Swiper('.noticeSwiper', {
   direction: 'vertical',
   loop: true,
-  slidesPerView: 1,
+  slidesPerView: 3,
   
   // Improved autoplay settings
   autoplay: {
@@ -1631,12 +1631,15 @@
   breakpoints: {
     320: {  // iPhone SE and similar small devices
       height: 200,
-      touchRatio: 1.5,  // More sensitive touch for smaller screens
+      touchRatio: 1.5,
+      slidesPerView:1  // More sensitive touch for smaller screens
     },
     375: {  // iPhone 6/7/8/X
       height: 250,
+      slidesPerView:1,
     },
     768: {  // Tablets
+        slidesPerView:1,
       height: 300,
     },
     1024: { // Desktop
