@@ -17,7 +17,7 @@ app.get('/api', async (req, res) => {
   res.send('API working on NeonDB!');
 });
 app.get('/api/students', async (req, res) => {
-  res.send('[
+	const studentsData = [
     {
         "department": "Centre for Computer Science and Applications",
         "programmes": [
@@ -989,7 +989,8 @@ app.get('/api/students', async (req, res) => {
             }
         ]
     }
-]');
+];
+	res.json(studentsData);
 });
 // GET endpoint to fetch all notifications
 app.get('/api/notific', async (req, res) => {
