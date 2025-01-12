@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+    }
+    .student-list {
+      margin-top: 20px;
+    }
+    .programme-card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Student List</h1>
+    <div id="student-list" class="student-list">
+      <!-- Student data will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript to fetch and display data -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('https://admin-ccsa.vercel.app/api/students')
+        .then(response => response.json())
+        .then(data => {
+          const studentList = document.getElementById('student-list');
+          studentList.innerHTML = ''; // Clear any existing content
+
+          // Loop through the data and create HTML elements
+          data.forEach(department => {
+            const departmentCard = document.createElement('div');
+            departmentCard.className = 'card programme-card';
+            departmentCard.innerHTML = `
+              <div class="card-header">
+                <h2>${department.department}</h2>
+              </div>
+              <div class="card-body">
+                ${department.programmes.map(programme => `
+                  <div class="programme">
+                    <h3>${programme.programme}</h3>
+                    ${programme.semesters.map(semester => `
+                      <div class="semester">
+                        <h4>${semester.semester}</h4>
+                        <ul class="list-group">
+                          ${semester.students.map(student => `
+                            <li class="list-group-item">${student.name}</li>
+                          `).join('')}
+                        </ul>
+                      </div>
+                    `).join('')}
+                  </div>
+                `).join('')}
+              </div>
+            `;
+            studentList.appendChild(departmentCard);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching student data:', error);
+          document.getElementById('student-list').innerHTML = `
+            <div class="alert alert-danger" role="alert">
+              Failed to load student data. Please try again later.
+            </div>
+          `;
+        });
+    });
+  </script>
+</body>
+</html>
