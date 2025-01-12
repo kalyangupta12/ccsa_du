@@ -960,8 +960,8 @@
 
       // Create a programme header
       const programmeHeader = document.createElement("h1");
-      programmeHeader.className = "text-xl lg:text-2xl font-bold text-[#1a365d] mb-6";
-      programmeHeader.textContent = `${programme.programme}`;
+      programmeHeader.className = "text-lg lg:text-xl font-bold text-[#1a365d] mb-6";
+      programmeHeader.textContent = ` ${programme.programme}`;
       programmeContainer.appendChild(programmeHeader);
 
       // Iterate over semesters within the programme
@@ -971,6 +971,10 @@
         semesterContainer.className = "space-y-4 mb-8";
 
         // Create a semester header
+        const semesterHeader = document.createElement("h2");
+        semesterHeader.className = "text-sm lg:text-lg font-bold text-[#1a365d] mb-4";
+        semesterHeader.textContent = `Semester: ${semester.semester}`;
+        semesterContainer.appendChild(semesterHeader);
 
         // Create a grid container for student cards
         const studentGrid = document.createElement("div");
@@ -1013,6 +1017,7 @@
     });
   })
   .catch(error => console.error('Error loading student data:', error));
+
 
 </script>
 <script src="script.js"></script>
