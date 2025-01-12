@@ -22,7 +22,7 @@ app.get('/api/notific', async (req, res) => {
   const query = 'SELECT * FROM notifications;'; // Corrected SQL query
   try {
     const result = await client.query(query);
-    res.status(200).json({ notifications: result.rows });
+    res.status(200).json(result.rows);
   } catch (err) {
     console.error('Error getting notifications:', err.message);
     res.status(500).json({ message: 'Error getting notifications' });
