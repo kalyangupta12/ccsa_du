@@ -16,6 +16,9 @@
     .programme-card {
       margin-bottom: 20px;
     }
+    .student-card {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -31,7 +34,7 @@
   <!-- Custom JavaScript to fetch and display data -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      fetch('https://admin-ccsa.vercel.app/api/students')
+      fetch('/api/students')
         .then(response => response.json())
         .then(data => {
           const studentList = document.getElementById('student-list');
@@ -52,11 +55,17 @@
                     ${programme.semesters.map(semester => `
                       <div class="semester">
                         <h4>${semester.semester}</h4>
-                        <ul class="list-group">
-                          ${semester.students.map(student => `
-                            <li class="list-group-item">${student.name}</li>
+                        <div class="row">
+                          ${semester.students.map((student, index) => `
+                            <div class="col-md-4 col-sm-6 student-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title">${index + 1}. ${student.name}</h5>
+                                </div>
+                              </div>
+                            </div>
                           `).join('')}
-                        </ul>
+                        </div>
                       </div>
                     `).join('')}
                   </div>
