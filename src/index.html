@@ -1564,7 +1564,7 @@
     
         <!-- Back to Top Button -->
         <button id="back-to-top" 
-            class="fixed bottom-8 right-8 z-50 p-3 bg-yellow-500 text-slate-900 rounded-full shadow-lg transition-opacity duration-300 hover:bg-yellow-600"
+            class="hidden fixed bottom-8 right-8 z-50 p-3 bg-yellow-500 text-slate-900 rounded-full shadow-lg transition-opacity duration-300 hover:bg-yellow-600"
             title="Back to top">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
@@ -1573,25 +1573,24 @@
     </footer>
     
     <script>
-        // Get the button
         const backToTopBtn = document.getElementById('back-to-top');
     
-        // Show or hide the button when scrolling
+        // Add an event listener for scrolling
         window.addEventListener('scroll', () => {
+            // Show the button after scrolling 200px
             if (window.scrollY > 200) {
                 backToTopBtn.classList.remove('hidden');
-                backToTopBtn.classList.add('opacity-100');
             } else {
                 backToTopBtn.classList.add('hidden');
-                backToTopBtn.classList.remove('opacity-100');
             }
         });
     
-        // Scroll back to the top when the button is clicked
+        // Scroll to the top when the button is clicked
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+    
     
 
     <script>
