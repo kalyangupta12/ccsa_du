@@ -648,9 +648,8 @@
                         </div>
                     </div>
                     <div class="nav-item relative inline-block flex items-center">
-                        <a href="#" class="hover:text-[#fbbf24] flex items-center ">
-                            Programs <i
-                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                        <a href="#" class="hover:text-[#fbbf24] inline-block group flex items-center ">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
                         </a>
                         <div class="dropdown-menu">
                             <div class="nested-dropdown">
@@ -677,8 +676,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Faculty <i
-                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Faculty <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></i></a>
                         <div class="dropdown-menu">
                             <a href="https://dibru.ac.in/user-profile/tazid-ali"
                                 class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
@@ -688,8 +686,7 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Students <i
-                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Students <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                         </div>
@@ -1454,7 +1451,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form id="contactForm" class="space-y-6 bg-white/5 p-2 rounded-lg backdrop-blur-sm">
+                <form id="contactForm" class="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm">
                     <div>
                         <label class="block mb-2 text-[#fbbf24] font-medium">Name</label>
                         <input type="text" name="name"
@@ -1507,8 +1504,8 @@
             </div>
         </div>
     </section>
-    <footer class="bg-slate-900 text-white py-12">
-        <div class="container mx-auto px-8 ">
+    <footer class="bg-slate-900 text-white py-12 relative">
+        <div class="container mx-auto px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
@@ -1522,8 +1519,7 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
-                                Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="#" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -1540,9 +1536,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
-                    <div
-                        class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
-                        <!-- Current Weather - Fixed Height -->
+                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
@@ -1550,14 +1544,11 @@
                             </div>
                             <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
                         </div>
-
-                        <!-- Weather Forecast - Fixed Height Container -->
                         <div class="h-24 overflow-hidden my-2">
                             <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
                                 <!-- Forecast slots will be populated by JS -->
                             </div>
                         </div>
-
                         <div class="flex items-center justify-between">
                             <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
                             <span class="text-xs text-slate-400">Live Updates</span>
@@ -1566,14 +1557,41 @@
                 </div>
             </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center leading-loose">
-                <p class="text-base">&copy; 2025 <b>Center for Computer Science and Applications</b>. All rights
-                    reserved.</p>
-                <p class="text-base">Powered by <a href="https://dssdu.in/index.html" target="_blank"><span
-                            class="text-yellow-200 font-semibold">Digital Solution Cell, Dibrugarh University</span></a>
-                </p>
+                <p class="text-base">&copy; 2025 <b>Center for Computer Science and Applications</b>. All rights reserved.</p>
+                <p class="text-base">Powered by <a href="https://dssdu.in/index.html" target="_blank"><span class="text-yellow-200 font-semibold">Digital Solution Cell, Dibrugarh University</span></a></p>
             </div>
         </div>
+    
+        <!-- Back to Top Button -->
+        <button id="back-to-top" 
+            class="hidden fixed bottom-8 right-8 z-50 p-3 bg-yellow-500 text-slate-900 rounded-full shadow-lg transition-opacity duration-300 hover:bg-yellow-600"
+            title="Back to top">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
     </footer>
+    
+    <script>
+        const backToTopBtn = document.getElementById('back-to-top');
+    
+        // Add an event listener for scrolling
+        window.addEventListener('scroll', () => {
+            // Show the button after scrolling 200px
+            if (window.scrollY > 200) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+    
+        // Scroll to the top when the button is clicked
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+    
 
     <script>
        function enableSubmit(token) {
