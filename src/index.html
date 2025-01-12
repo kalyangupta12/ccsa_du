@@ -297,6 +297,83 @@
                 background-color: rgba(255, 255, 255, 0.1);
             }
         }
+        @keyframes radialGlow {
+            0% {
+                opacity: 0.1;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.1;
+                transform: scale(0.95);
+            }
+        }
+
+        @keyframes shine {
+            from {
+                transform: translateX(-50%) rotate(35deg);
+            }
+            to {
+                transform: translateX(250%) rotate(35deg);
+            }
+        }
+
+        .badge-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2a4a7f 0%, #1a365d 100%);
+            padding: 4px;
+        }
+
+        .badge-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 223, 0, 0.1) 30%,  /* Golden color */
+                rgba(255, 215, 0, 0.4) 50%,  /* More intense golden */
+                rgba(255, 223, 0, 0.1) 70%,  /* Golden color */
+                transparent 100%
+            );
+            animation: shine 3s infinite;
+        }
+
+        .badge-inner {
+            position: relative;
+            z-index: 1;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, 
+                rgba(255, 223, 0, 0.4) 0%,  /* Golden glow */
+                rgba(255, 215, 0, 0) 70%    /* Fading golden */
+            );
+            animation: radialGlow 3s ease-in-out infinite;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 2;
+        }
+
     </style>
 </head>
 
@@ -347,10 +424,18 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4 lg:space-x-4">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16">
+                    <!-- Logo with badge and glow effect -->
+                    <div class="relative glow-effect">
+                        <div class="badge-container">
+                            <div class="badge-inner">
+                                <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16 w-16 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div>
-                        <h1 class="xl:text-lg font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                        <h1 class="xl:text-lg font-semibold text-white">Center for Computer Science And Applications</h1>
+                        <p class="text-sm text-blue-200">Dibrugarh University</p>
                     </div>
                 </div>
                 <div class="hidden lg:flex space-x-6">
