@@ -297,6 +297,31 @@
                 background-color: rgba(255, 255, 255, 0.1);
             }
         }
+        @keyframes shine {
+            from {
+                transform: translateX(-100%) skewX(-12deg);
+            }
+            to {
+                transform: translateX(200%) skewX(-12deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        .animate-shine {
+            animation: shine 2s infinite;
+        }
+        
+        .animate-pulse-custom {
+            animation: pulse 2s infinite;
+        }
     </style>
 </head>
 
@@ -340,11 +365,21 @@
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-8 lg:space-x-10">
-                    <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16">
+                <div class="flex items-center space-x-4 lg:space-x-4 relative">
+                    <!-- Shine animation overlay -->
+                    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                        <div class="absolute inset-0 animate-shine bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"></div>
+                    </div>
+                    
+                    <!-- Logo container with glow effect -->
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur animate-pulse-custom"></div>
+                        <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16 relative rounded-lg">
+                    </div>
+                    
                     <div>
                         <h1 class="xl:text-lg font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                        <p class="text-sm text-slate-500">Dibrugarh University</p>
                     </div>
                 </div>
                 <div class="hidden lg:flex space-x-6">
