@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="tail.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            top: 100%;
+            left: 0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Menu Enhancements */
+        @media (max-width: 768px) {
+
+            .dropdown-menu,
+            .nested-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                background-color: rgba(30, 58, 138, 0.05);
+                margin: 0.25rem 0;
+                padding: 0.5rem;
+            }
+
+            .nested-dropdown .nested-menu {
+                margin-left: 1rem;
+            }
+        }
+
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .nested-menu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            color: #4f46e5;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Add arrow indication for items with submenus */
+        .has-submenu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .dropdown-menu a {
+            transition: all 0.2s ease;
+            color: #1a365d;
+        }
+
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: block;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .dropdown-item i {
+            color: #4f46e5;
+        }
+
+        /* Download Item Styles */
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .download-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .download-item i {
+            color: #4f46e5;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .download-item:hover i {
+            transform: translateY(-2px);
+        }
+
+        .download-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background-color: #4f46e5;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Mobile Download Menu Enhancements */
+        @media (max-width: 768px) {
+            .mobile-download-menu {
+                background-color: rgba(30, 58, 138, 0.95);
+                backdrop-filter: blur(8px);
+                border-radius: 0.5rem;
+                margin: 0.5rem 0;
+                padding: 0.75rem;
+            }
+
+            .mobile-download-item {
+                border-radius: 0.375rem;
+                margin: 0.25rem 0;
+                padding: 0.75rem;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-teal-700 text-white">
+        <!-- Main Header Container -->
+        <div class="container mx-auto lg:px-10">
+            <div class="lg:flex justify-between items-center">
+
+                <!-- Email Section -->
+                <div class="hidden lg:flex items-center text-sm font-semibold">
+                    <a href="mailto:ccsduoffice@gmail.com" class="flex items-center py-2 hover:text-[#fbbf24]">
+                        <svg class="inline mr-2 text-sm w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path fill="currentColor"
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span class="whitespace-nowrap">ccsduoffice@gmail.com</span>
+                    </a>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="hidden lg:flex items-center w-auto font-semibold relative">
+                    <a href="https://placeccsa.wordpress.com/"
+                        class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
+                        <div class="whitespace-nowrap px-4">
+                            Placement Cell
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+<!-- Previous header and nav code remains unchanged -->
+<nav class="bg-[#1a365d] text-white">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <div class="flex items-center space-x-4 lg:space-x-4">
+                <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16">
+                <div>
+                    <h1 class="xl:text-lg font-semibold">Center for Computer Science And Applications</h1>
+                    <p class="text-sm text-slate-300"> Dibrugarh University </p>
+                </div>
+            </div>
+            <div class="hidden lg:flex space-x-6">
+                <div class="nav-item relative">
+                    <a href="index.html" class="hover:text-[#fbbf24] py-2 flex items-center">Home</a>
+                </div>
+                <div class="nav-item relative">
+                    <a href="index.html#aboutus" class=" hover:text-[#fbbf24] py-2 inline-block flex">About</a>
+                </div>
+
+                <div class="nav-item relative inline-block group">
+                    <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">
+                        <i class=" mr-2"></i>
+                        Downloads
+                        <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu download-menu">
+                        <!-- BCA Downloads -->
+                        <div class="nested-dropdown">
+                            <a href="#" class="dropdown-item has-submenu flex">
+                                <span class="flex items-center">
+                                    <i class="fas fa-graduation-cap mr-2"></i>
+                                    BCA
+                                </span>
+                                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-menu nested-menu">
+                                <div class="dropdown-item">
+                                    <a href="https://drive.google.com/uc?export=download&id=12zZd8JUyZUx1x1ZyyKLaVapcpU4C2K0z"
+                                        download="BCASyllabus.pdf" class=" text-[#1a365d]">
+                                        <i class="fas fa-book"></i>
+                                        <span>Syllabus</span>
+                                        <div class="download-progress"></div>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/12zZd8JUyZUx1x1ZyyKLaVapcpU4C2K0z/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nested-dropdown">
+                            <a href="#" class="dropdown-item has-submenu flex">
+                                <span class="flex items-center">
+                                    <i class="fas fa-user-graduate mr-2"></i>
+                                    MCA
+                                </span>
+                                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-menu nested-menu">
+                                <div class="dropdown-item flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1rpFhPAGv7VeBuwh8uKyU4_-jqQIlKPZw"
+                                        download="PROJECT GUIDELINES.pdf" class="text-[#1a365d]">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Project Guide</span>
+                                        <div class="download-progress"></div>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1r1CJNeZ5rAfd0exy2unSQaKPnq40g57w/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="dropdown-item flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1r1CJNeZ5rAfd0exy2unSQaKPnq40g57w"
+                                        download="MCA.pdf" class=" text-[#1a365d]">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Syllabus</span>
+                                        <div class="download-progress"></div>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex dropdown-item">
+                            <a href="https://drive.google.com/uc?export=download&id=1iQa96osBOWTw6oBQ2h2UvCEQ2N2Dg4xe"
+                                download="BOM committee.pdf" class=" text-[#1a365d]">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>BOM</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1iQa96osBOWTw6oBQ2h2UvCEQ2N2Dg4xe/view?usp=sharing"
+                                target="_blank" class="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div class="nested-dropdown dropdown-item">
+                            <a href="#" class=" has-submenu flex">
+                                <span class="flex items-center">
+                                    <i class="fas fa-graduation-cap mr-2"></i>
+                                    PGDCA
+                                </span>
+                                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-menu nested-menu">
+                                <div class="dropdown-item text-[#1a365d]">
+                                    <a href="https://drive.google.com/uc?export=download&id=1xcfLYeXoXphBBE1FPHtt2hxXzmHxC6m0"
+                                        download="PGDCASyllabus.pdf">
+                                        <i class="fas fa-book"></i>
+                                        <span>Syllabus</span>
+                                        <div class="download-progress"></div>
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1xcfLYeXoXphBBE1FPHtt2hxXzmHxC6m0/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex dropdown-item">
+                            <a href="https://drive.google.com/uc?export=download&id=1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7"
+                                download="FeeStructureCCSA.pdf" class=" text-[#1a365d]">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Fee Structure</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7/view?usp=sharing"
+                                target="_blank" class="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div class="nested-dropdown">
+                            <a href="#" class="dropdown-item has-submenu flex">
+                                <span class="flex items-center">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    EOA Reports
+                                </span>
+                                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-menu nested-menu">
+                                <div class="dropdown-item flex text-[#1a365d]">
+                                    <a href="https://drive.google.com/uc?export=download&id=1F5LzMzhrfK240Ljy4sOluridoSl6fyN9"
+                                        download="1735024829_EOA_Report_2024_2025.pdf">
+                                        <i class="fas fa-file-pdf"></i>
+                                        EOA Report 2018
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1F5LzMzhrfK240Ljy4sOluridoSl6fyN9/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1oZTklVQcryJUwp7q5HCOlnD8O9TA1k9V"
+                                        download="1735024819_EOA_Report__2023_24.pdf"><i class="fas fa-file-pdf"></i>
+                                        EOA Report 2019
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1oZTklVQcryJUwp7q5HCOlnD8O9TA1k9V/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/file/d/1oZTklVQcryJUwp7q5HCOlnD8O9TA1k9V/view?usp=sharing"
+                                        download="1735024796_EOA_Report_2022_23.pdf">
+                                        <i class="fas fa-file-pdf"></i>
+                                        EOA Report 2020
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1TX3LviQqaLXInf3QdNw0E1-2hYiAj_5q/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1ZaYFU8gyK5E73x9BLH8ifeZTbq6clvG8"
+                                        download="1735024721_EOA_Report_2018_19.pdf"><i class="fas fa-file-pdf"></i>
+                                        EOA Report 2021
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1ZaYFU8gyK5E73x9BLH8ifeZTbq6clvG8/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/file/d/1hosWQIaCq69hWhByj0HqLAdJIBZuOZdt/view?usp=sharing"
+                                        download="1735024782_EOA_Report_21_22.pdf">
+                                        <i class="fas fa-file-pdf"></i>
+                                        EOA Report 2022
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1TX3LviQqaLXInf3QdNw0E1-2hYiAj_5q/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz"
+                                        download="1735024766_EOA_Report_2020_21.pdf"><i class="fas fa-file-pdf"></i>
+                                        EOA Report 2023
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-item text-[#1a365d] flex items-center">
+                                    <a href="https://drive.google.com/uc?export=download&id=1OeBRQP3McBuIUedc82uSQya9wrmN-Yey"
+                                        download="1735024754_EOA_Report_2019_20.pdf"><i class="fas fa-file-pdf"></i>
+                                        EOA Report 2024
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1OeBRQP3McBuIUedc82uSQya9wrmN-Yey/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item relative inline-block flex items-center">
+                    <a href="#" class="hover:text-[#fbbf24] flex items-center ">
+                        Programs <i
+                            class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="nested-dropdown">
+                            <a href="#" class="dropdown-item has-submenu text-[#1a365d]">
+                                Under & Post-Graduate
+                                <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-menu nested-menu">
+                                <a href="undergraduate.html" class="dropdown-item text-[#1a365d]">BCA</a>
+                                <a href="postgraduate.html" class="dropdown-item text-[#1a365d]">MCA</a>
+                            </div>
+                        </div>
+                        <a href="pgdca.html" class="dropdown-item text-[#1a365d]">Diploma</a>
+                        <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Doctoral</a>
+                    </div>
+                </div>
+                <div class="nav-item relative inline-block group">
+                    <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Research
+                        <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Research Areas</a>
+                        <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Publications</a>
+                    </div>
+                </div>
+                <div class="nav-item relative">
+                    <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Faculty <i
+                            class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="https://dibru.ac.in/user-profile/tazid-ali"
+                            class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
+                        <a href="faculty.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Teaching
+                            Staff</a>
+                        <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Non-Teaching Staff</a>
+                    </div>
+                </div>
+                <div class="nav-item relative">
+                    <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Students <i
+                            class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="Present_Stu.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Present Students</a>
+                        <a href="https://ccsaalumni.in/" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
+                    </div>
+                </div>
+
+                <div class="nav-item relative">
+                    <a href="#contact" class="hover:text-[#fbbf24] py-2 flex items-center">Contact</a>
+                </div>
+            </div>
+            <button class="lg:hidden text-2xl" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden" id="mobileMenu">
+            <div class="py-4 space-y-2">
+                <a href="index.html" class="block py-2 hover:text-[#fbbf24]">Home</a>
+                <a href="index.html#aboutus" class="block py-2 hover:text-[#fbbf24]">About Us</a>
+                <div class="mobile-dropdown">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                        Programs
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="hidden pl-4 space-y-2 mt-2">
+                        <a href="undergraduate.html"
+                            class="block py-2 text-slate-300 hover:text-[#fbbf24]">Undergraduate</a>
+                        <a href="postgraduate.html"
+                            class="block py-2 text-slate-300 hover:text-[#fbbf24]">Post-Graduate</a>
+                        <a href="pgdca.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Diploma</a>
+                        <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Doctoral</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                        Research
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="hidden pl-4 space-y-2 mt-2">
+                        <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Research areas</a>
+                        <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Publications</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                        Faculty
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="hidden pl-4 space-y-2 mt-2">
+                        <a href="https://dibru.ac.in/user-profile/tazid-ali"
+                            class="block py-2 text-slate-300 hover:text-[#fbbf24]">ChairPerson</a>
+                        <a href="faculty.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Teaching
+                            Staff</a>
+                        <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Non-Teaching Staff</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                        Students
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="hidden pl-4 space-y-2 mt-2">
+                        <a href="#" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Present Students</a>
+                        <a href="https://ccsaalumni.in/" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                        Downloads
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </a>
+                    <div class="hidden pl-4 space-y-2 mt-2">
+                        <div class="mobile-dropdown">
+                            <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                BCA
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </a>
+                            <div class="hidden pl-4 flex justify-between space-y-2 mt-2">
+                                <a href="https://drive.google.com/uc?export=download&id=12zZd8JUyZUx1x1ZyyKLaVapcpU4C2K0z"
+                                    download="BCASyllabus.pdf"
+                                    class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus
+                                    <a href="https://drive.google.com/file/d/12zZd8JUyZUx1x1ZyyKLaVapcpU4C2K0z/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                    </a></a>
+                            </div>
+                        </div>
+                        <div class="mobile-dropdown">
+                            <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                MCA
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </a>
+                            <div class="hidden pl-4  space-y-2 mt-2">
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1rpFhPAGv7VeBuwh8uKyU4_-jqQIlKPZw"
+                                        download="PROJECT GUIDELINES.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">Project Guidelines
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1r1CJNeZ5rAfd0exy2unSQaKPnq40g57w/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1r1CJNeZ5rAfd0exy2unSQaKPnq40g57w"
+                                        download="MCA.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">Syllabus
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="https://drive.google.com/uc?export=download&id=1xcfLYeXoXphBBE1FPHtt2hxXzmHxC6m0"
+                                download="PGDCASyllabus.pdf"
+                                class="block py-2 text-slate-300 hover:text-[#fbbf24]">PGDCA
+                                <a href="https://drive.google.com/file/d/1xcfLYeXoXphBBE1FPHtt2hxXzmHxC6m0/view?usp=sharing"
+                                    target="_blank" class="ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+
+                                </a></a>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="https://drive.google.com/uc?export=download&id=1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7"
+                                download="FeeStructureCCSA.pdf"
+                                class="block py-2 text-slate-300 hover:text-[#fbbf24]">Fees Structure</a>
+                            <a href="https://drive.google.com/file/d/1h0HE1eFbI4UhzJ_ctUjOrPS93QddpkZ7/view?usp=sharing"
+                                target="_blank" class="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="https://drive.google.com/uc?export=download&id=1iQa96osBOWTw6oBQ2h2UvCEQ2N2Dg4xe"
+                                download="BOM committee.pdf" class="block py-2 text-slate-300 hover:text-[#fbbf24]">BOM
+                                Comittee</a>
+                            <a href="https://drive.google.com/file/d/1iQa96osBOWTw6oBQ2h2UvCEQ2N2Dg4xe/view?usp=sharing"
+                                target="_blank" class="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div class="mobile-dropdown">
+                            <a href="#" class="block py-2 hover:text-[#fbbf24] flex justify-between items-center">
+                                EOA Reports
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </a>
+                            <div class="hidden pl-4 space-y-2 mt-2">
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1OeBRQP3McBuIUedc82uSQya9wrmN-Yey"
+                                        download="1735024829_EOA_Report_2024_2025.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2024
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1OeBRQP3McBuIUedc82uSQya9wrmN-Yey/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz"
+                                        download="1735024819_EOA_Report__2023_24.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2023
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz"
+                                        download="1735024819_EOA_Report__2023_24.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2023
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1WCHodZ6y_gmK7BIpSGtnLiUt0CKJP2Gz/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1ZaYFU8gyK5E73x9BLH8ifeZTbq6clvG8"
+                                        download="1735024782_EOA_Report_21_22.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2021
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1ZaYFU8gyK5E73x9BLH8ifeZTbq6clvG8/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1TX3LviQqaLXInf3QdNw0E1-2hYiAj_5q"
+                                        download="1735024766_EOA_Report_2020_21.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2020
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1TX3LviQqaLXInf3QdNw0E1-2hYiAj_5q/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1oZTklVQcryJUwp7q5HCOlnD8O9TA1k9V"
+                                        download="1735024754_EOA_Report_2019_20.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2019
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1oZTklVQcryJUwp7q5HCOlnD8O9TA1k9V/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+                                <div class="flex justify-between">
+                                    <a href="https://drive.google.com/uc?export=download&id=1F5LzMzhrfK240Ljy4sOluridoSl6fyN9"
+                                        download="1735024721_EOA_Report_2018_19.pdf"
+                                        class="block py-2 text-slate-300 hover:text-[#fbbf24]">
+                                        EOA Report 2018
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1F5LzMzhrfK240Ljy4sOluridoSl6fyN9/view?usp=sharing"
+                                        target="_blank" class="ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href=" index.html#contact" class="block py-2 hover:text-[#fbbf24]">Contact</a>
+                <!-- ... Similar structure for other mobile menu items ... -->
+            </div>
+        </div>
+    </div>
+    </div>
+</nav>
+<main>
+        <!-- Student Cards Section -->
+        <section class="py-16 bg-white relative">
+            <div class="container mx-auto px-4">
+              <h3 class="text-2xl font-bold text-center text-[#1a365d] mb-8">Our Students</h3>
+              
+              <div id="students-container" class="space-y-12">
+                <!-- Semesters and student cards will be dynamically added here -->
+              </div>
+            </div>
+          </section>
+    </main>
+
+<footer class="bg-slate-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html#aboutus" class="hover:text-[#fbbf24]">About Us</a></li>
+                    <li><a href="index.html#programs" class="hover:text-[#fbbf24]">Programs</a></li>
+                    <li><a href="#" class="hover:text-[#fbbf24]">Research</a></li>
+                    <li><a href="index.html#contact" class="hover:text-[#fbbf24]">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Important Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
+                            Portal</a></li>
+                    <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
+                    <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
+                    <li><a href="https://ccsaalumni.in/" class="hover:text-[#fbbf24]">Alumni</a></li>
+                    <li><a href="#" class="hover:text-[#fbbf24]">Anazori</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Social</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-[#fbbf24]"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
+                <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                    <!-- Current Weather - Fixed Height -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
+                            <span id="current-temp" class="text-2xl min-w-[60px]">--°C</span>
+                        </div>
+                        <span id="current-time" class="text-sm text-slate-400 min-w-[60px]">--:--</span>
+                    </div>
+
+                    <!-- Weather Forecast - Fixed Height Container -->
+                    <div class="h-24 overflow-hidden my-2">
+                        <div id="hourly-forecast" class="grid grid-cols-4 gap-2 h-full">
+                            <!-- Forecast slots will be populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <p class="text-slate-300 text-sm">Dibrugarh, Assam</p>
+                        <span class="text-xs text-slate-400">Live Updates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-700 mt-8 pt-8 text-center leading-loose">
+            <p class="text-base">&copy; 2025 <b>Center for Computer Science and Applications</b>. All rights reserved.</p>
+            <p class="text-base">Powered by <a href="https://dssdu.in/index.html" target="_blank"><span class="text-yellow-200 font-semibold">Digital Solution Cell, Dibrugarh University</span></a></p>
+        </div>
+    </div>
+</footer>
+<script>
+    fetch('https://admin-ccsa.vercel.app/api/students')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("students-container");
+        const student = data[0];
+
+        student.programmes.forEach(programme => {
+          programme.semesters.forEach(semester => {
+            // Create a responsive semester header
+            const semesterContainer = document.createElement("div");
+            semesterContainer.className = "space-y-4";
+
+            const semesterHeader = document.createElement("h2");
+            semesterHeader.className = "text-xl lg:text-3xl font-bold text-[#1a365d] mb-4";
+            semesterHeader.textContent = `Semester: ${semester.semester}`;
+            semesterContainer.appendChild(semesterHeader);
+
+            // Create a grid for student cards
+            const studentGrid = document.createElement("div");
+            studentGrid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+
+            semester.students.forEach(student => {
+              const studentCard = document.createElement("div");
+              studentCard.className =
+                "bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 group";
+
+              studentCard.innerHTML = `
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
+                    ${student.name.split(" ").map(word => word[0]).join("").toUpperCase()}
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-[#1a365d] group-hover:text-[#2563eb] transition-colors duration-300">${student.name}</h4>
+                    <p class="text-sm text-slate-500">${programme.programme} Student</p>
+                  </div>
+                </div>
+              `;
+
+              studentGrid.appendChild(studentCard);
+            });
+
+            semesterContainer.appendChild(studentGrid);
+            container.appendChild(semesterContainer);
+          });
+        });
+      })
+      .catch(error => console.error('Error loading student data:', error));
+  </script>
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileDropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const content = dropdown.querySelector('div');
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            content.classList.toggle('hidden');
+            const icon = link.querySelector('i.fa-chevron-down');
+            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+    });
+
+    // Enhanced download handling
+    document.querySelectorAll('.download-item').forEach(item => {
+        item.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const progress = item.querySelector('.download-progress');
+            const link = item.getAttribute('href');
+            const filename = item.dataset.filename;
+
+            try {
+                const response = await fetch(link);
+                const reader = response.body.getReader();
+                const contentLength = +response.headers.get('Content-Length');
+
+                let receivedLength = 0;
+                const chunks = [];
+
+                while (true) {
+                    const { done, value } = await reader.read();
+
+                    if (done) break;
+
+                    chunks.push(value);
+                    receivedLength += value.length;
+
+                    const percentComplete = (receivedLength / contentLength) * 100;
+                    progress.style.width = percentComplete + '%';
+                }
+
+                const blob = new Blob(chunks);
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+                // Reset progress after successful download
+                setTimeout(() => {
+                    progress.style.width = '0%';
+                }, 1000);
+
+            } catch (error) {
+                console.error('Download failed:', error);
+                progress.style.backgroundColor = '#ef4444';
+            }
+        });
+    });
+
+
+</script>
+<script src="script.js"></script>
+</body>
+
+</html>
