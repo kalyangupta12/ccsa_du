@@ -297,30 +297,78 @@
                 background-color: rgba(255, 255, 255, 0.1);
             }
         }
-        @keyframes shine {
-            from {
-                transform: translateX(-100%) skewX(-12deg);
-            }
-            to {
-                transform: translateX(200%) skewX(-12deg);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.3;
+        @keyframes radialGlow {
+            0% {
+                opacity: 0.1;
+                transform: scale(0.95);
             }
             50% {
-                opacity: 0.5;
+                opacity: 0.4;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.1;
+                transform: scale(0.95);
             }
         }
-        
-        .animate-shine {
-            animation: shine 2s infinite;
+
+        @keyframes shine {
+            from {
+                transform: translateX(-50%) rotate(35deg);
+            }
+            to {
+                transform: translateX(250%) rotate(35deg);
+            }
         }
-        
-        .animate-pulse-custom {
-            animation: pulse 2s infinite;
+
+        .badge-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2a4a7f 0%, #1a365d 100%);
+            padding: 4px;
+        }
+
+        .badge-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 30%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0.1) 70%,
+                transparent 100%
+            );
+            animation: shine 3s infinite;
+        }
+
+        .badge-inner {
+            position: relative;
+            z-index: 1;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: radialGlow 3s ease-in-out infinite;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -365,21 +413,19 @@
     <nav class="bg-[#1a365d] text-white">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-4 lg:space-x-4 relative">
-                    <!-- Shine animation overlay -->
-                    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-                        <div class="absolute inset-0 animate-shine bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"></div>
-                    </div>
-                    
-                    <!-- Logo container with glow effect -->
-                    <div class="relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur animate-pulse-custom"></div>
-                        <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16 relative rounded-lg">
+                <div class="flex items-center space-x-4 lg:space-x-4">
+                    <!-- Logo with badge and glow effect -->
+                    <div class="relative glow-effect">
+                        <div class="badge-container">
+                            <div class="badge-inner">
+                                <img src="https://www.duedu.in/img/du.png" alt="Logo" class="h-16 w-16 object-cover">
+                            </div>
+                        </div>
                     </div>
                     
                     <div>
-                        <h1 class="xl:text-lg font-semibold">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-slate-500">Dibrugarh University</p>
+                        <h1 class="xl:text-lg font-semibold text-white">Center for Computer Science And Applications</h1>
+                        <p class="text-sm text-blue-200">Dibrugarh University</p>
                     </div>
                 </div>
                 <div class="hidden lg:flex space-x-6">
