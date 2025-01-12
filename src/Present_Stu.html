@@ -174,6 +174,12 @@
 
                 <!-- Social Media Links -->
                 <div class="hidden lg:flex items-center w-auto font-semibold relative">
+                    <a href="https://ccsaalumni.in/"
+                    class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
+                    <div class="whitespace-nowrap px-4">
+                        Alumni
+                    </div>
+                </a>
                     <a href="https://placeccsa.wordpress.com/"
                         class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
                         <div class="whitespace-nowrap px-4">
@@ -940,124 +946,77 @@
     </div>
 </footer>
 <script>
-    fetch('https://admin-ccsa.vercel.app/api/students')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("students-container");
-        const student = data[0];
+   fetch('https://admin-ccsa.vercel.app/api/students')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("students-container");
+    const studentData = data[0]; // Assuming data[0] has the required structure
 
-        student.programmes.forEach(programme => {
-          programme.semesters.forEach(semester => {
-            // Create a responsive semester header
-            const semesterContainer = document.createElement("div");
-            semesterContainer.className = "space-y-4";
+    // Iterate over programmes
+    studentData.programmes.forEach(programme => {
+      // Create a container for each programme
+      const programmeContainer = document.createElement("div");
+      programmeContainer.className = "space-y-6 mb-12";
 
-            const semesterHeader = document.createElement("h2");
-            semesterHeader.className = "text-xl lg:text-3xl font-bold text-[#1a365d] mb-4";
-            semesterHeader.textContent = `Semester: ${semester.semester}`;
-            semesterContainer.appendChild(semesterHeader);
+      // Create a programme header
+      const programmeHeader = document.createElement("h1");
+      programmeHeader.className = "text-lg lg:text-xl font-bold text-[#1a365d] mb-6";
+      programmeHeader.textContent = ` ${programme.programme}`;
+      programmeContainer.appendChild(programmeHeader);
 
-            // Create a grid for student cards
-            const studentGrid = document.createElement("div");
-            studentGrid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+      // Iterate over semesters within the programme
+      programme.semesters.forEach(semester => {
+        // Create a container for each semester
+        const semesterContainer = document.createElement("div");
+        semesterContainer.className = "space-y-4 mb-8";
 
-            semester.students.forEach(student => {
-              const studentCard = document.createElement("div");
-              studentCard.className =
-                "bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 group";
+        // Create a semester header
+        const semesterHeader = document.createElement("h2");
+        semesterHeader.className = "text-sm lg:text-lg font-bold text-[#1a365d] mb-4";
+        semesterHeader.textContent = `Semester: ${semester.semester}`;
+        semesterContainer.appendChild(semesterHeader);
 
-              studentCard.innerHTML = `
-                <div class="flex items-center space-x-4">
-                  <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                    ${student.name.split(" ").map(word => word[0]).join("").toUpperCase()}
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold text-[#1a365d] group-hover:text-[#2563eb] transition-colors duration-300">${student.name}</h4>
-                  </div>
-                </div>
-              `;
+        // Create a grid container for student cards
+        const studentGrid = document.createElement("div");
+        studentGrid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
 
-              studentGrid.appendChild(studentCard);
-            });
+        // Iterate over students to create cards
+        semester.students.forEach(student => {
+          const studentCard = document.createElement("div");
+          studentCard.className =
+            "bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 group";
 
-            semesterContainer.appendChild(studentGrid);
-            container.appendChild(semesterContainer);
-          });
+          // Populate student card with name and initials
+          studentCard.innerHTML = `
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
+                ${student.name
+                  .split(" ")
+                  .map(word => word[0])
+                  .join("")
+                  .toUpperCase()}
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-[#1a365d] group-hover:text-[#2563eb] transition-colors duration-300">${student.name}</h4>
+              </div>
+            </div>
+          `;
+
+          studentGrid.appendChild(studentCard);
         });
-      })
-      .catch(error => console.error('Error loading student data:', error));
-  </script>
-<script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobileMenuButton');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
 
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        // Append the student grid to the semester container
+        semesterContainer.appendChild(studentGrid);
+
+        // Append the semester container to the programme container
+        programmeContainer.appendChild(semesterContainer);
+      });
+
+      // Append the programme container to the main container
+      container.appendChild(programmeContainer);
     });
-
-    mobileDropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        const content = dropdown.querySelector('div');
-
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            content.classList.toggle('hidden');
-            const icon = link.querySelector('i.fa-chevron-down');
-            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-        });
-    });
-
-    // Enhanced download handling
-    document.querySelectorAll('.download-item').forEach(item => {
-        item.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const progress = item.querySelector('.download-progress');
-            const link = item.getAttribute('href');
-            const filename = item.dataset.filename;
-
-            try {
-                const response = await fetch(link);
-                const reader = response.body.getReader();
-                const contentLength = +response.headers.get('Content-Length');
-
-                let receivedLength = 0;
-                const chunks = [];
-
-                while (true) {
-                    const { done, value } = await reader.read();
-
-                    if (done) break;
-
-                    chunks.push(value);
-                    receivedLength += value.length;
-
-                    const percentComplete = (receivedLength / contentLength) * 100;
-                    progress.style.width = percentComplete + '%';
-                }
-
-                const blob = new Blob(chunks);
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-
-                // Reset progress after successful download
-                setTimeout(() => {
-                    progress.style.width = '0%';
-                }, 1000);
-
-            } catch (error) {
-                console.error('Download failed:', error);
-                progress.style.backgroundColor = '#ef4444';
-            }
-        });
-    });
+  })
+  .catch(error => console.error('Error loading student data:', error));
 
 
 </script>
