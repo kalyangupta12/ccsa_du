@@ -34,7 +34,7 @@
   <!-- Custom JavaScript to fetch and display data -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      fetch('/api/students')
+      fetch('https://admin-ccsa.vercel.app/api/students')
         .then(response => response.json())
         .then(data => {
           const studentList = document.getElementById('student-list');
