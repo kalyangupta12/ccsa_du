@@ -185,9 +185,6 @@
             </div>
         </div>
     </header>
-</body>
-
-</html>
 <!-- Previous header and nav code remains unchanged -->
 <nav class="bg-[#1a365d] text-white">
     <div class="container mx-auto px-4">
@@ -541,7 +538,7 @@
                     <a href="#" class="hover:text-[#fbbf24] py-2 flex items-center">Students <i
                             class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
                     <div class="dropdown-menu">
-                        <a href="#" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Present Students</a>
+                        <a href="Present_Stu.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Present Students</a>
                         <a href="https://ccsaalumni.in/" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                     </div>
                 </div>
@@ -870,26 +867,13 @@
         <!-- Student Cards Section -->
         <section class="py-16 bg-white relative">
             <div class="container mx-auto px-4">
-                <h3 class="text-2xl font-bold text-center text-[#1a365d] mb-8">Our Students</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Student Card -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 group">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                                JS
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#1a365d] group-hover:text-[#2563eb] transition-colors duration-300">John Smith</h4>
-                                <p class="text-sm text-slate-500">BCA Student</p>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                    
-                </div>
+              <h3 class="text-2xl font-bold text-center text-[#1a365d] mb-8">Our Students</h3>
+              
+              <div id="students-container" class="space-y-12">
+                <!-- Semesters and student cards will be dynamically added here -->
+              </div>
             </div>
-        </section>
+          </section>
     </main>
 
 <footer class="bg-slate-900 text-white py-12">
@@ -955,6 +939,55 @@
         </div>
     </div>
 </footer>
+<script>
+    fetch('https://admin-ccsa.vercel.app/api/students')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("students-container");
+        const student = data[0];
+
+        student.programmes.forEach(programme => {
+          programme.semesters.forEach(semester => {
+            // Create a responsive semester header
+            const semesterContainer = document.createElement("div");
+            semesterContainer.className = "space-y-4";
+
+            const semesterHeader = document.createElement("h2");
+            semesterHeader.className = "text-xl lg:text-3xl font-bold text-[#1a365d] mb-4";
+            semesterHeader.textContent = `Semester: ${semester.semester}`;
+            semesterContainer.appendChild(semesterHeader);
+
+            // Create a grid for student cards
+            const studentGrid = document.createElement("div");
+            studentGrid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+
+            semester.students.forEach(student => {
+              const studentCard = document.createElement("div");
+              studentCard.className =
+                "bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 group";
+
+              studentCard.innerHTML = `
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a365d] to-[#2563eb] flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
+                    ${student.name.split(" ").map(word => word[0]).join("").toUpperCase()}
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-[#1a365d] group-hover:text-[#2563eb] transition-colors duration-300">${student.name}</h4>
+                    <p class="text-sm text-slate-500">${programme.programme} Student</p>
+                  </div>
+                </div>
+              `;
+
+              studentGrid.appendChild(studentCard);
+            });
+
+            semesterContainer.appendChild(studentGrid);
+            container.appendChild(semesterContainer);
+          });
+        });
+      })
+      .catch(error => console.error('Error loading student data:', error));
+  </script>
 <script>
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobileMenuButton');
