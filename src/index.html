@@ -298,81 +298,109 @@
             }
         }
         @keyframes radialGlow {
-            0% {
-                opacity: 0.1;
-                transform: scale(0.95);
-            }
-            50% {
-                opacity: 0.4;
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 0.1;
-                transform: scale(0.95);
-            }
-        }
+    0% {
+        opacity: 0.1;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.1;
+        transform: scale(0.95);
+    }
+}
 
-        @keyframes shine {
-            from {
-                transform: translateX(-50%) rotate(35deg);
-            }
-            to {
-                transform: translateX(250%) rotate(35deg);
-            }
-        }
+@keyframes shine {
+    from {
+        transform: translateX(-50%) rotate(35deg);
+    }
+    to {
+        transform: translateX(250%) rotate(35deg);
+    }
+}
 
-        .badge-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #2a4a7f 0%, #1a365d 100%);
-            padding: 4px;
-        }
+.badge-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #2a4a7f 0%, #1a365d 100%);
+    padding: clamp(2px, 1vw, 4px); /* Responsive padding */
+    width: clamp(48px, 20vw, 64px); /* Dynamic width */
+    height: clamp(48px, 20vw, 64px); /* Match width for circle */
+    margin: auto;
+}
 
-        .badge-container::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(255, 223, 0, 0.1) 30%,  /* Golden color */
-                rgba(255, 215, 0, 0.4) 50%,  /* More intense golden */
-                rgba(255, 223, 0, 0.1) 70%,  /* Golden color */
-                transparent 100%
-            );
-            animation: shine 3s infinite;
-        }
+.badge-container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 223, 0, 0.1) 30%,
+        rgba(255, 215, 0, 0.4) 50%,
+        rgba(255, 223, 0, 0.1) 70%,
+        transparent 100%
+    );
+    animation: shine 3s infinite;
+}
 
-        .badge-inner {
-            position: relative;
-            z-index: 1;
-            border-radius: 50%;
-            overflow: hidden;
-        }
+.badge-inner {
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .glow-effect {
-            position: relative;
-        }
+.glow-effect {
+    position: relative;
+    display: inline-block;
+}
 
-        .glow-effect::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(circle, 
-                rgba(255, 223, 0, 0.4) 0%,  /* Golden glow */
-                rgba(255, 215, 0, 0) 70%    /* Fading golden */
-            );
-            animation: radialGlow 3s ease-in-out infinite;
-        }
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: clamp(-10px, -3vw, -20px); /* Dynamic glow size */
+    background: radial-gradient(circle,
+        rgba(255, 223, 0, 0.4) 0%,
+        rgba(255, 215, 0, 0) 70%
+    );
+    animation: radialGlow 3s ease-in-out infinite;
+}
 
-        .logo-container {
-            position: relative;
-            z-index: 2;
-        }
+.badge-inner img {
+    width: 90%; /* Ensures consistent scaling */
+    height: auto;
+    max-width: 100px; /* Optional: Limit the max logo size */
+    object-fit: cover;
+    border-radius: 50%; /* Ensure circular logos */
+}
+
+/* Media query for small devices */
+@media screen and (max-width: 768px) {
+    .badge-container {
+        width: clamp(40px, 25vw, 56px); /* Smaller size for mobile */
+        height: clamp(40px, 25vw, 56px);
+    }
+
+    .glow-effect::before {
+        inset: clamp(-8px, -2vw, -12px); /* Adjust glow for mobile */
+    }
+
+    .badge-inner img {
+        max-width: 80px; /* Reduce image size for mobile */
+    }
+}
 
     </style>
 </head>
@@ -399,11 +427,11 @@
                 <!-- Social Media Links -->
                 <div class="hidden lg:flex items-center w-auto font-semibold relative">
                     <a href="https://ccsaalumni.in/"
-                    class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
-                    <div class="whitespace-nowrap px-4">
-                        Alumni
-                    </div>
-                </a>
+                        class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
+                        <div class="whitespace-nowrap px-4">
+                            Alumni
+                        </div>
+                    </a>
                     <a href="https://placeccsa.wordpress.com/"
                         class="hover:text-[#fbbf24] transition-colors duration-200 group relative">
                         <div class="whitespace-nowrap px-4">
@@ -417,7 +445,7 @@
     </header>
     <!--div class="marquee">
         <span>🚧 Site is in Maintenance Mode. Please check back later. 🚧</span>
-            
+            
     </div-->
     <!-- Navigation -->
     <nav class="bg-[#1a365d] text-white">
@@ -432,10 +460,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div>
-                        <h1 class="xl:text-lg font-semibold text-white">Center for Computer Science And Applications</h1>
-                        <p class="text-sm text-blue-200">Dibrugarh University</p>
+                        <h1 class="xl:text-lg font-semibold text-white">Center for Computer Science<br> And Applications
+                        </h1>
+                        <!--p class="text-sm text-blue-200">Dibrugarh University</p-->
                     </div>
                 </div>
                 <div class="hidden lg:flex space-x-6">
@@ -740,7 +769,8 @@
                     </div>
                     <div class="nav-item relative inline-block flex items-center">
                         <a href="#" class="hover:text-[#fbbf24] inline-block group flex items-center ">
-                            Programs <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                            Programs <i
+                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
                         </a>
                         <div class="dropdown-menu">
                             <div class="nested-dropdown">
@@ -767,7 +797,8 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Faculty <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></i></a>
+                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Faculty <i
+                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></i></a>
                         <div class="dropdown-menu">
                             <a href="https://dibru.ac.in/user-profile/tazid-ali"
                                 class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">ChairPerson</a>
@@ -777,11 +808,14 @@
                         </div>
                     </div>
                     <div class="nav-item relative">
-                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Students <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
-                       
+                        <a href="#" class="hover:text-[#fbbf24] inline-block group py-2 flex items-center">Students <i
+                                class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i></a>
+
                         <div class="dropdown-menu">
-                            <a href="Present_Stu.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Present Students</a>
-                            <a href="https://ccsaalumni.in/" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
+                            <a href="Present_Stu.html" class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Present
+                                Students</a>
+                            <a href="https://ccsaalumni.in/"
+                                class="block px-4 py-2 text-[#1a365d] hover:bg-slate-100">Alumni</a>
                         </div>
                     </div>
 
@@ -841,8 +875,10 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </a>
                         <div class="hidden pl-4 space-y-2 mt-2">
-                            <a href="Present_Stu.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Present Students</a>
-                            <a href="https://ccsaalumni.in/" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
+                            <a href="Present_Stu.html" class="block py-2 text-slate-300 hover:text-[#fbbf24]">Present
+                                Students</a>
+                            <a href="https://ccsaalumni.in/"
+                                class="block py-2 text-slate-300 hover:text-[#fbbf24]">Alumni</a>
                         </div>
                     </div>
                     <div class="mobile-dropdown">
@@ -1176,8 +1212,7 @@
                     About Us</h2>
                 <div
                     class="relative h-[calc(100%-2rem)] lg:mt-2 sm:h-[calc(100%-3rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-slate-200">
-                    <p
-                        class="text-left text-xs sm:text-sm lg:text-lg leading-relaxed sm:leading-loose text-gray-700  ">
+                    <p class="text-left text-xs sm:text-sm lg:text-lg leading-relaxed sm:leading-loose text-gray-700  ">
                         Centre for Computer Science and Applications (formerly known as Centre for Computer Studies) is
                         one of the premier institutes of North-East-India imparting computer education.
                         Dibrugarh University initiated its journey of imparting computer education by establishing a
@@ -1552,32 +1587,28 @@
                             class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
                             required>
                     </div>
-            
+
                     <div>
                         <label class="block mb-2 text-[#fbbf24] font-medium">Email</label>
                         <input type="email" name="email"
                             class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
                             required>
                     </div>
-            
+
                     <div>
                         <label class="block mb-2 text-[#fbbf24] font-medium">Message</label>
                         <textarea name="message"
                             class="w-full px-4 py-3 rounded-lg bg-white/10 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent text-white placeholder-gray-400"
                             rows="4" placeholder="Your message" required></textarea>
                     </div>
-            
+
                     <!-- reCAPTCHA container with custom styling -->
                     <div class="flex justify-center my-4">
-                        <div class="g-recaptcha" 
-                             data-sitekey="6LdXKbUqAAAAAJaXf0-p0IWXFjI0lqhXPEEimBV3"
-                             data-theme="dark"
-                             data-callback="enableSubmit"></div>
+                        <div class="g-recaptcha" data-sitekey="6LdXKbUqAAAAAJaXf0-p0IWXFjI0lqhXPEEimBV3"
+                            data-theme="dark" data-callback="enableSubmit"></div>
                     </div>
-            
-                    <button type="submit"
-                        id="submitBtn"
-                        disabled
+
+                    <button type="submit" id="submitBtn" disabled
                         class="w-full bg-[#fbbf24] text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
                         <span>Send Message</span>
                         <i class="fas fa-paper-plane"></i>
@@ -1613,7 +1644,8 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Important Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student Portal</a></li>
+                        <li><a href="https://erp.dibru.work/dibru/student/login" class="hover:text-[#fbbf24]">Student
+                                Portal</a></li>
                         <li><a href="https://dibru.ac.in/library" class="hover:text-[#fbbf24]">Library</a></li>
                         <li><a href="https://dibru.ac.in/" class="hover:text-[#fbbf24]">Dibrugarh University</a></li>
                         <li><a href="https://ccsaalumni.in/" class="hover:text-[#fbbf24]">Alumni</a></li>
@@ -1630,7 +1662,8 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Weather Updates</h3>
-                    <div class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
+                    <div
+                        class="bg-slate-800 rounded-lg p-4 w-full h-[200px] flex flex-col justify-between weather-widget">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <span id="current-icon" class="text-3xl mr-2 w-8">--</span>
@@ -1651,11 +1684,14 @@
                 </div>
             </div>
             <div class="border-t border-slate-700 mt-8 pt-8 text-center leading-loose">
-                <p class="text-base">&copy; 2025 <b>Center for Computer Science and Applications</b>. All rights reserved.</p>
-                <p class="text-base">Powered by <a href="https://dssdu.in/index.html" target="_blank"><span class="text-yellow-200 font-semibold">Digital Solution Cell, Dibrugarh University</span></a></p>
+                <p class="text-base">&copy; 2025 <b>Center for Computer Science and Applications</b>. All rights
+                    reserved.</p>
+                <p class="text-base">Powered by <a href="https://dssdu.in/index.html" target="_blank"><span
+                            class="text-yellow-200 font-semibold">Digital Solution Cell, Dibrugarh University</span></a>
+                </p>
             </div>
         </div>
-    
+
         <!-- Back to Top Button -->
         <!--button id="back-to-top" 
             class="hidden fixed bottom-8 right-8 z-50 p-3 bg-yellow-500 text-slate-900 rounded-full shadow-lg transition-opacity duration-300 hover:bg-yellow-600"
@@ -1665,7 +1701,7 @@
             </svg>
         </button-->
     </footer>
-    
+
     <!--script>
         const backToTopBtn = document.getElementById('back-to-top');
     
@@ -1684,17 +1720,17 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script-->
-    
-    
+
+
 
     <script>
-       function enableSubmit(token) {
+        function enableSubmit(token) {
             document.getElementById("submitBtn").disabled = false;
         }
 
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const recaptchaResponse = grecaptcha.getResponse();
             if (!recaptchaResponse) {
                 alert('Please complete the reCAPTCHA');
@@ -1730,31 +1766,31 @@
             }
         });
     </script>
-   <script>
-    // Fetch notices from API and populate Swiper slides
-    async function fetchNotices() {
-        const apiUrl = "https://admin-ccsa.vercel.app/api/notific"; // Replace with your API endpoint
-        const noticeWrapper = document.getElementById('notice-wrapper');
-        const noNotices = document.getElementById('no-notices');
+    <script>
+        // Fetch notices from API and populate Swiper slides
+        async function fetchNotices() {
+            const apiUrl = "https://admin-ccsa.vercel.app/api/notific"; // Replace with your API endpoint
+            const noticeWrapper = document.getElementById('notice-wrapper');
+            const noNotices = document.getElementById('no-notices');
 
-        try {
-            const response = await fetch(apiUrl);
-            const notices = await response.json();
+            try {
+                const response = await fetch(apiUrl);
+                const notices = await response.json();
 
-            // Check if notices exist
+                // Check if notices exist
 
-            // Populate Swiper slides
-            notices.forEach(notice => {
-const slide = document.createElement('div');
-slide.className = 'swiper-slide bg-gradient-to-br from-white to-slate-50';
+                // Populate Swiper slides
+                notices.forEach(notice => {
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide bg-gradient-to-br from-white to-slate-50';
 
-// Handle null or invalid date
-const formattedDate = notice.created_at && notice.created_at !== "NULL"
-    ? new Date(notice.created_at).toLocaleDateString()
-    : "Date not available";
+                    // Handle null or invalid date
+                    const formattedDate = notice.created_at && notice.created_at !== "NULL"
+                        ? new Date(notice.created_at).toLocaleDateString()
+                        : "Date not available";
 
-// Construct the HTML for the slide
-slide.innerHTML = `
+                    // Construct the HTML for the slide
+                    slide.innerHTML = `
     <div class="flex flex-col p-6">
         <div class="flex-1">
             <p class="text-sm text-gray-500 mb-1">${formattedDate}</p>
@@ -1775,98 +1811,98 @@ slide.innerHTML = `
         ` : ''}
     </div>
 `;
-noticeWrapper.appendChild(slide);
-});
+                    noticeWrapper.appendChild(slide);
+                });
 
 
 
-            // Initialize Swiper after notices are loaded
-            initializeSwiper();
-        } catch (error) {
-            console.error('Error fetching notices:', error);
-            noNotices.textContent = "Failed to load notices. Please try again later!";
-            noNotices.classList.remove('hidden');
-        }
-    }
-
-    // Initialize Swiper with provided settings
-    function initializeSwiper() {
-        new Swiper('.noticeSwiper', {
-        direction: 'vertical',
-        loop: true,
-        slidesPerView: 2,
-
-        // Improved autoplay settings
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-        },
-
-        // Smooth transition effects
-        effect: 'slide',
-        speed: 800,
-
-        // Enable touch interactions
-        touchEventsTarget: 'container',
-        touchRatio: 1,
-        touchAngle: 45,
-
-        // Better mobile handling
-        breakpoints: {
-            320: {  // iPhone SE and similar small devices
-                height: 200,
-                touchRatio: 1.5,
-                slidesPerView: 1  // More sensitive touch for smaller screens
-            },
-            375: {  // iPhone 6/7/8/X
-                height: 250,
-                slidesPerView: 1,
-            },
-            768: {  // Tablets
-                slidesPerView: 1,
-                height: 300,
-            },
-            1024: { // Desktop
-                height: 350,
+                // Initialize Swiper after notices are loaded
+                initializeSwiper();
+            } catch (error) {
+                console.error('Error fetching notices:', error);
+                noNotices.textContent = "Failed to load notices. Please try again later!";
+                noNotices.classList.remove('hidden');
             }
-        },
-
-        // Improved animation
-        on: {
-            touchStart: function () {
-                this.autoplay.stop();
-            },
-            touchEnd: function () {
-                this.autoplay.start();
-            }
-        },
-
-        // Optional pagination
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            type: 'bullets',
-            bulletActiveClass: 'swiper-pagination-bullet-active bg-indigo-600',
-        },
-
-        // Add keyboard control
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
-
-        // Smooth mousewheel control
-        mousewheel: {
-            sensitivity: 1,
-            releaseOnEdges: true,
         }
-    });
-    }
 
-    // Fetch and display notices on page load
-    fetchNotices();
-</script>
+        // Initialize Swiper with provided settings
+        function initializeSwiper() {
+            new Swiper('.noticeSwiper', {
+                direction: 'vertical',
+                loop: true,
+                slidesPerView: 2,
+
+                // Improved autoplay settings
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+
+                // Smooth transition effects
+                effect: 'slide',
+                speed: 800,
+
+                // Enable touch interactions
+                touchEventsTarget: 'container',
+                touchRatio: 1,
+                touchAngle: 45,
+
+                // Better mobile handling
+                breakpoints: {
+                    320: {  // iPhone SE and similar small devices
+                        height: 200,
+                        touchRatio: 1.5,
+                        slidesPerView: 1  // More sensitive touch for smaller screens
+                    },
+                    375: {  // iPhone 6/7/8/X
+                        height: 250,
+                        slidesPerView: 1,
+                    },
+                    768: {  // Tablets
+                        slidesPerView: 1,
+                        height: 300,
+                    },
+                    1024: { // Desktop
+                        height: 350,
+                    }
+                },
+
+                // Improved animation
+                on: {
+                    touchStart: function () {
+                        this.autoplay.stop();
+                    },
+                    touchEnd: function () {
+                        this.autoplay.start();
+                    }
+                },
+
+                // Optional pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    type: 'bullets',
+                    bulletActiveClass: 'swiper-pagination-bullet-active bg-indigo-600',
+                },
+
+                // Add keyboard control
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+
+                // Smooth mousewheel control
+                mousewheel: {
+                    sensitivity: 1,
+                    releaseOnEdges: true,
+                }
+            });
+        }
+
+        // Fetch and display notices on page load
+        fetchNotices();
+    </script>
     <script>
         let currentSlide = 0;
         const slider = document.querySelector('.slider');
