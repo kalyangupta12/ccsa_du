@@ -25,7 +25,7 @@ app.get('/api/students', async (req, res) => {
                 "programme": "Bachelor of Computer Application (BCA)",
                 "semesters": [
                     {
-                        "semester": "1st Year/Semester",
+                        "semester": "2nd Semester",
                         "students": [
                             {
                                 "name": "AAYUSHRI HAZARIKA"
@@ -222,7 +222,7 @@ app.get('/api/students', async (req, res) => {
                         ]
                     },
                     {
-                        "semester": "3rd Year/Semester",
+                        "semester": "4th Semester",
                         "students": [
                             {
                                 "name": "Abhijit Saha"
@@ -506,7 +506,7 @@ app.get('/api/students', async (req, res) => {
                         ]
                     },
                     {
-                        "semester": "5th Year/Semester",
+                        "semester": "6th Semester",
                         "students": [
                             {
                                 "name": "ABHISHEK SARMAH"
@@ -651,7 +651,7 @@ app.get('/api/students', async (req, res) => {
                 "programme": "Master of Computer Application (MCA)",
                 "semesters": [
                     {
-                        "semester": "1st Year/Semester",
+                        "semester": "2nd Semester",
                         "students": [
                             {
                                 "name": "Abhilash Mahanta"
@@ -749,7 +749,7 @@ app.get('/api/students', async (req, res) => {
                         ]
                     },
                     {
-                        "semester": "3rd Year/Semester",
+                        "semester": "4th Semester",
                         "students": [
                             {
                                 "name": "ABHISHEK GAUTAM PHUKAN"
@@ -855,7 +855,7 @@ app.get('/api/students', async (req, res) => {
                 "programme": "Post Graduate Diploma in Computer Application (PGDCA)",
                 "semesters": [
                     {
-                        "semester": "1st Year/Semester",
+                        "semester": "2nd Semester",
                         "students": [
                             {
                                 "name": "Anannya Saikia"
